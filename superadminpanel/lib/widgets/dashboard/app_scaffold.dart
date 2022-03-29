@@ -26,28 +26,17 @@ class AppScaffold extends StatelessWidget {
               appBar: AppBar(
                 // when the app isn't displaying the mobile version of app, hide the menu button that is used to open the navigation drawer
                 automaticallyImplyLeading: displayMobileLayout,
-
-                actions: [
-                  Container(
-                    margin: EdgeInsets.only(right: 20),
-                    width: 170,
-                    // height: 50,
-                    child: Container(
-                      child: DropdownButton<String>(
-                        value: 'Google',
-                        icon: Icon(Icons.arrow_drop_down_rounded),
-                        items: <String>['Google', 'Apple', 'Amazon', 'Tesla']
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? value) {},
-                      ),
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      pageTitle,
+                      style: TextStyle(fontSize: 10),
                     ),
-                  )
-                ],
+                    Text(pageTitle),
+                  ],
+                ),
+                actions: [],
                 backgroundColor: Colors.blue,
 
                 elevation: 0,

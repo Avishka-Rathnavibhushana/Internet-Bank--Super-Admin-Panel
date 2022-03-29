@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'constants/route_names.dart';
+import 'package:superadminpanel/pages/AdminUserManagement/AdminUserUpdatePage/AdminUserUpdate.dart';
+import 'package:superadminpanel/pages/Settings/BankSettingPage/BankSettingPage.dart';
+import 'package:superadminpanel/pages/Settings/ChangePasswordPage/ChangePasswordPage.dart';
+import 'constants/RouteNames.dart';
 import 'pages/AdminUserManagement/ManageAdminUsersPage/ManageAdminUsersPage.dart';
-import 'widgets/app_route_observer.dart';
+import 'widgets/dashboard/app_route_observer.dart';
 
 void main() => runApp(DemoApp());
 
@@ -25,8 +28,10 @@ class DemoApp extends StatelessWidget {
       initialRoute: RouteNames.manageAdminUsers,
       navigatorObservers: [AppRouteObserver()],
       routes: {
-        RouteNames.manageAdminUsers: (_) => DashboardPage(),
-        RouteNames.update: (_) => DashboardPage(),
+        RouteNames.manageAdminUsers: (_) => MangeAdminUsersPage(),
+        RouteNames.adminUserUpdate: (_) => AdminUserUpdate(),
+        RouteNames.changePassword: (_) => ChangePasswordPage(),
+        RouteNames.bankSetting: (_) => BankSettingPage(),
       },
     );
   }
