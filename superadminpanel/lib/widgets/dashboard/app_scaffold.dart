@@ -14,7 +14,7 @@ class AppScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool displayMobileLayout = MediaQuery.of(context).size.width < 600;
+    final bool displayMobileLayout = MediaQuery.of(context).size.width < 900;
     return Row(
       children: [
         if (!displayMobileLayout)
@@ -48,34 +48,6 @@ class AppScaffold extends StatelessWidget {
                     )
                   : null,
               body: body
-              // Column(
-              //   children: [
-              //     Container(
-              //       margin: EdgeInsets.only(left: 20),
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.start,
-              //         children: [
-              //           Column(
-              //             crossAxisAlignment: CrossAxisAlignment.start,
-              //             children: [
-              //               Text(
-              //                 pageTitle,
-              //                 style: TextStyle(
-              //                     fontSize: 27,
-              //                     color: Color.fromARGB(255, 8, 3, 248)),
-              //               ),
-              //               Text("Sub title Title",
-              //                   style: TextStyle(
-              //                       fontSize: 18,
-              //                       color: Color.fromARGB(255, 81, 81, 95))),
-              //             ],
-              //           )
-              //         ],
-              //       ),
-              //     ),
-              //     body,
-              //   ],
-              // ),
               ),
         )
       ],

@@ -1,4 +1,6 @@
+import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/widgets/MainForm.dart';
+import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -18,15 +20,165 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
   TextEditingController employeeIdTextEditingController =
       TextEditingController();
   String status = "- Select an option -";
+
+
+  // table data
+  List<Map<String, dynamic>> data = [
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    },
+    {
+      "username": "Avishka",
+      "employeeid": "00001520",
+      "title": "MR",
+      "firstname": "Avishka",
+      "lastname": "Rathnavibushana",
+    }
+  ];
+
+  List<DatatableHeader> headers = [
+    DatatableHeader(
+        text: "User Name",
+        value: "username",
+        show: true,
+        sortable: true,
+        flex: 2,
+        textAlign: TextAlign.left),
+    DatatableHeader(
+        text: "Employee Id",
+        value: "employeeid",
+        show: true,
+        sortable: true,
+        flex: 2,
+        textAlign: TextAlign.left),
+    DatatableHeader(
+        text: "Title",
+        value: "title",
+        show: true,
+        sortable: true,
+        flex: 1,
+        textAlign: TextAlign.left),
+    DatatableHeader(
+        text: "First Name",
+        value: "firstname",
+        show: true,
+        sortable: true,
+        flex: 2,
+        textAlign: TextAlign.left),
+    DatatableHeader(
+        text: "Last Name",
+        value: "lastname",
+        show: true,
+        sortable: true,
+        flex: 2,
+        textAlign: TextAlign.left),
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       pageTitle: PageTitles.manageAdminUsers,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
                   flex: 1,
@@ -81,10 +233,39 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                 flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    color: Colors.white,
-                    child: Text("Table"),
-                  ),
+                  child: SimplifiedCustomResponsiveTable(
+                    footerBackgroundColor: Colors.grey[300]!,
+                    headerDecoration: BoxDecoration(
+                      color: Colors.grey[300],
+                    ),
+                    headers: headers,
+                    rightClickActions: [
+                      [
+                        "Edit",
+                        1,
+                        (data) {
+                          print(data["username"]);
+                        }
+                      ],
+                      [
+                        "Change Password",
+                        2,
+                        (data) {
+                          print(data["title"]);
+                        }
+                      ],
+                    ],
+                    rightClickable: true,
+                    title: Text(
+                      "Admin Users",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    titleBackgroundColor: Colors.blue[100]!,
+                    searchKey: "id",
+                    data: data,
+                  ) ,
                 ),
               ),
             ],
