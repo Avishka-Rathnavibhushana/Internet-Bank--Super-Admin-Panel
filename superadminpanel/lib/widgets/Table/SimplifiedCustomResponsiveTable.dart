@@ -24,6 +24,10 @@ class SimplifiedCustomResponsiveTable extends StatefulWidget {
 
   final List<Map<String, dynamic>> data;
 
+  final bool removeCheckBox;
+
+  final bool footer;
+
   const SimplifiedCustomResponsiveTable({
     Key? key,
     this.rightClickable = false,
@@ -35,6 +39,8 @@ class SimplifiedCustomResponsiveTable extends StatefulWidget {
     this.footerBackgroundColor = Colors.white,
     this.searchKey = "id",
     this.data = const [],
+    this.removeCheckBox = true,
+    this.footer = true,
   }) : super(key: key);
 
   @override
@@ -158,6 +164,7 @@ class _SimplifiedCustomResponsiveTableState
               shadowColor: Colors.black,
               clipBehavior: Clip.none,
               child: CustomResponsiveDatatable(
+                removeCheckBox: widget.removeCheckBox,
                 headerDecoration: widget.headerDecoration,
                 isExpandRows: false,
                 title: widget.title,
@@ -268,7 +275,8 @@ class _SimplifiedCustomResponsiveTableState
                     setState(() => _selecteds.clear());
                   }
                 },
-                footers: [
+                footers: widget.footer
+                    ? [
                   IconButton(
                       onPressed: _initializeData,
                       icon: Icon(
@@ -349,7 +357,8 @@ class _SimplifiedCustomResponsiveTableState
                           },
                     padding: EdgeInsets.symmetric(horizontal: 15),
                   ),
-                ],
+                      ]
+                    : [],
               ),
             ),
           ),

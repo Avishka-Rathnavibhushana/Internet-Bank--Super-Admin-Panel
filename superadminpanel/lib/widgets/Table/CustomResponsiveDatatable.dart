@@ -90,7 +90,7 @@ class CustomResponsiveDatatable extends StatefulWidget {
     this.dropContainer,
     this.onChangedRow,
     this.onSubmittedRow,
-    this.removeCheckBox = false,
+    this.removeCheckBox = true,
     this.reponseScreenSizes = const [
       ScreenSize.xs,
       ScreenSize.sm,
@@ -117,18 +117,22 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        !widget.removeCheckBox
+        widget.removeCheckBox
             ? Container(
                 width: 0,
                 height: 0,
               )
-            : Checkbox(
-                value: widget.selecteds!.length == widget.source!.length &&
-                    widget.source != null &&
-                    widget.source!.isNotEmpty,
-                onChanged: (value) {
-                  if (widget.onSelectAll != null) widget.onSelectAll!(value);
-                },
+            // : Checkbox(
+            //     value: widget.selecteds!.length == widget.source!.length &&
+            //         widget.source != null &&
+            //         widget.source!.isNotEmpty,
+            //     onChanged: (value) {
+            //       if (widget.onSelectAll != null) widget.onSelectAll!(value);
+            //     },
+            //   ),
+            : Text(
+                "Acton",
+                textAlign: TextAlign.start,
               ),
         PopupMenuButton(
             child: Container(
@@ -211,7 +215,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                   children: [
                     const Spacer(),
                     if (widget.showSelect && widget.selecteds != null)
-                      !widget.removeCheckBox
+                      widget.removeCheckBox
                           ? Container(
                               width: 0,
                               height: 0,
@@ -303,20 +307,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (widget.showSelect && widget.selecteds != null)
-            !widget.removeCheckBox
-                ? Container(
-                    width: 0,
-                    height: 0,
-                  )
-                : Checkbox(
-                    value: widget.selecteds!.length == widget.source!.length &&
-                        widget.source != null &&
-                        widget.source!.isNotEmpty,
-                    onChanged: (value) {
-                      if (widget.onSelectAll != null)
-                        widget.onSelectAll!(value);
-                    }),
+         
           ...widget.headers
               .where((header) => header.show == true)
               .map(
@@ -354,7 +345,28 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                             ),
                     )),
               )
-              .toList()
+              .toList(),
+               if (widget.showSelect && widget.selecteds != null)
+            widget.removeCheckBox
+                ? Container(
+                    width: 0,
+                    height: 0,
+                  )
+                // : Checkbox(
+                //     value: widget.selecteds!.length == widget.source!.length &&
+                //         widget.source != null &&
+                //         widget.source!.isNotEmpty,
+                //     onChanged: (value) {
+                //       if (widget.onSelectAll != null)
+                //         widget.onSelectAll!(value);
+                //     }),
+                : Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Text(
+                      "Acton",
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
         ],
       ),
     );
@@ -417,23 +429,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (widget.showSelect && widget.selecteds != null)
-                      Row(
-                        children: [
-                          !widget.removeCheckBox
-                              ? Container(
-                                  width: 0,
-                                  height: 0,
-                                )
-                              : Checkbox(
-                                  value: widget.selecteds!.contains(data),
-                                  onChanged: (value) {
-                                    if (widget.onSelect != null) {
-                                      widget.onSelect!(value, data);
-                                    }
-                                  }),
-                        ],
-                      ),
+                    
                     ...widget.headers
                         .where((header) => header.show == true)
                         .map(
@@ -464,7 +460,24 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                                       ),
                           ),
                         )
-                        .toList()
+                        .toList(),
+                        if (widget.showSelect && widget.selecteds != null)
+                      Row(
+                        children: [
+                          widget.removeCheckBox
+                              ? Container(
+                                  width: 0,
+                                  height: 0,
+                                )
+                              : Checkbox(
+                                  value: widget.selecteds!.contains(data),
+                                  onChanged: (value) {
+                                    if (widget.onSelect != null) {
+                                      widget.onSelect!(value, data);
+                                    }
+                                  }),
+                        ],
+                      ),
                   ],
                 ),
               ),
