@@ -1,3 +1,4 @@
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/widgets/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -176,61 +177,71 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: MainForm(
-                    buttons: [
-                      [
-                        "Search",
-                        () => {print("1")},
-                        Colors.green[200],
-                        Colors.white,
-                      ],
-                      [
-                        "Reset",
-                        () => {print("2")},
-                        Colors.grey[700],
-                        Colors.white,
-                      ]
+          child: ResponsiveRowColumn(
+            rowCrossAxisAlignment: CrossAxisAlignment.start,
+            columnCrossAxisAlignment: CrossAxisAlignment.start,
+            layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                ? ResponsiveRowColumnType.COLUMN
+                : ResponsiveRowColumnType.ROW,
+            children: [
+              ResponsiveRowColumnItem(
+                  child: Center(
+                child: MainForm(
+                  buttons: [
+                    [
+                      "Search",
+                      () => {print("1")},
+                      Colors.green[200],
+                      Colors.white,
                     ],
-                    textFieldItems: [
-                      [
-                        "User Name",
-                        "TextField",
-                        userNameTextEditingController,
-                      ],
-                      [
-                        "First Name",
-                        "TextField",
-                        firstNameTextEditingController,
-                      ],
-                      [
-                        "Emlpoyee Id",
-                        "TextField",
-                        employeeIdTextEditingController,
-                      ],
-                      [
-                        "Status",
-                        "DropDownTextField",
-                        ["- Select an option -", "MR", "MRS", "MS"],
-                        status,
-                        (value) {
-                          setState(() {
-                            status = value!;
-                          });
-                        },
-                      ]
+                    [
+                      "Reset",
+                      () => {print("2")},
+                      Colors.grey[700],
+                      Colors.white,
+                    ]
+                  ],
+                  textFieldItems: [
+                    [
+                      "User Name",
+                      "TextField",
+                      userNameTextEditingController,
                     ],
-                    topic: 'Filter',
-                    topicBackgroundColor: Colors.blue[100],
-                    topicTextColor: Colors.blue[150],
+                    [
+                      "First Name",
+                      "TextField",
+                      firstNameTextEditingController,
+                    ],
+                    [
+                      "Emlpoyee Id",
+                      "TextField",
+                      employeeIdTextEditingController,
+                    ],
+                    [
+                      "Status",
+                      "DropDownTextField",
+                      ["- Select an option -", "MR", "MRS", "MS"],
+                      status,
+                      (value) {
+                        setState(() {
+                          status = value!;
+                        });
+                      },
+                    ]
+                  ],
+                  topic: 'Filter',
+                  topicBackgroundColor: Colors.blue[100],
+                  topicTextColor: Colors.blue[150],
+                ),
                   )),
-              Expanded(
-                flex: 2,
+              ResponsiveRowColumnItem(
+                child: SizedBox(
+                  height: 20,
+                ),
+              ),
+              ResponsiveRowColumnItem(
+                rowFlex: 2,
+
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SimplifiedCustomResponsiveTable(

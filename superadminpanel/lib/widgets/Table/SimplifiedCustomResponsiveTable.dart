@@ -127,7 +127,7 @@ class _SimplifiedCustomResponsiveTableState
   void initState() {
     super.initState();
     //only if right clickable true
-    window.document.onContextMenu.listen((evt) => evt.preventDefault());
+    //window.document.onContextMenu.listen((evt) => evt.preventDefault());
 
     setState(() {
       _searchKey = widget.searchKey;
