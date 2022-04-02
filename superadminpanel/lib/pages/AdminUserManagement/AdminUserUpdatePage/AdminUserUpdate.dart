@@ -1,6 +1,6 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
-import 'package:superadminpanel/widgets/MainForm.dart';
+import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +62,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
         flex: 2,
         textAlign: TextAlign.left),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -79,65 +79,66 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                 : ResponsiveRowColumnType.ROW,
             children: [
               ResponsiveRowColumnItem(
-                  child: Center(
-                child: MainForm(
-                  buttons: [
-                    [
-                      "Update",
-                      () => {print("1")},
-                      Colors.green[200],
-                      Colors.white,
+                child: Center(
+                  child: MainForm(
+                    buttons: [
+                      [
+                        "Update",
+                        () => {print("1")},
+                        Colors.green[200],
+                        Colors.white,
+                      ],
+                      [
+                        "Reset",
+                        () => {print("2")},
+                        Colors.grey[700],
+                        Colors.white,
+                      ]
                     ],
-                    [
-                      "Reset",
-                      () => {print("2")},
-                      Colors.grey[700],
-                      Colors.white,
-                    ]
-                  ],
-                  textFieldItems: [
-                    [
-                      "Status",
-                      "DropDownTextField",
-                      ["MR", "MRS", "MS"],
-                      status,
-                      (value) {
-                        setState(() {
-                          status = value!;
-                        });
-                      },
+                    textFieldItems: [
+                      [
+                        "Status",
+                        "DropDownTextField",
+                        ["MR", "MRS", "MS"],
+                        status,
+                        (value) {
+                          setState(() {
+                            status = value!;
+                          });
+                        },
+                      ],
+                      [
+                        "First Name",
+                        "TextField",
+                        firstNameTextEditingController,
+                      ],
+                      [
+                        "Last Name",
+                        "TextField",
+                        lastNameTextEditingController,
+                      ],
+                      [
+                        "E-mail",
+                        "TextField",
+                        emailTextEditingController,
+                      ],
+                      [
+                        "Confirm E-mail",
+                        "TextField",
+                        confirmEmailTextEditingController,
+                      ],
+                      [
+                        "Employee id",
+                        "TextField",
+                        employeeIdTextEditingController,
+                      ],
                     ],
-                    [
-                      "First Name",
-                      "TextField",
-                      firstNameTextEditingController,
-                    ],
-                    [
-                      "Last Name",
-                      "TextField",
-                      lastNameTextEditingController,
-                    ],
-                    [
-                      "E-mail",
-                      "TextField",
-                      emailTextEditingController,
-                    ],
-                    [
-                      "Confirm E-mail",
-                      "TextField",
-                      confirmEmailTextEditingController,
-                    ],
-                    [
-                      "Employee id",
-                      "TextField",
-                      employeeIdTextEditingController,
-                    ],
-                  ],
-                  topic: 'Filter',
-                  topicBackgroundColor: Colors.blue[100],
-                  topicTextColor: Colors.blue[150],
+                    topic: 'Personal Details',
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
+                  ),
                 ),
-              )),
+              ),
               ResponsiveRowColumnItem(
                 child: SizedBox(
                   height: 20,
@@ -155,23 +156,8 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                       color: Colors.grey[300],
                     ),
                     headers: headers,
-                    rightClickActions: [
-                      // [
-                      //   "Edit",
-                      //   1,
-                      //   (data) {
-                      //     print(data["username"]);
-                      //   }
-                      // ],
-                      // [
-                      //   "Change Password",
-                      //   2,
-                      //   (data) {
-                      //     print(data["title"]);
-                      //   }
-                      // ],
-                    ],
-                    rightClickable: true,
+                    rightClickActions: [],
+                    rightClickable: false,
                     title: Text(
                       "Role",
                       style: TextStyle(

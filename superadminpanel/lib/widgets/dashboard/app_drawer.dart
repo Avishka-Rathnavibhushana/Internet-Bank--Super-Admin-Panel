@@ -19,8 +19,7 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> with RouteAware {
   late String _selectedRoute;
   late AppRouteObserver _routeObserver;
-
-  var settingOnPressed;
+  
   final ExpandableController adminUserManagementExpandableController =
       ExpandableController(initialExpanded: false);
 
@@ -58,7 +57,11 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
   @override
   Widget build(BuildContext context) {
     if (_selectedRoute == RouteNames.manageAdminUsers ||
-        _selectedRoute == RouteNames.adminUserUpdate) {
+        _selectedRoute == RouteNames.adminUserUpdate ||
+        _selectedRoute == RouteNames.manageBankingUsers ||
+        _selectedRoute == RouteNames.createAdminUser ||
+        _selectedRoute == RouteNames.adminUserApprovalQueue ||
+        _selectedRoute == RouteNames.adminUserApproval) {
       adminUserManagementExpandableController.expanded = true;
     } else if (_selectedRoute == RouteNames.changePassword ||
         _selectedRoute == RouteNames.bankSetting) {
@@ -72,7 +75,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
               padding: EdgeInsets.zero,
               children: [
                 const UserAccountsDrawerHeader(
-                  accountName: Text('DASHBOARD'),
+                  accountName: Text('SUPER ADMIN PANEL'),
                   accountEmail: null,
                   currentAccountPicture: CircleAvatar(
                     child: Icon(Icons.admin_panel_settings),
@@ -112,6 +115,47 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                         },
                         selected: _selectedRoute == RouteNames.adminUserUpdate,
                       ),
+                      ListTile(
+                        title: const Text(PageTitles.manageBankingUsers),
+                        onTap: () async {
+                          await _navigateTo(
+                              context, RouteNames.manageBankingUsers);
+                          adminUserManagementExpandableController.expanded =
+                              true;
+                        },
+                        selected: _selectedRoute == RouteNames.manageBankingUsers,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.createAdminUser),
+                        onTap: () async {
+                          await _navigateTo(
+                              context, RouteNames.createAdminUser);
+                          adminUserManagementExpandableController.expanded =
+                              true;
+                        },
+                        selected: _selectedRoute == RouteNames.createAdminUser,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.adminUserApprovalQueue),
+                        onTap: () async {
+                          await _navigateTo(
+                              context, RouteNames.adminUserApprovalQueue);
+                          adminUserManagementExpandableController.expanded =
+                              true;
+                        },
+                        selected: _selectedRoute == RouteNames.adminUserApprovalQueue,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.adminUserApproval),
+                        onTap: () async {
+                          await _navigateTo(
+                              context, RouteNames.adminUserApproval);
+                          adminUserManagementExpandableController.expanded =
+                              true;
+                        },
+                        selected: _selectedRoute == RouteNames.adminUserApproval,
+                      ),
+                      
                     ],
                   ),
                   collapsed: Container(),

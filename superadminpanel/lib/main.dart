@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:superadminpanel/pages/AdminUserManagement/AdminUserApproval/AdminUserApprovalPage.dart';
 import 'package:superadminpanel/pages/AdminUserManagement/AdminUserUpdatePage/AdminUserUpdate.dart';
+import 'package:superadminpanel/pages/AdminUserManagement/CreateAdminUser/CreateAdminUserPage.dart';
+import 'package:superadminpanel/pages/AdminUserManagement/ManageBankingUsers/ManageBankingUsersPage.dart';
+import 'package:superadminpanel/pages/AdminUserManagement/adminUserApprovalQueue/adminUserApprovalQueuePage.dart';
 import 'package:superadminpanel/pages/Settings/BankSettingPage/BankSettingPage.dart';
 import 'package:superadminpanel/pages/Settings/ChangePasswordPage/ChangePasswordPage.dart';
 import 'constants/RouteNames.dart';
@@ -43,6 +47,10 @@ class DemoApp extends StatelessWidget {
         RouteNames.adminUserUpdate: (_) => AdminUserUpdate(),
         RouteNames.changePassword: (_) => ChangePasswordPage(),
         RouteNames.bankSetting: (_) => BankSettingPage(),
+        RouteNames.manageBankingUsers: (_) => ManageBankingUsersPage(),
+        RouteNames.createAdminUser: (_) => CreateAdminUserPage(),
+        RouteNames.adminUserApprovalQueue: (_) => AdminUserApprovalQueuePage(),
+        RouteNames.adminUserApproval: (_) => AdminUserApprovalPage(),
       },
     );
   }

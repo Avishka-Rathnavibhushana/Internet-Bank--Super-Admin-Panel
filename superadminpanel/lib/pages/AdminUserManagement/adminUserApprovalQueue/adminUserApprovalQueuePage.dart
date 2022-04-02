@@ -9,22 +9,22 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/PageTitles.dart';
 
-class MangeAdminUsersPage extends StatefulWidget {
-  MangeAdminUsersPage({Key? key}) : super(key: key);
+class AdminUserApprovalQueuePage extends StatefulWidget {
+  AdminUserApprovalQueuePage({Key? key}) : super(key: key);
 
   @override
-  State<MangeAdminUsersPage> createState() => _MangeAdminUsersPageState();
+  State<AdminUserApprovalQueuePage> createState() =>
+      _AdminUserApprovalQueuePageState();
 }
 
-class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
+class _AdminUserApprovalQueuePageState
+    extends State<AdminUserApprovalQueuePage> {
   //form data
   TextEditingController userNameTextEditingController = TextEditingController();
   TextEditingController firstNameTextEditingController =
       TextEditingController();
   TextEditingController employeeIdTextEditingController =
       TextEditingController();
-  String status = "- Select an option -";
-
 
   // table data
   List<Map<String, dynamic>> data = [
@@ -178,11 +178,11 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
     window.document.onContextMenu.listen((evt) => evt.preventDefault());
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.manageAdminUsers,
+      pageTitle: PageTitles.adminUserApprovalQueue,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
@@ -226,23 +226,13 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                       "TextField",
                       employeeIdTextEditingController,
                     ],
-                    [
-                      "Status",
-                      "DropDownTextField",
-                      ["- Select an option -", "MR", "MRS", "MS"],
-                      status,
-                      (value) {
-                        setState(() {
-                          status = value!;
-                        });
-                      },
-                    ]
+                    
                   ],
                   topic: 'Filter',
                   topicBackgroundColor: Colors.blue[100],
                   topicTextColor: Colors.blue[150],
                 ),
-                  )),
+              )),
               ResponsiveRowColumnItem(
                 child: SizedBox(
                   height: 20,
@@ -250,7 +240,6 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
               ),
               ResponsiveRowColumnItem(
                 rowFlex: 2,
-
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SimplifiedCustomResponsiveTable(
@@ -285,7 +274,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                     titleBackgroundColor: Colors.blue[100]!,
                     searchKey: "id",
                     data: data,
-                  ) ,
+                  ),
                 ),
               ),
             ],
