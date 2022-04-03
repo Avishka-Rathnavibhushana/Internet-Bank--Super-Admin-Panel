@@ -184,6 +184,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
     return AppScaffold(
       pageTitle: PageTitles.manageAdminUsers,
       body: SingleChildScrollView(
+        
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           child: ResponsiveRowColumn(
@@ -194,6 +195,8 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                 : ResponsiveRowColumnType.ROW,
             children: [
               ResponsiveRowColumnItem(
+
+                 rowFlex: 1,
                   child: Center(
                 child: MainForm(
                   buttons: [

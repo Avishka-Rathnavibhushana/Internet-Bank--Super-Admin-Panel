@@ -32,9 +32,6 @@ class MainForm extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-        constraints: BoxConstraints(
-          maxWidth: 300,
-        ),
         padding: EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
           color: Colors.white,
