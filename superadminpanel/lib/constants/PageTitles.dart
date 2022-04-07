@@ -14,4 +14,10 @@ class PageTitles {
   static const String setting = 'Setting';
   static const String changePassword = 'Change Password';
   static const String bankSetting = 'Bank Setting';
+  static const String userGroupLimits = 'Create/Edit Limits';
+  static const String createUserGroupLimits = 'Create Limits';
+  static const String createAccountType = 'Create Account Type';
+  static const String configureAccountType = 'Configure Account Type';
+  static const String manageAccountType = 'Manage Account Type';
+  static const String schedularNotifier = 'Schedular Notifier';
 }

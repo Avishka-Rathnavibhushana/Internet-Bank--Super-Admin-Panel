@@ -4,8 +4,14 @@ import 'package:superadminpanel/pages/AdminUserManagement/AdminUserUpdatePage/Ad
 import 'package:superadminpanel/pages/AdminUserManagement/CreateAdminUser/CreateAdminUserPage.dart';
 import 'package:superadminpanel/pages/AdminUserManagement/ManageBankingUsers/ManageBankingUsersPage.dart';
 import 'package:superadminpanel/pages/AdminUserManagement/adminUserApprovalQueue/adminUserApprovalQueuePage.dart';
-import 'package:superadminpanel/pages/Settings/BankSettingPage/BankSettingPage.dart';
-import 'package:superadminpanel/pages/Settings/ChangePasswordPage/ChangePasswordPage.dart';
+import 'package:superadminpanel/pages/Settings/Bank%20Setting/BankSettingPage.dart';
+import 'package:superadminpanel/pages/Settings/Change%20Password%5D/ChangePasswordPage.dart';
+import 'package:superadminpanel/pages/Settings/Configure%20Account%20Type/ConfigureAccountTypePage.dart';
+import 'package:superadminpanel/pages/Settings/Create%20Account%20Type/CreateAccountTypePage.dart';
+import 'package:superadminpanel/pages/Settings/Manage%20Account%20Type/ManageAccountTypePage.dart';
+import 'package:superadminpanel/pages/Settings/Schedular%20Notifier/SchedularNotifierPage.dart';
+import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/CreateUserGroupLimitsPage.dart';
+import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/UserGroupLimitsPage.dart';
 import 'constants/RouteNames.dart';
 import 'pages/AdminUserManagement/ManageAdminUsersPage/ManageAdminUsersPage.dart';
 import 'widgets/dashboard/app_route_observer.dart';
@@ -43,14 +49,22 @@ class DemoApp extends StatelessWidget {
       initialRoute: RouteNames.manageAdminUsers,
       navigatorObservers: [AppRouteObserver()],
       routes: {
+        //Admin user management
         RouteNames.manageAdminUsers: (_) => MangeAdminUsersPage(),
         RouteNames.adminUserUpdate: (_) => AdminUserUpdate(),
-        RouteNames.changePassword: (_) => ChangePasswordPage(),
-        RouteNames.bankSetting: (_) => BankSettingPage(),
         RouteNames.manageBankingUsers: (_) => ManageBankingUsersPage(),
         RouteNames.createAdminUser: (_) => CreateAdminUserPage(),
         RouteNames.adminUserApprovalQueue: (_) => AdminUserApprovalQueuePage(),
         RouteNames.adminUserApproval: (_) => AdminUserApprovalPage(),
+        //Setting
+        RouteNames.changePassword: (_) => ChangePasswordPage(),
+        RouteNames.bankSetting: (_) => BankSettingPage(),
+        RouteNames.userGroupLimits: (_) => UserGroupLimitsPage(),
+        RouteNames.createUserGroupLimits: (_) => CreateUserGroupLimitsPage(),
+        RouteNames.createAccountType: (_) => CreateAccountTypePage(),
+        RouteNames.configureAccountType: (_) => ConfigureAccountTypePage(),
+        RouteNames.manageAccountType: (_) => ManageAccountTypePage(),
+        RouteNames.schedularNotifier: (_) => SchedularNotifierPage(),
       },
     );
   }

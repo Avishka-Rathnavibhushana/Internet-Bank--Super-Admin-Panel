@@ -1,5 +1,6 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
@@ -23,13 +24,8 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-          child: ResponsiveRowColumn(
-            rowCrossAxisAlignment: CrossAxisAlignment.start,
-            columnCrossAxisAlignment: CrossAxisAlignment.start,
-            layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
-                ? ResponsiveRowColumnType.COLUMN
-                : ResponsiveRowColumnType.ROW,
-            children: [
+          child: CustomPageView(
+            items: [
               ResponsiveRowColumnItem(
                 rowFlex: 1,
                 child: MainForm(
@@ -39,9 +35,18 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                       "Admin Comment",
                       "Table",
                       [
-                        ["Title", "MISS"],
-                        ["Title", "MISS"],
-                        ["Title", "MISS"],
+                        [
+                          ["Label", "Title"],
+                          ["Label", "MISS"]
+                        ],
+                        [
+                          ["Label", "Title"],
+                          ["Label", "MISS"]
+                        ],
+                        [
+                          ["Label", "Title"],
+                          ["Label", "MISS"]
+                        ],
                       ],
                     ],
                   ],

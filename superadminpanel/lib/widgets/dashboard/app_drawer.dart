@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:superadminpanel/constants/PageTitles.dart';
 import 'package:superadminpanel/constants/RouteNames.dart';
+import 'package:superadminpanel/utils/Utils.dart';
 import 'app_route_observer.dart';
 import 'package:expandable/expandable.dart';
 
@@ -64,7 +65,12 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
         _selectedRoute == RouteNames.adminUserApproval) {
       adminUserManagementExpandableController.expanded = true;
     } else if (_selectedRoute == RouteNames.changePassword ||
-        _selectedRoute == RouteNames.bankSetting) {
+        _selectedRoute == RouteNames.bankSetting ||
+        _selectedRoute == RouteNames.userGroupLimits ||
+        _selectedRoute == RouteNames.createAccountType ||
+        _selectedRoute == RouteNames.configureAccountType ||
+        _selectedRoute == RouteNames.manageAccountType ||
+        _selectedRoute == RouteNames.schedularNotifier) {
       settingExpandableController.expanded = true;
     }
     return Drawer(
@@ -98,8 +104,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.manageAdminUsers),
                         onTap: () async {
-                          await _navigateTo(
-                              context, RouteNames.manageAdminUsers);
+                          await Utils.navigateTo(
+                              context, RouteNames.manageAdminUsers, widget.permanentlyDisplay);
                           adminUserManagementExpandableController.expanded =
                               true;
                         },
@@ -108,8 +114,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.adminUserUpdate),
                         onTap: () async {
-                          await _navigateTo(
-                              context, RouteNames.adminUserUpdate);
+                          await Utils.navigateTo(
+                              context, RouteNames.adminUserUpdate, widget.permanentlyDisplay);
                           adminUserManagementExpandableController.expanded =
                               true;
                         },
@@ -118,8 +124,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.manageBankingUsers),
                         onTap: () async {
-                          await _navigateTo(
-                              context, RouteNames.manageBankingUsers);
+                          await Utils.navigateTo(
+                              context, RouteNames.manageBankingUsers, widget.permanentlyDisplay);
                           adminUserManagementExpandableController.expanded =
                               true;
                         },
@@ -128,8 +134,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.createAdminUser),
                         onTap: () async {
-                          await _navigateTo(
-                              context, RouteNames.createAdminUser);
+                          await Utils.navigateTo(
+                              context, RouteNames.createAdminUser, widget.permanentlyDisplay);
                           adminUserManagementExpandableController.expanded =
                               true;
                         },
@@ -138,8 +144,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.adminUserApprovalQueue),
                         onTap: () async {
-                          await _navigateTo(
-                              context, RouteNames.adminUserApprovalQueue);
+                          await Utils.navigateTo(
+                              context, RouteNames.adminUserApprovalQueue, widget.permanentlyDisplay);
                           adminUserManagementExpandableController.expanded =
                               true;
                         },
@@ -148,8 +154,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.adminUserApproval),
                         onTap: () async {
-                          await _navigateTo(
-                              context, RouteNames.adminUserApproval);
+                          await Utils.navigateTo(
+                              context, RouteNames.adminUserApproval, widget.permanentlyDisplay);
                           adminUserManagementExpandableController.expanded =
                               true;
                         },
@@ -180,7 +186,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.changePassword),
                         onTap: () async {
-                          await _navigateTo(context, RouteNames.changePassword);
+                          await Utils.navigateTo(context, RouteNames.changePassword, widget.permanentlyDisplay);
                           settingExpandableController.expanded = true;
                         },
                         selected: _selectedRoute == RouteNames.changePassword,
@@ -188,10 +194,59 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ListTile(
                         title: const Text(PageTitles.bankSetting),
                         onTap: () async {
-                          await _navigateTo(context, RouteNames.bankSetting);
+                          await Utils.navigateTo(context, RouteNames.bankSetting, widget.permanentlyDisplay);
                           settingExpandableController.expanded = true;
                         },
                         selected: _selectedRoute == RouteNames.bankSetting,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.userGroupLimits),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context, RouteNames.userGroupLimits, widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.userGroupLimits,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.createAccountType),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context, RouteNames.createAccountType, widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.createAccountType,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.configureAccountType),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context, RouteNames.configureAccountType, widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.configureAccountType,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.manageAccountType),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context, RouteNames.manageAccountType, widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.manageAccountType,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.schedularNotifier),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context, RouteNames.schedularNotifier, widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.schedularNotifier,
                       ),
                     ],
                   ),
@@ -208,15 +263,6 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
         ],
       ),
     );
-  }
-
-  /// Closes the drawer if applicable (which is only when it's not been displayed permanently) and navigates to the specified route
-  /// In a mobile layout, the a modal drawer is used so we need to explicitly close it when the user selects a page to display
-  Future<void> _navigateTo(BuildContext context, String routeName) async {
-    if (widget.permanentlyDisplay) {
-      Navigator.pop(context);
-    }
-    await Navigator.pushNamed(context, routeName);
   }
 
   void _updateSelectedRoute() {

@@ -12,4 +12,11 @@ class RouteNames {
   //Setting
   static const String changePassword = '/changePassword';
   static const String bankSetting = '/bankSetting';
+  static const String userGroupLimits = '/userGroupLimits';
+  static const String createUserGroupLimits =
+      '/userGroupLimits/createUserGroupLimits';
+  static const String createAccountType = '/createAccountType';
+  static const String configureAccountType = '/configureAccountType';
+  static const String manageAccountType = '/manageAccountType';
+  static const String schedularNotifier = '/schedularNotifier';
 }

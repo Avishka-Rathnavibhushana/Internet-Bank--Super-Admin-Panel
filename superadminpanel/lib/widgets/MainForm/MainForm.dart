@@ -1,10 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:superadminpanel/widgets/MainForm/CustomSimpleTable.dart';
 
 import 'AppDropdownInput.dart';
 
 class MainForm extends StatelessWidget {
+  var isHeaderAvailable;
+
   MainForm({
     Key? key,
     required this.buttons,
@@ -12,6 +15,7 @@ class MainForm extends StatelessWidget {
     required this.topic,
     required this.topicBackgroundColor,
     required this.topicTextColor,
+    this.isHeaderAvailable = true,
   }) : super(key: key);
 
   var buttons = [];
@@ -23,6 +27,7 @@ class MainForm extends StatelessWidget {
   // 4) CkeckBoxField
   // 5) TextArea
   // 6) Table
+  // 7) Custom
   String topic = "";
   Color? topicBackgroundColor = Colors.white;
   Color? topicTextColor = Colors.white;
@@ -32,7 +37,7 @@ class MainForm extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-        padding: EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.only(bottom: buttons.length == 0 ? 0 : 20),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
@@ -46,7 +51,8 @@ class MainForm extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
+            isHeaderAvailable
+                ? Row(
               children: [
                 Expanded(
                     child: Container(
@@ -60,7 +66,8 @@ class MainForm extends StatelessWidget {
                   color: topicBackgroundColor,
                 )),
               ],
-            ),
+                  )
+                : Container(),
             Padding(
               padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
               child: Column(
@@ -173,51 +180,21 @@ class MainForm extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           bottom: 8, top: 3),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      ...item[2]
-                                                          .map(
-                                                            (tablColumn) => Row(
-                                                              children: [
-                                                                ...tablColumn
-                                                                    .map(
-                                                                      (tableRow) =>
-                                                                          Expanded(
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            border:
-                                                                                Border.all(
-                                                                              width: 1,
-                                                                              color: topicBackgroundColor!,
-                                                                            ),
-                                                                          ),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(5),
-                                                                            child:
-                                                                                Text(tableRow),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    )
-                                                                    .toList(),
-                                                              ],
-                                                            ),
-                                                          )
-                                                          .toList(),
-                                                      
-                                                    ],
+                                                  child: SimpleCustomTable(
+                                                    topicBackgroundColor:
+                                                        topicBackgroundColor,
+                                                    itemList: item[2],
                                                   ),
                                                 )
-                                              : Container(),
+                                              : item[1] == "Custom"
+                                                  ? Container(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              bottom: 8,
+                                                              top: 3),
+                                                      child: item[2],
+                                                    )
+                                                  : Container(),
                     ],
                   );
                 }).toList(),
@@ -230,16 +207,25 @@ class MainForm extends StatelessWidget {
                 children: buttons
                     .map((item) => new Padding(
                           padding: const EdgeInsets.only(right: 5),
-                          child: FlatButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)),
-                            color: item[2],
-                            splashColor: Colors.black12,
-                            onPressed: item[1],
-                            child: Text(
-                              item[0],
-                              style: TextStyle(
-                                color: item[3],
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: item.length == 5 ? item[4] : item[2],
+                              ),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: FlatButton(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              color: item[2],
+                              splashColor: Colors.black12,
+                              onPressed: item[1],
+                              child: Text(
+                                item[0],
+                                style: TextStyle(
+                                  color: item[3],
+                                ),
                               ),
                             ),
                           ),
