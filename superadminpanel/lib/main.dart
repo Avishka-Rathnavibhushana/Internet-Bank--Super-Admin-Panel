@@ -5,7 +5,7 @@ import 'package:superadminpanel/pages/AdminUserManagement/CreateAdminUser/Create
 import 'package:superadminpanel/pages/AdminUserManagement/ManageBankingUsers/ManageBankingUsersPage.dart';
 import 'package:superadminpanel/pages/AdminUserManagement/adminUserApprovalQueue/adminUserApprovalQueuePage.dart';
 import 'package:superadminpanel/pages/Settings/Bank%20Setting/BankSettingPage.dart';
-import 'package:superadminpanel/pages/Settings/Change%20Password%5D/ChangePasswordPage.dart';
+import 'package:superadminpanel/pages/Settings/Change%20Password/ChangePasswordPage.dart';
 import 'package:superadminpanel/pages/Settings/Configure%20Account%20Type/ConfigureAccountTypePage.dart';
 import 'package:superadminpanel/pages/Settings/Create%20Account%20Type/CreateAccountTypePage.dart';
 import 'package:superadminpanel/pages/Settings/Manage%20Account%20Type/ManageAccountTypePage.dart';
