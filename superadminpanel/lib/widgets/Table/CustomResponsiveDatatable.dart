@@ -2,6 +2,7 @@ import 'package:adaptivex/adaptivex.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/colors.dart';
 
 class CustomResponsiveDatatable extends StatefulWidget {
   final bool rightClickable;
@@ -103,8 +104,8 @@ class CustomResponsiveDatatable extends StatefulWidget {
     this.rowTextStyle,
     this.selectedTextStyle,
     this.rightClickActions,
-    this.titleBackgroundColor = Colors.white,
-    this.footerBackgroundColor = Colors.white,
+    this.titleBackgroundColor = AppColors.white,
+    this.footerBackgroundColor = AppColors.white,
   }) : super(key: key);
 
   @override

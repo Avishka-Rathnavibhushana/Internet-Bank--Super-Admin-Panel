@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:superadminpanel/constants/Colors.dart';
 import 'package:superadminpanel/constants/PageTitles.dart';
 import 'package:superadminpanel/constants/RouteNames.dart';
 import 'package:superadminpanel/utils/Utils.dart';
@@ -81,10 +82,17 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
               padding: EdgeInsets.zero,
               children: [
                 const UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryColor,
+                  ),
                   accountName: Text('SUPER ADMIN PANEL'),
                   accountEmail: null,
                   currentAccountPicture: CircleAvatar(
-                    child: Icon(Icons.admin_panel_settings),
+                    backgroundColor: AppColors.primaryColorLight,
+                    child: Icon(
+                      Icons.admin_panel_settings,
+                      color: AppColors.white,
+                    ),
                   ),
                 ),
                 ExpandablePanel(

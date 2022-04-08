@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/colors.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -192,44 +193,43 @@ class _AdminUserApprovalQueuePageState
               ResponsiveRowColumnItem(
                   rowFlex: 1,
                   child: Center(
-                child: MainForm(
-                  buttons: [
-                    [
-                      "Search",
-                      () => {print("1")},
-                      Colors.green[200],
-                      Colors.white,
-                    ],
-                    [
-                      "Reset",
-                      () => {print("2")},
-                      Colors.grey[700],
-                      Colors.white,
-                    ]
-                  ],
-                  textFieldItems: [
-                    [
-                      "User Name",
-                      "TextField",
-                      userNameTextEditingController,
-                    ],
-                    [
-                      "First Name",
-                      "TextField",
-                      firstNameTextEditingController,
-                    ],
-                    [
-                      "Emlpoyee Id",
-                      "TextField",
-                      employeeIdTextEditingController,
-                    ],
-                    
-                  ],
-                  topic: 'Filter',
-                  topicBackgroundColor: Colors.blue[100],
-                  topicTextColor: Colors.blue[150],
-                ),
-              )),
+                    child: MainForm(
+                      buttons: [
+                        [
+                          "Search",
+                          () => {print("1")},
+                          AppColors.buttonLightGreenColor,
+                          AppColors.white,
+                        ],
+                        [
+                          "Reset",
+                          () => {print("2")},
+                          Colors.grey[700],
+                          AppColors.white,
+                        ]
+                      ],
+                      textFieldItems: [
+                        [
+                          "User Name",
+                          "TextField",
+                          userNameTextEditingController,
+                        ],
+                        [
+                          "First Name",
+                          "TextField",
+                          firstNameTextEditingController,
+                        ],
+                        [
+                          "Emlpoyee Id",
+                          "TextField",
+                          employeeIdTextEditingController,
+                        ],
+                      ],
+                      topic: 'Filter',
+                      topicBackgroundColor: Colors.blue[100],
+                      topicTextColor: Colors.blue[150],
+                    ),
+                  )),
               ResponsiveRowColumnItem(
                 child: SizedBox(
                   height: 20,

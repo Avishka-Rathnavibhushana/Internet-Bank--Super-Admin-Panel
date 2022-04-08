@@ -1,5 +1,6 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/colors.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -35,8 +36,8 @@ class _ManageBankingUsersPageState extends State<ManageBankingUsersPage> {
                   [
                     "Update",
                     () => {print("1")},
-                    Colors.green[200],
-                    Colors.white,
+                    AppColors.buttonLightGreenColor,
+                    AppColors.white,
                   ],
                 ],
                 textFieldItems: [

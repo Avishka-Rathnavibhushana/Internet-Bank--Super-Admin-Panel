@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:superadminpanel/constants/Colors.dart';
 import 'package:superadminpanel/widgets/MainForm/CustomSimpleTable.dart';
 
 import 'AppDropdownInput.dart';
@@ -29,8 +30,8 @@ class MainForm extends StatelessWidget {
   // 6) Table
   // 7) Custom
   String topic = "";
-  Color? topicBackgroundColor = Colors.white;
-  Color? topicTextColor = Colors.white;
+  Color? topicBackgroundColor = AppColors.white;
+  Color? topicTextColor = AppColors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class MainForm extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(bottom: buttons.length == 0 ? 0 : 20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(5),
           border: Border.all(
             color: topicBackgroundColor!,
@@ -219,7 +220,7 @@ class MainForm extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               color: item[2],
-                              splashColor: Colors.black12,
+                              splashColor: AppColors.black12,
                               onPressed: item[1],
                               child: Text(
                                 item[0],

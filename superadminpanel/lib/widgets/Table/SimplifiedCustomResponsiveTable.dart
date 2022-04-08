@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/colors.dart';
 import 'package:superadminpanel/widgets/Table/CustomResponsiveDatatable.dart';
 import 'package:superadminpanel/widgets/Table/DropDownContainer.dart';
 
@@ -35,8 +36,8 @@ class SimplifiedCustomResponsiveTable extends StatefulWidget {
     this.title,
     this.headerDecoration,
     this.rightClickActions,
-    this.titleBackgroundColor = Colors.white,
-    this.footerBackgroundColor = Colors.white,
+    this.titleBackgroundColor = AppColors.white,
+    this.footerBackgroundColor = AppColors.white,
     this.searchKey = "id",
     this.data = const [],
     this.removeCheckBox = true,

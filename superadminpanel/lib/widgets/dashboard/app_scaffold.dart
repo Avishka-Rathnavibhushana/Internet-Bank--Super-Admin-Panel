@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:superadminpanel/constants/Colors.dart';
 
 import 'app_drawer.dart';
 
@@ -37,7 +38,7 @@ class AppScaffold extends StatelessWidget {
                   ],
                 ),
                 actions: [],
-                backgroundColor: Colors.blue,
+                backgroundColor: AppColors.primaryColor,
 
                 elevation: 0,
                 // title: Text(pageTitle),
