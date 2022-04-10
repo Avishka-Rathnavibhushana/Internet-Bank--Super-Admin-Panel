@@ -96,6 +96,7 @@ class MainForm extends StatelessWidget {
                           ? Container(
                               padding: const EdgeInsets.only(bottom: 8, top: 3),
                               child: TextField(
+                                controller: item[2],
                                 maxLines: 1,
                                 decoration: InputDecoration(
                                   isDense: true,
@@ -164,6 +165,7 @@ class MainForm extends StatelessWidget {
                                               padding: const EdgeInsets.only(
                                                   bottom: 8, top: 3),
                                               child: TextField(
+                                                controller: item[2],
                                                 maxLines: item[3],
                                                 decoration: InputDecoration(
                                                   isDense: true,

@@ -20,4 +20,11 @@ class PageTitles {
   static const String configureAccountType = 'Configure Account Type';
   static const String manageAccountType = 'Manage Account Type';
   static const String schedularNotifier = 'Schedular Notifier';
+
+  //Role
+  static const String roleUpperCase = 'ROLE/PRIVILEGE';
+  static const String manageRoles = 'Manage Roles';
+  static const String editRoles = 'Edit Roles';
+  static const String viewPrivileges = 'View Privileges';
+  static const String createPrivileges = 'Create Privileges';
 }

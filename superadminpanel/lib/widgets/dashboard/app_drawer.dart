@@ -28,6 +28,9 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
   final ExpandableController settingExpandableController =
       ExpandableController(initialExpanded: false);
 
+  final ExpandableController roleExpandableController =
+      ExpandableController(initialExpanded: false);
+
   @override
   void initState() {
     super.initState();
@@ -73,6 +76,12 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
         _selectedRoute == RouteNames.manageAccountType ||
         _selectedRoute == RouteNames.schedularNotifier) {
       settingExpandableController.expanded = true;
+    }
+    else if (_selectedRoute == RouteNames.manageRoles ||
+        _selectedRoute == RouteNames.editRoles ||
+        _selectedRoute == RouteNames.viewPrivileges ||
+        _selectedRoute == RouteNames.createPrivileges) {
+      roleExpandableController.expanded = true;
     }
     return Drawer(
       child: Row(
@@ -256,6 +265,61 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                         selected:
                             _selectedRoute == RouteNames.schedularNotifier,
                       ),
+                    ],
+                  ),
+                  collapsed: Container(),
+                ),
+                const Divider(),
+                ExpandablePanel(
+                  controller: roleExpandableController,
+                  header: Container(
+                    height: 50,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Center(child: const Text(PageTitles.roleUpperCase)),
+                      ],
+                    ),
+                  ),
+                  expanded: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ListTile(
+                        title: const Text(PageTitles.manageRoles),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.manageRoles,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.manageRoles,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.viewPrivileges),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.viewPrivileges,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.viewPrivileges,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.createPrivileges),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.createPrivileges,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.createPrivileges,
+                      ),
+                     
                     ],
                   ),
                   collapsed: Container(),

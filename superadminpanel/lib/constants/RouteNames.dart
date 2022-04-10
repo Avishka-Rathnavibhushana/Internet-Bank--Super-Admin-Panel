@@ -19,4 +19,10 @@ class RouteNames {
   static const String configureAccountType = '/configureAccountType';
   static const String manageAccountType = '/manageAccountType';
   static const String schedularNotifier = '/schedularNotifier';
+
+  //Role
+  static const String manageRoles = 'manageRoles';
+  static const String editRoles = 'manageRoles/editRoles';
+  static const String viewPrivileges = 'viewPrivileges';
+  static const String createPrivileges = 'createPrivileges';
 }
