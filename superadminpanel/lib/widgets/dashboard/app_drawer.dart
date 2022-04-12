@@ -119,9 +119,17 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: adminUserManagementExpandableController,
                   header: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       children: [
+                        Icon(
+                          Icons.arrow_forward_ios_sharp,
+                          size: 13,
+                        ),
+                        SizedBox(
+                          width: 3,
+                        ),
                         const Text(PageTitles.adminUserManagementUpperCase),
                       ],
                     ),
@@ -199,11 +207,19 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: settingExpandableController,
                   header: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        Icon(
+                          Icons.arrow_forward_ios_sharp,
+                          size: 13,
+                        ),
+                        SizedBox(
+                          width: 3,
+                        ),
                         Center(child: const Text(PageTitles.settingUpperCase)),
                       ],
                     ),
@@ -285,11 +301,19 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: roleExpandableController,
                   header: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        Icon(
+                          Icons.arrow_forward_ios_sharp,
+                          size: 13,
+                        ),
+                        SizedBox(
+                          width: 3,
+                        ),
                         Center(child: const Text(PageTitles.roleUpperCase)),
                       ],
                     ),
@@ -340,11 +364,19 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: systemConfigurationExpandableController,
                   header: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        Icon(
+                          Icons.arrow_forward_ios_sharp,
+                          size: 13,
+                        ),
+                        SizedBox(
+                          width: 3,
+                        ),
                         Center(
                             child: const Text(
                                 PageTitles.systemConfigurationUpperCase)),
@@ -433,11 +465,19 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: mobileDeviceConfigurationExpandableController,
                   header: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        Icon(
+                          Icons.arrow_forward_ios_sharp,
+                          size: 13,
+                        ),
+                        SizedBox(
+                          width: 3,
+                        ),
                         Center(
                             child: const Text(
                                 PageTitles.mobileDeviceManagementUpperCase)),
