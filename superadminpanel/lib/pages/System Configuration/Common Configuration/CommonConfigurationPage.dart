@@ -22,7 +22,10 @@ class _CommonConfigurationPageState extends State<CommonConfigurationPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.securityViewConfigurationPageTopic,
+      pageTitle: [
+        PageTitles.systemConfiguration,
+        PageTitles.commonConfiguration,
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

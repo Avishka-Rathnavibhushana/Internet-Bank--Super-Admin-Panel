@@ -35,7 +35,10 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.deviceConfigurations,
+      pageTitle: [
+        PageTitles.mobileDeviceManagement,
+        PageTitles.deviceConfigurations
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

@@ -31,7 +31,7 @@ class _ManageDevicesPageState extends State<ManageDevicesPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.manageDevices,
+      pageTitle: [PageTitles.mobileDeviceManagement, PageTitles.manageDevices],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

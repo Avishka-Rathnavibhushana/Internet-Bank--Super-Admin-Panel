@@ -22,7 +22,7 @@ class _CreateAccountTypePageState extends State<CreateAccountTypePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.createAccountType,
+      pageTitle: [PageTitles.setting, PageTitles.createAccountType],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

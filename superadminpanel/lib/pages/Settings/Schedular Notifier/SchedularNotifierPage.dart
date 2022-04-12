@@ -25,7 +25,7 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.schedularNotifier,
+      pageTitle: [PageTitles.setting, PageTitles.schedularNotifier],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

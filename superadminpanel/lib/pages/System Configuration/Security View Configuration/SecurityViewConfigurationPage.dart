@@ -23,7 +23,10 @@ class _SecurityViewConfigurationPageState
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.securityViewConfigurationPageTopic,
+      pageTitle: [
+        PageTitles.systemConfiguration,
+        PageTitles.securityViewConfigurationPageTopic
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

@@ -11,7 +11,7 @@ class AppScaffold extends StatelessWidget {
 
   final Widget body;
 
-  final String pageTitle;
+  final List<String> pageTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +30,32 @@ class AppScaffold extends StatelessWidget {
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      pageTitle,
-                      style: TextStyle(fontSize: 10),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.home,
+                          size: 12,
+                        ),
+                        ...pageTitle.map((title) {
+                          return Wrap(
+                            //mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 12,
+                              ),
+                              Text(
+                                title,
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            ],
+                          );
+                        }),
+                      ],
                     ),
-                    Text(pageTitle),
+                    Text(pageTitle.last),
                   ],
                 ),
                 actions: [],
@@ -48,8 +69,7 @@ class AppScaffold extends StatelessWidget {
                       permanentlyDisplay: false,
                     )
                   : null,
-              body: body
-              ),
+              body: body),
         )
       ],
     );

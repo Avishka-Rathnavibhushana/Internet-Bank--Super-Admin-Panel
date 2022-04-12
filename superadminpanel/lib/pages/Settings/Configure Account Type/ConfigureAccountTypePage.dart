@@ -73,7 +73,7 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.configureAccountType,
+      pageTitle: [PageTitles.setting, PageTitles.configureAccountType],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

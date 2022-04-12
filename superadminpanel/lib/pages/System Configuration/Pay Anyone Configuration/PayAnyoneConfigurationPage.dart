@@ -23,7 +23,10 @@ class _PayAnyoneConfigurationPageState
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.payAnyoneConfigurationPageTopic,
+      pageTitle: [
+        PageTitles.systemConfiguration,
+        PageTitles.payAnyoneConfigurationPageTopic
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

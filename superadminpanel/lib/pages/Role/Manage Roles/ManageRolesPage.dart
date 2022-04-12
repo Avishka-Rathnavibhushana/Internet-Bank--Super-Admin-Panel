@@ -99,7 +99,7 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.manageRoles,
+      pageTitle: [PageTitles.role, PageTitles.manageRoles],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

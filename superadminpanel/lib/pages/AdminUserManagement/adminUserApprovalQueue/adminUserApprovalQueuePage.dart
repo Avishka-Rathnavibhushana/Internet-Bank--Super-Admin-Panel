@@ -184,7 +184,10 @@ class _AdminUserApprovalQueuePageState
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.adminUserApprovalQueue,
+      pageTitle: [
+        PageTitles.adminUserManagement,
+        PageTitles.adminUserApprovalQueue
+      ],
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),

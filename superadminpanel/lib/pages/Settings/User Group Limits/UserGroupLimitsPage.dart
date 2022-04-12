@@ -21,7 +21,7 @@ class _UserGroupLimitsPageState extends State<UserGroupLimitsPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.userGroupLimits,
+      pageTitle: [PageTitles.setting, PageTitles.userGroupLimits],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

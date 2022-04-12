@@ -21,7 +21,10 @@ class _EMailConfigurationPageState extends State<EMailConfigurationPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.emailConfigurationPageTopic,
+      pageTitle: [
+        PageTitles.systemConfiguration,
+        PageTitles.emailConfigurationPageTopic
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

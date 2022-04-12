@@ -20,7 +20,10 @@ class _GlobalSwitchPageState extends State<GlobalSwitchPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.globalSwitchPageTopic,
+      pageTitle: [
+        PageTitles.systemConfiguration,
+        PageTitles.globalSwitchPageTopic
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

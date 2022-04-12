@@ -25,7 +25,10 @@ class _ManageBankingUsersPageState extends State<ManageBankingUsersPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.manageBankingUsers,
+      pageTitle: [
+        PageTitles.adminUserManagement,
+        PageTitles.manageBankingUsers
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

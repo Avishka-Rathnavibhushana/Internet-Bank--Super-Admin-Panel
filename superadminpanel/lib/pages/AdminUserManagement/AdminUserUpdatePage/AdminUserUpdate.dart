@@ -69,7 +69,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return AppScaffold(
-      pageTitle: PageTitles.adminUserUpdate,
+      pageTitle: [PageTitles.adminUserManagement, PageTitles.adminUserUpdate],
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),

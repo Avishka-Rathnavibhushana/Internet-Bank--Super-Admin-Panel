@@ -20,7 +20,7 @@ class _ViewPrivilegesPagePageState extends State<ViewPrivilegesPagePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.viewPrivileges,
+      pageTitle: [PageTitles.role, PageTitles.viewPrivileges],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

@@ -21,7 +21,11 @@ class _EditRolesPagePageState extends State<EditRolesPagePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.editRoles,
+      pageTitle: [
+        PageTitles.role,
+        PageTitles.manageRoles,
+        PageTitles.editRoles
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

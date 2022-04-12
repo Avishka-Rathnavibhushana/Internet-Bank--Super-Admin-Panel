@@ -19,7 +19,7 @@ class _BankSettingPageState extends State<BankSettingPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.bankSetting,
+      pageTitle: [PageTitles.setting, PageTitles.bankSetting],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

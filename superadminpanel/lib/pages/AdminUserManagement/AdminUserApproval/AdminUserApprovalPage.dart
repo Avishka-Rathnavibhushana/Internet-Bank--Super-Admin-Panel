@@ -21,7 +21,7 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.adminUserApproval,
+      pageTitle: [PageTitles.adminUserManagement, PageTitles.adminUserApproval],
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),

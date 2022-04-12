@@ -184,7 +184,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.manageAdminUsers,
+      pageTitle: [PageTitles.adminUserManagement, PageTitles.manageAdminUsers],
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),

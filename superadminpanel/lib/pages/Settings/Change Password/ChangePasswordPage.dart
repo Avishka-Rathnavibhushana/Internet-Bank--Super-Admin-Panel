@@ -26,7 +26,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.changePassword,
+      pageTitle: [PageTitles.setting, PageTitles.changePassword],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

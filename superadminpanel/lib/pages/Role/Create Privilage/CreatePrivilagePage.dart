@@ -29,7 +29,7 @@ class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.createPrivileges,
+      pageTitle: [PageTitles.role, PageTitles.createPrivileges],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(

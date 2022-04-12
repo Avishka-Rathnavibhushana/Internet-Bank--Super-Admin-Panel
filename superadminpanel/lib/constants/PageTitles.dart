@@ -11,7 +11,7 @@ class PageTitles {
 
   //Setting
   static const String settingUpperCase = 'SETTING';
-  static const String setting = 'Setting';
+  static const String setting = 'Settings';
   static const String changePassword = 'Change Password';
   static const String bankSetting = 'Bank Setting';
   static const String userGroupLimits = 'Create/Edit Limits';
@@ -23,6 +23,7 @@ class PageTitles {
 
   //Role
   static const String roleUpperCase = 'ROLE/PRIVILEGE';
+  static const String role = 'Role/Privilege';
   static const String manageRoles = 'Manage Roles';
   static const String editRoles = 'Edit Roles';
   static const String viewPrivileges = 'View Privileges';
@@ -30,6 +31,7 @@ class PageTitles {
 
   //System configuration
   static const String systemConfigurationUpperCase = 'SYSTEM CONFIGURATION';
+  static const String systemConfiguration = 'System Configuration';
   static const String globalSwitch = 'Internet Banking';
   static const String globalSwitchPageTopic = 'Internet Banking Activate/Deactivate';
   static const String smsConfiguration = 'SMS Configuration';
@@ -45,6 +47,7 @@ class PageTitles {
 
   //Mobile Device Management
   static const String mobileDeviceManagementUpperCase = 'MOBILE DEVICE MANAGEMENT';
+  static const String mobileDeviceManagement = 'Mobile Device Management';
   static const String deviceConfigurations = 'Device Configurations';
   static const String manageDevices = 'Manage Devices';
 }

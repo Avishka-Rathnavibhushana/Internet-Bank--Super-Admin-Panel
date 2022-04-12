@@ -24,7 +24,7 @@ class _ManageAccountTypePageState extends State<ManageAccountTypePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.manageAccountType,
+      pageTitle: [PageTitles.setting, PageTitles.manageAccountType],
       body: CustomPageView(
         items: [ResponsiveRowColumnItem(rowFlex: 1, child: Text("No UI"))],
       ),

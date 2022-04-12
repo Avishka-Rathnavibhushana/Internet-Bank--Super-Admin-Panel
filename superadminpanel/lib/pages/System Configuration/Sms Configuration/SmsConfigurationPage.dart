@@ -20,7 +20,10 @@ class _SmsConfigurationPageState extends State<SmsConfigurationPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: PageTitles.smsConfigurationPageTopic,
+      pageTitle: [
+        PageTitles.systemConfiguration,
+        PageTitles.smsConfigurationPageTopic
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(
