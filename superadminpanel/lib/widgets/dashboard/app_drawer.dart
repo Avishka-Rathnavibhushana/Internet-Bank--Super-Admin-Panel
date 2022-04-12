@@ -24,13 +24,13 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
   
   final ExpandableController adminUserManagementExpandableController =
       ExpandableController(initialExpanded: false);
-
   final ExpandableController settingExpandableController =
       ExpandableController(initialExpanded: false);
-
   final ExpandableController roleExpandableController =
       ExpandableController(initialExpanded: false);
   final ExpandableController systemConfigurationExpandableController =
+      ExpandableController(initialExpanded: false);
+final ExpandableController mobileDeviceConfigurationExpandableController =
       ExpandableController(initialExpanded: false);
 
   @override
@@ -91,6 +91,9 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
         _selectedRoute == RouteNames.securityViewConfiguration ||
         _selectedRoute == RouteNames.commonConfiguration) {
       systemConfigurationExpandableController.expanded = true;
+    } else if (_selectedRoute == RouteNames.deviceConfigurations ||
+        _selectedRoute == RouteNames.manageDevices) {
+      mobileDeviceConfigurationExpandableController.expanded = true;
     }
     return Drawer(
       child: Row(
@@ -422,6 +425,53 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                         selected:
                             _selectedRoute == RouteNames.commonConfiguration,
                       ),
+                    ],
+                  ),
+                  collapsed: Container(),
+                ),
+                const Divider(),
+                ExpandablePanel(
+                  controller: mobileDeviceConfigurationExpandableController,
+                  header: Container(
+                    height: 50,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Center(
+                            child: const Text(
+                                PageTitles.mobileDeviceManagementUpperCase)),
+                      ],
+                    ),
+                  ),
+                  expanded: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ListTile(
+                        title: const Text(PageTitles.deviceConfigurations),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.deviceConfigurations,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.deviceConfigurations,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.manageDevices),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.manageDevices,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.manageDevices,
+                      ),
+                     
                     ],
                   ),
                   collapsed: Container(),

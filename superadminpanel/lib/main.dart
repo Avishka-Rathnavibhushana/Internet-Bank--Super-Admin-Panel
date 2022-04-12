@@ -4,6 +4,8 @@ import 'package:superadminpanel/pages/AdminUserManagement/AdminUserUpdatePage/Ad
 import 'package:superadminpanel/pages/AdminUserManagement/CreateAdminUser/CreateAdminUserPage.dart';
 import 'package:superadminpanel/pages/AdminUserManagement/ManageBankingUsers/ManageBankingUsersPage.dart';
 import 'package:superadminpanel/pages/AdminUserManagement/adminUserApprovalQueue/adminUserApprovalQueuePage.dart';
+import 'package:superadminpanel/pages/Mobile%20Device%20Management/Device%20Configurations/DeviceConfigurationsPage.dart';
+import 'package:superadminpanel/pages/Mobile%20Device%20Management/Manage%20Devices/ManageDevicesPage.dart';
 import 'package:superadminpanel/pages/Role/Create%20Privilage/CreatePrivilagePage.dart';
 import 'package:superadminpanel/pages/Role/Manage%20Roles/EditRolesPage.dart';
 import 'package:superadminpanel/pages/Role/Manage%20Roles/ManageRolesPage.dart';
@@ -88,6 +90,9 @@ class DemoApp extends StatelessWidget {
         RouteNames.securityViewConfiguration: (_) =>
             SecurityViewConfigurationPage(),
         RouteNames.commonConfiguration: (_) => CommonConfigurationPage(),
+        //Mobile Device Management
+        RouteNames.deviceConfigurations: (_) => DeviceConfigurationsPage(),
+        RouteNames.manageDevices: (_) => ManageDevicesPage(),
       },
     );
   }

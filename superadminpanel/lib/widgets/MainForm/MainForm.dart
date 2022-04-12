@@ -26,9 +26,10 @@ class MainForm extends StatelessWidget {
   // 2) DropDownTextField
   // 3) LabelField
   // 4) CkeckBoxField
-  // 5) TextArea
-  // 6) Table
-  // 7) Custom
+  // 5) Radio
+  // 6) TextArea
+  // 7) Table
+  // 8) Custom
   String topic = "";
   Color? topicBackgroundColor = AppColors.white;
   Color? topicTextColor = AppColors.white;
@@ -54,19 +55,20 @@ class MainForm extends StatelessWidget {
           children: [
             isHeaderAvailable
                 ? Row(
-              children: [
-                Expanded(
-                    child: Container(
-                  padding: const EdgeInsets.only(left: 8, top: 8, bottom: 8),
-                  child: Text(
-                    topic,
-                    style: TextStyle(
-                      color: topicTextColor,
-                    ),
-                  ),
-                  color: topicBackgroundColor,
-                )),
-              ],
+                    children: [
+                      Expanded(
+                          child: Container(
+                        padding:
+                            const EdgeInsets.only(left: 8, top: 8, bottom: 8),
+                        child: Text(
+                          topic,
+                          style: TextStyle(
+                            color: topicTextColor,
+                          ),
+                        ),
+                        color: topicBackgroundColor,
+                      )),
+                    ],
                   )
                 : Container(),
             Padding(
@@ -81,9 +83,10 @@ class MainForm extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      item[1] == "TextField" ||
+                      (item[1] == "TextField" ||
                               item[1] == "DropDownTextField" ||
-                              item[1] == "TextArea"
+                                  item[1] == "TextArea") &&
+                              item[0] != ""
                           ? Padding(
                               padding:
                                   const EdgeInsets.only(bottom: 8, top: 10),
@@ -100,10 +103,16 @@ class MainForm extends StatelessWidget {
                                 maxLines: 1,
                                 decoration: InputDecoration(
                                   isDense: true,
+                                  enabled: item.length == 4 ? item[3] : true,
                                   contentPadding: EdgeInsets.symmetric(
                                     vertical: 13,
                                     horizontal: 10,
                                   ),
+                                  filled: true,
+                                  fillColor: item.length == 4 && !item[3]
+                                      ? Colors.grey[300]
+                                      : Colors.white,
+                                
                                   border: OutlineInputBorder(),
                                 ),
                               ),
@@ -197,7 +206,50 @@ class MainForm extends StatelessWidget {
                                                               top: 3),
                                                       child: item[2],
                                                     )
-                                                  : Container(),
+                                                  : item[1] == "Radio"
+                                                      ? Container(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  bottom: 3,
+                                                                  top: 3),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              ...item[2].map(
+                                                                  (radioButtonItem) {
+                                                                return Container(
+                                                                  child: Row(
+                                                                    children: [
+                                                                      Radio(
+                                                                        value:
+                                                                            radioButtonItem[0],
+                                                                        onChanged:
+                                                                            radioButtonItem[2],
+                                                                        groupValue:
+                                                                            radioButtonItem[1],
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            10,
+                                                                      ),
+                                                                      Text(
+                                                                        radioButtonItem[
+                                                                            0],
+                                                                        style: TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.normal),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                            ],
+                                                          ),
+                                                        )
+                                                      : Container(),
                     ],
                   );
                 }).toList(),

@@ -33,4 +33,8 @@ class RouteNames {
   static const String payAnyoneConfiguration = '/payAnyoneConfiguration';
   static const String securityViewConfiguration = '/securityViewConfiguration';
   static const String commonConfiguration = '/commonConfiguration';
+
+  //Mobile Device Management
+  static const String deviceConfigurations = '/deviceConfigurations';
+  static const String manageDevices = '/manageDevices';
 }

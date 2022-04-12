@@ -42,4 +42,9 @@ class PageTitles {
   static const String securityViewConfigurationPageTopic = 'Enabling/Disabling Security Views';
   static const String commonConfiguration = 'Common Configuration';
   static const String commonConfigurationPageTopic = 'Enabling/Disabling Common Internet Banking Configurations ';
+
+  //Mobile Device Management
+  static const String mobileDeviceManagementUpperCase = 'MOBILE DEVICE MANAGEMENT';
+  static const String deviceConfigurations = 'Device Configurations';
+  static const String manageDevices = 'Manage Devices';
 }
