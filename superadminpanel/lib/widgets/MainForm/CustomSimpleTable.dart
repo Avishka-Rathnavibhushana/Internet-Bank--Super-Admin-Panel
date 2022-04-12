@@ -112,7 +112,13 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                                                 ? Checkbox(
                                                     value: tableRow[1],
                                                     onChanged: tableRow[2])
-                                                : Container(),
+                                                : tableRow[0] == "Radio"
+                                                    ? Radio(
+                                                        value: tableRow[1],
+                                                        onChanged: tableRow[2],
+                                                        groupValue: tableRow[3],
+                                                      )
+                                                    : Container(),
                               ),
                             ),
                           ),

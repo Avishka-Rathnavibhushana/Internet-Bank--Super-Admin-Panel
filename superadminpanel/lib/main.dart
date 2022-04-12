@@ -16,6 +16,12 @@ import 'package:superadminpanel/pages/Settings/Manage%20Account%20Type/ManageAcc
 import 'package:superadminpanel/pages/Settings/Schedular%20Notifier/SchedularNotifierPage.dart';
 import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/CreateUserGroupLimitsPage.dart';
 import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/UserGroupLimitsPage.dart';
+import 'package:superadminpanel/pages/System%20Configuration/Common%20Configuration/CommonConfigurationPage.dart';
+import 'package:superadminpanel/pages/System%20Configuration/EMail%20Configuration/EMailConfigurationPage.dart';
+import 'package:superadminpanel/pages/System%20Configuration/Global%20Switch/GlobalSwitchPage.dart';
+import 'package:superadminpanel/pages/System%20Configuration/Pay%20Anyone%20Configuration/PayAnyoneConfigurationPage.dart';
+import 'package:superadminpanel/pages/System%20Configuration/Security%20View%20Configuration/SecurityViewConfigurationPage.dart';
+import 'package:superadminpanel/pages/System%20Configuration/Sms%20Configuration/SmsConfigurationPage.dart';
 import 'constants/RouteNames.dart';
 import 'pages/AdminUserManagement/ManageAdminUsersPage/ManageAdminUsersPage.dart';
 import 'widgets/dashboard/app_route_observer.dart';
@@ -74,6 +80,14 @@ class DemoApp extends StatelessWidget {
         RouteNames.editRoles: (_) => EditRolesPagePage(),
         RouteNames.viewPrivileges: (_) => ViewPrivilegesPagePage(),
         RouteNames.createPrivileges: (_) => CreatePrivilagePage(),
+        //System configuration
+        RouteNames.globalSwitch: (_) => GlobalSwitchPage(),
+        RouteNames.smsConfiguration: (_) => SmsConfigurationPage(),
+        RouteNames.emailConfiguration: (_) => EMailConfigurationPage(),
+        RouteNames.payAnyoneConfiguration: (_) => PayAnyoneConfigurationPage(),
+        RouteNames.securityViewConfiguration: (_) =>
+            SecurityViewConfigurationPage(),
+        RouteNames.commonConfiguration: (_) => CommonConfigurationPage(),
       },
     );
   }

@@ -25,4 +25,12 @@ class RouteNames {
   static const String editRoles = 'manageRoles/editRoles';
   static const String viewPrivileges = 'viewPrivileges';
   static const String createPrivileges = 'createPrivileges';
+
+   //System configuration
+  static const String globalSwitch = '/globalSwitch';
+  static const String smsConfiguration = '/smsConfiguration';
+  static const String emailConfiguration = '/emailConfiguration';
+  static const String payAnyoneConfiguration = '/payAnyoneConfiguration';
+  static const String securityViewConfiguration = '/securityViewConfiguration';
+  static const String commonConfiguration = '/commonConfiguration';
 }

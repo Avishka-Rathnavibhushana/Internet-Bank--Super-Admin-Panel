@@ -30,6 +30,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
 
   final ExpandableController roleExpandableController =
       ExpandableController(initialExpanded: false);
+  final ExpandableController systemConfigurationExpandableController =
+      ExpandableController(initialExpanded: false);
 
   @override
   void initState() {
@@ -82,6 +84,13 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
         _selectedRoute == RouteNames.viewPrivileges ||
         _selectedRoute == RouteNames.createPrivileges) {
       roleExpandableController.expanded = true;
+    } else if (_selectedRoute == RouteNames.globalSwitch ||
+        _selectedRoute == RouteNames.smsConfiguration ||
+        _selectedRoute == RouteNames.emailConfiguration ||
+        _selectedRoute == RouteNames.payAnyoneConfiguration ||
+        _selectedRoute == RouteNames.securityViewConfiguration ||
+        _selectedRoute == RouteNames.commonConfiguration) {
+      systemConfigurationExpandableController.expanded = true;
     }
     return Drawer(
       child: Row(
@@ -320,6 +329,99 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                         selected: _selectedRoute == RouteNames.createPrivileges,
                       ),
                      
+                    ],
+                  ),
+                  collapsed: Container(),
+                ),
+                const Divider(),
+                ExpandablePanel(
+                  controller: systemConfigurationExpandableController,
+                  header: Container(
+                    height: 50,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Center(
+                            child: const Text(
+                                PageTitles.systemConfigurationUpperCase)),
+                      ],
+                    ),
+                  ),
+                  expanded: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ListTile(
+                        title: const Text(PageTitles.globalSwitch),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.globalSwitch,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.globalSwitch,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.smsConfiguration),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.smsConfiguration,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute == RouteNames.smsConfiguration,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.emailConfiguration),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.emailConfiguration,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.emailConfiguration,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.payAnyoneConfiguration),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.payAnyoneConfiguration,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.payAnyoneConfiguration,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.securityViewConfiguration),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.securityViewConfiguration,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected: _selectedRoute ==
+                            RouteNames.securityViewConfiguration,
+                      ),
+                      ListTile(
+                        title: const Text(PageTitles.commonConfiguration),
+                        onTap: () async {
+                          await Utils.navigateTo(
+                              context,
+                              RouteNames.commonConfiguration,
+                              widget.permanentlyDisplay);
+                          settingExpandableController.expanded = true;
+                        },
+                        selected:
+                            _selectedRoute == RouteNames.commonConfiguration,
+                      ),
                     ],
                   ),
                   collapsed: Container(),

@@ -27,4 +27,19 @@ class PageTitles {
   static const String editRoles = 'Edit Roles';
   static const String viewPrivileges = 'View Privileges';
   static const String createPrivileges = 'Create Privileges';
+
+  //System configuration
+  static const String systemConfigurationUpperCase = 'SYSTEM CONFIGURATION';
+  static const String globalSwitch = 'Internet Banking';
+  static const String globalSwitchPageTopic = 'Internet Banking Activate/Deactivate';
+  static const String smsConfiguration = 'SMS Configuration';
+  static const String smsConfigurationPageTopic = 'Enabling/Disabling sending SMS to Third Party Fund Transfer Reciver';
+  static const String emailConfiguration = 'EMail Configuration';
+  static const String emailConfigurationPageTopic = 'Enabling/Disabling sending emails';
+  static const String payAnyoneConfiguration = 'Pay Anyone Configuration';
+  static const String payAnyoneConfigurationPageTopic = 'Enabling/Disabling Pay Anyone Function';
+  static const String securityViewConfiguration = 'Security View Configuration';
+  static const String securityViewConfigurationPageTopic = 'Enabling/Disabling Security Views';
+  static const String commonConfiguration = 'Common Configuration';
+  static const String commonConfigurationPageTopic = 'Enabling/Disabling Common Internet Banking Configurations ';
 }
