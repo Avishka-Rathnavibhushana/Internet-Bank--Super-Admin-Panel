@@ -6,7 +6,7 @@ import 'package:superadminpanel/pages/AdminUserManagement/ManageBankingUsers/Man
 import 'package:superadminpanel/pages/AdminUserManagement/adminUserApprovalQueue/adminUserApprovalQueuePage.dart';
 import 'package:superadminpanel/pages/Role/Create%20Privilage/CreatePrivilagePage.dart';
 import 'package:superadminpanel/pages/Role/Manage%20Roles/EditRolesPage.dart';
-import 'package:superadminpanel/pages/Role/Manage%20Roles/ManageRolesPage%20copy.dart';
+import 'package:superadminpanel/pages/Role/Manage%20Roles/ManageRolesPage.dart';
 import 'package:superadminpanel/pages/Role/View%20Privilege/ViewPrivilegesPage.dart';
 import 'package:superadminpanel/pages/Settings/Bank%20Setting/BankSettingPage.dart';
 import 'package:superadminpanel/pages/Settings/Change%20Password/ChangePasswordPage.dart';
