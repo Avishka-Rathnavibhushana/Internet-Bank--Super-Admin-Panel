@@ -27,7 +27,6 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
       TextEditingController();
   String status = "- Select an option -";
 
-
   // table data
   List<Map<String, dynamic>> data = [
     {
@@ -51,90 +50,6 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
       "firstname": "Avishka",
       "lastname": "Rathnavibushana",
     },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    },
-    {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
-    }
   ];
 
   List<DatatableHeader> headers = [
@@ -180,7 +95,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
     window.document.onContextMenu.listen((evt) => evt.preventDefault());
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -191,55 +106,62 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
           child: CustomPageView(
             items: [
               ResponsiveRowColumnItem(
-                 rowFlex: 1,
+                  rowFlex: 1,
                   child: Center(
-                child: MainForm(
-                  buttons: [
-                    [
-                      "Search",
-                      () => {print("1")},
+                    child: MainForm(
+                      buttons: [
+                        [
+                          "Search",
+                          () => {print("1")},
                           AppColors.buttonLightGreenColor,
                           AppColors.white,
-                    ],
-                    [
-                      "Reset",
-                      () => {print("2")},
-                      Colors.grey[700],
+                        ],
+                        [
+                          "Reset",
+                          () => {print("2")},
+                          Colors.grey[700],
                           AppColors.white,
-                    ]
-                  ],
-                  textFieldItems: [
-                    [
-                      "User Name",
-                      "TextField",
-                      userNameTextEditingController,
-                    ],
-                    [
-                      "First Name",
-                      "TextField",
-                      firstNameTextEditingController,
-                    ],
-                    [
-                      "Emlpoyee Id",
-                      "TextField",
-                      employeeIdTextEditingController,
-                    ],
-                    [
-                      "Status",
-                      "DropDownTextField",
-                      ["- Select an option -", "MR", "MRS", "MS"],
-                      status,
-                      (value) {
-                        setState(() {
-                          status = value!;
-                        });
-                      },
-                    ]
-                  ],
-                  topic: 'Filter',
-                  topicBackgroundColor: Colors.blue[100],
-                  topicTextColor: Colors.blue[150],
-                ),
+                        ]
+                      ],
+                      textFieldItems: [
+                        [
+                          "User Name",
+                          "TextField",
+                          userNameTextEditingController,
+                          true,
+                          false,
+                        ],
+                        [
+                          "First Name",
+                          "TextField",
+                          firstNameTextEditingController,
+                          true,
+                          false,
+                        ],
+                        [
+                          "Emlpoyee Id",
+                          "TextField",
+                          employeeIdTextEditingController,
+                          true,
+                          false,
+                        ],
+                        [
+                          "Status",
+                          "DropDownTextField",
+                          ["- Select an option -", "MR", "MRS", "MS"],
+                          status,
+                          false,
+                          (value) {
+                            setState(() {
+                              status = value!;
+                            });
+                          },
+                        ]
+                      ],
+                      topic: 'Filter',
+                      topicBackgroundColor: Colors.blue[100],
+                      topicTextColor: Colors.blue[150],
+                    ),
                   )),
               ResponsiveRowColumnItem(
                 child: SizedBox(
@@ -248,7 +170,6 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
               ),
               ResponsiveRowColumnItem(
                 rowFlex: 2,
-
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SimplifiedCustomResponsiveTable(
@@ -283,7 +204,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                     titleBackgroundColor: Colors.blue[100]!,
                     searchKey: "id",
                     data: data,
-                  ) ,
+                  ),
                 ),
               ),
             ],

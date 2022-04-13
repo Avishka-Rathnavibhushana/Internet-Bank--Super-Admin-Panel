@@ -39,6 +39,8 @@ class _EditRolesPagePageState extends State<EditRolesPagePage> {
                     "Description",
                     "TextField",
                     descriptionTextEditingController,
+                    true,
+                    false,
                   ],
                   [
                     "Admin Comment",

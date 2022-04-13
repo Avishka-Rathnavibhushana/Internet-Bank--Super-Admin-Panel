@@ -49,6 +49,8 @@ class _CreateAccountTypePageState extends State<CreateAccountTypePage> {
                     "Account Type",
                     "TextField",
                     accountTypeTextEditingController,
+                    true,
+                    true,
                   ],
                 ],
                 topic: 'Change Password',

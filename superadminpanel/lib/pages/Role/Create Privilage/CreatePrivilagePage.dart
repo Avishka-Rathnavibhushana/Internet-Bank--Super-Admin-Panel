@@ -58,23 +58,30 @@ class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
                     "Privilege Name",
                     "TextField",
                     privilegeNameTextEditingController,
+                    true,
+                    true,
                   ],
                   [
                     "Code",
                     "TextField",
                     codeTextEditingController,
+                    true,
+                    true,
                   ],
                   [
                     "Description",
                     "TextArea",
                     descriptionTextEditingController,
                     3,
+                    true,
+                    true,
                   ],
                   [
                     "Category",
                     "DropDownTextField",
                     ["BANKING USER MANAGEMENT", "BANKING CUSTOMER"],
                     category,
+                    false,
                     (value) {
                       setState(() {
                         category = value!;
@@ -86,6 +93,7 @@ class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
                     "DropDownTextField",
                     ["BANK_ADMIN", "BANK_USER"],
                     type,
+                    false,
                     (value) {
                       setState(() {
                         type = value!;

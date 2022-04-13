@@ -64,6 +64,7 @@ class _ManageBankingUsersPageState extends State<ManageBankingUsersPage> {
                     "DropDownTextField",
                     ["ACTIVE", "DEACTIVE"],
                     status,
+                    true,
                     (value) {
                       setState(() {
                         status = value!;

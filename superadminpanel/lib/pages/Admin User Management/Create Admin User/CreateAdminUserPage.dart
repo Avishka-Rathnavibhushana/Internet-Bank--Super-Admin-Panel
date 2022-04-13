@@ -29,7 +29,7 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
 
   //form 2 data
   String passwordPolicy = "Admin";
-  TextEditingController userIdController = TextEditingController();
+  TextEditingController userIdTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   TextEditingController reTypePasswordTextEditingController =
       TextEditingController();
@@ -91,6 +91,7 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
                           "DropDownTextField",
                           ["MR", "MRS", "MS"],
                           status,
+                          true,
                           (value) {
                             setState(() {
                               status = value!;
@@ -101,26 +102,36 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
                           "First Name",
                           "TextField",
                           firstNameTextEditingController,
+                          true,
+                          true,
                         ],
                         [
                           "Last Name",
                           "TextField",
                           lastNameTextEditingController,
+                          true,
+                          true,
                         ],
                         [
                           "E-mail",
                           "TextField",
                           emailTextEditingController,
+                          true,
+                          true,
                         ],
                         [
                           "Confirm E-mail",
                           "TextField",
                           confirmEmailTextEditingController,
+                          true,
+                          true,
                         ],
                         [
                           "Employee id",
                           "TextField",
                           employeeIdTextEditingController,
+                          true,
+                          true,
                         ],
                       ],
                       topic: 'Personal Details',
@@ -144,6 +155,7 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
                           "DropDownTextField",
                           ["Admin", "Customer"],
                           passwordPolicy,
+                          true,
                           (value) {
                             setState(() {
                               passwordPolicy = value!;
@@ -153,22 +165,23 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
                         [
                           "User Id",
                           "TextField",
-                          userIdController,
+                          userIdTextEditingController,
+                          true,
+                          true,
                         ],
                         [
                           "Password",
                           "TextField",
                           passwordTextEditingController,
+                          true,
+                          true,
                         ],
                         [
                           "Retype Password",
                           "TextField",
                           reTypePasswordTextEditingController,
-                        ],
-                        [
-                          "Confirm E-mail",
-                          "TextField",
-                          confirmEmailTextEditingController,
+                          true,
+                          true,
                         ],
                       ],
                       topic: 'User Name and Password',

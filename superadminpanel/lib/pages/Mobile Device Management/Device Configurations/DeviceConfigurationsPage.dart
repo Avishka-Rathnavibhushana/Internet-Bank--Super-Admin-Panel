@@ -64,9 +64,9 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
                         (value) {
                           setState(() {
                             deviceCount = "Single Device";
+                            
                             deviceCountTextEditingController.text == "1";
                           });
-                          print(deviceCountTextEditingController.text);
                         }
                       ],
                       [
@@ -77,7 +77,6 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
                             deviceCount = "Multiple Devices";
                             deviceCountTextEditingController.text == "2";
                           });
-                          print(deviceCountTextEditingController);
                         }
                       ],
                     ],
@@ -86,10 +85,13 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
                     "",
                     "TextField",
                     deviceCountTextEditingController,
+                    true,
+                    true,
                     deviceCount == "Single Device" ? false : true,
                   ],
                 ],
                 topic: '',
+                isHeaderAvailable: false,
                 topicBackgroundColor: Colors.blue[100],
                 topicTextColor: Colors.blue[150],
               ),

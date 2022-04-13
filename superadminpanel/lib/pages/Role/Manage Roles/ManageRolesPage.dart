@@ -129,17 +129,22 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
                     "Role Name",
                     "TextField",
                     roleNameTextEditingController,
+                    true,
+                    false,
                   ],
                   [
                     "Description",
                     "TextField",
                     descriptionTextEditingController,
+                    true,
+                    false,
                   ],
                   [
                     "Role Type",
                     "DropDownTextField",
                     ["BANK_ADMIN", "CUSTOMER"],
                     roleType,
+                    false,
                     (value) {
                       setState(() {
                         roleType = value!;

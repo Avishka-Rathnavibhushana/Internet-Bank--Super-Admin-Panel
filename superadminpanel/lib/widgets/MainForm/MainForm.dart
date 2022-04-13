@@ -22,12 +22,12 @@ class MainForm extends StatelessWidget {
   var buttons = [];
   var textFieldItems = [];
   // textFieldItems types
-  // 1) TextField
-  // 2) DropDownTextField
+  // 1) TextField - [[0]Label Name:String, [1]Type:String="TextField", [2]controller:TextEditingController,true, [3]enabled:bool, [4]isRequired:bool]
+  // 2) DropDownTextField - [[0]Label Name:String, [1]Type:String="DropDownTextField", [2]options:List<dynamic>, [3]value:dynamic, [4]isRequired:bool, [5]onchanged:Function(dynamic)]
   // 3) LabelField
   // 4) CkeckBoxField
   // 5) Radio
-  // 6) TextArea
+  // 6) TextArea - [[0]Label Name:String, [1]Type:String="TextArea", [2]controller:TextEditingController,true, [3]maxLines:int, [4]isRequired:bool, [5]enabled:bool]
   // 7) Table
   // 8) Custom
   String topic = "";
@@ -90,7 +90,15 @@ class MainForm extends StatelessWidget {
                           ? Padding(
                               padding:
                                   const EdgeInsets.only(bottom: 8, top: 10),
-                              child: Text(item[0]),
+                              child: Row(
+                                children: [
+                                  Text(item[0]),
+                                  item[4]?Text(
+                                    "*",
+                                    style: TextStyle(color: Colors.red),
+                                  ):Container(),
+                                ],
+                              ),
                             )
                           : Container(
                               padding: const EdgeInsets.only(top: 10),
@@ -103,16 +111,15 @@ class MainForm extends StatelessWidget {
                                 maxLines: 1,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  enabled: item.length == 4 ? item[3] : true,
+                                  
                                   contentPadding: EdgeInsets.symmetric(
                                     vertical: 13,
                                     horizontal: 10,
                                   ),
                                   filled: true,
-                                  fillColor: item.length == 4 && !item[3]
-                                      ? Colors.grey[300]
-                                      : Colors.white,
-                                
+                                  enabled: item[3],
+                                  fillColor:
+                                      item[3] ? Colors.white : Colors.grey[300],
                                   border: OutlineInputBorder(),
                                 ),
                               ),
@@ -121,7 +128,7 @@ class MainForm extends StatelessWidget {
                               ? AppDropdownInput(
                                   options: item[2],
                                   value: item[3],
-                                  onChanged: item[4])
+                                  onChanged: item[5])
                               : item[1] == "LabelField"
                                   ? Container(
                                       padding: const EdgeInsets.only(
@@ -183,6 +190,11 @@ class MainForm extends StatelessWidget {
                                                     vertical: 13,
                                                     horizontal: 10,
                                                   ),
+                                                  filled: true,
+                                                  enabled: item[5],
+                                                  fillColor: item[5]
+                                                      ? Colors.white
+                                                      : Colors.grey[300],
                                                   border: OutlineInputBorder(),
                                                 ),
                                               ),

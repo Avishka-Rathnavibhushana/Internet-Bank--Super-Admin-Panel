@@ -99,6 +99,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         "DropDownTextField",
                         ["MR", "MRS", "MS"],
                         status,
+                        true,
                         (value) {
                           setState(() {
                             status = value!;
@@ -109,26 +110,36 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         "First Name",
                         "TextField",
                         firstNameTextEditingController,
+                        true,
+                        true,
                       ],
                       [
                         "Last Name",
                         "TextField",
                         lastNameTextEditingController,
+                        true,
+                        true,
                       ],
                       [
                         "E-mail",
                         "TextField",
                         emailTextEditingController,
+                        true,
+                        true,
                       ],
                       [
                         "Confirm E-mail",
                         "TextField",
                         confirmEmailTextEditingController,
+                        true,
+                        true,
                       ],
                       [
                         "Employee id",
                         "TextField",
                         employeeIdTextEditingController,
+                        true,
+                        true,
                       ],
                     ],
                     topic: 'Personal Details',

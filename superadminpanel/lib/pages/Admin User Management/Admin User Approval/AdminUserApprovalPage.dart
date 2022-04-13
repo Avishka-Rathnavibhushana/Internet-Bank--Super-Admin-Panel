@@ -84,6 +84,8 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                       "TextArea",
                       commentTextEditingController,
                       3,
+                      true,
+                      true,
                     ],
                   ],
                   topic: 'Action',

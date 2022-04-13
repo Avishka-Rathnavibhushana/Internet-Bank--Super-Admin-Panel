@@ -94,6 +94,7 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
                     "DropDownTextField",
                     ["Saving Account", "current Account"],
                     accountType,
+                    false,
                     (value) {
                       setState(() {
                         accountType = value!;
@@ -105,6 +106,7 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
                     "DropDownTextField",
                     ["Account_history", "Current_state"],
                     accountTable,
+                    true,
                     (value) {
                       setState(() {
                         accountTable = value!;

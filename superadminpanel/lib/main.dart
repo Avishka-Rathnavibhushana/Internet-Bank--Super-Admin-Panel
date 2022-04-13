@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:superadminpanel/pages/AdminUserManagement/AdminUserApproval/AdminUserApprovalPage.dart';
-import 'package:superadminpanel/pages/AdminUserManagement/AdminUserUpdatePage/AdminUserUpdate.dart';
-import 'package:superadminpanel/pages/AdminUserManagement/CreateAdminUser/CreateAdminUserPage.dart';
-import 'package:superadminpanel/pages/AdminUserManagement/ManageBankingUsers/ManageBankingUsersPage.dart';
-import 'package:superadminpanel/pages/AdminUserManagement/adminUserApprovalQueue/adminUserApprovalQueuePage.dart';
+import 'package:superadminpanel/pages/Admin%20User%20Management/Admin%20User%20Approval/AdminUserApprovalPage.dart';
+import 'package:superadminpanel/pages/Admin%20User%20Management/Admin%20User%20Update/AdminUserUpdate.dart';
+import 'package:superadminpanel/pages/Admin%20User%20Management/Create%20Admin%20User/CreateAdminUserPage.dart';
+import 'package:superadminpanel/pages/Admin%20User%20Management/Manage%20Banking%20Users/ManageBankingUsersPage.dart';
+import 'package:superadminpanel/pages/Admin%20User%20Management/admin%20User%20Approval%20Queue/adminUserApprovalQueuePage.dart';
 import 'package:superadminpanel/pages/Mobile%20Device%20Management/Device%20Configurations/DeviceConfigurationsPage.dart';
 import 'package:superadminpanel/pages/Mobile%20Device%20Management/Manage%20Devices/ManageDevicesPage.dart';
 import 'package:superadminpanel/pages/Role/Create%20Privilage/CreatePrivilagePage.dart';
@@ -25,7 +25,7 @@ import 'package:superadminpanel/pages/System%20Configuration/Pay%20Anyone%20Conf
 import 'package:superadminpanel/pages/System%20Configuration/Security%20View%20Configuration/SecurityViewConfigurationPage.dart';
 import 'package:superadminpanel/pages/System%20Configuration/Sms%20Configuration/SmsConfigurationPage.dart';
 import 'constants/RouteNames.dart';
-import 'pages/AdminUserManagement/ManageAdminUsersPage/ManageAdminUsersPage.dart';
+import 'pages/Admin%20User%20Management/Manage%20Admin%20Users/ManageAdminUsersPage.dart';
 import 'widgets/dashboard/app_route_observer.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
