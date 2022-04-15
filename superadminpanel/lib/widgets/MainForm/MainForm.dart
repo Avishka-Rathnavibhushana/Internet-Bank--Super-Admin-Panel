@@ -208,6 +208,9 @@ class MainForm extends StatelessWidget {
                                                     topicBackgroundColor:
                                                         topicBackgroundColor,
                                                     itemList: item[2],
+                                                    borderType: item.length == 4
+                                                        ? item[3]
+                                                        : 2,
                                                   ),
                                                 )
                                               : item[1] == "Custom"

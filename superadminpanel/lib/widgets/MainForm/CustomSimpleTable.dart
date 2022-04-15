@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class SimpleCustomTable extends StatefulWidget {
   final itemList;
+  final int borderType;
 
   final Color? topicBackgroundColor;
   const SimpleCustomTable({
     Key? key,
     required this.topicBackgroundColor,
     required this.itemList,
+    required this.borderType,
   }) : super(key: key);
 
   @override
@@ -19,7 +21,15 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
   //1) Label
   //2) TextLink
   //3) TextBox
-  //3) CheckBox
+  //4) CheckBox
+  //5) Button
+  //6) Icon
+  //7) Custom
+
+  //Border Types
+  //0 -  No Border
+  //1 -  Only Bottom Border
+  //2 -  Complete Border
   Color buttonColor = Colors.blue;
   bool underlined = false;
   @override
@@ -32,9 +42,35 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
             .map(
               (tablColumn) => Container(
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 1,
-                    color: widget.topicBackgroundColor!,
+                  border: Border(
+                    left: BorderSide(
+                      width: 1,
+                      style: widget.borderType >= 2
+                          ? BorderStyle.solid
+                          : BorderStyle.none,
+                      color: widget.topicBackgroundColor!,
+                    ),
+                    right: BorderSide(
+                      width: 1,
+                      style: widget.borderType >= 2
+                          ? BorderStyle.solid
+                          : BorderStyle.none,
+                      color: widget.topicBackgroundColor!,
+                    ),
+                    top: BorderSide(
+                      width: 1,
+                      style: widget.borderType >= 2
+                          ? BorderStyle.solid
+                          : BorderStyle.none,
+                      color: widget.topicBackgroundColor!,
+                    ),
+                    bottom: BorderSide(
+                      width: 1,
+                      style: widget.borderType >= 1
+                          ? BorderStyle.solid
+                          : BorderStyle.none,
+                      color: widget.topicBackgroundColor!,
+                    ),
                   ),
                 ),
                 child: Row(
@@ -45,11 +81,34 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                           (tableRow) => Expanded(
                             flex: 1,
                             child: Container(
+                              margin: EdgeInsets.only(
+                                right: tableRow[0] != "Label"
+                                    ? 0
+                                    : tableRow.length == 2
+                                        ? 0
+                                        : tableRow[2]
+                                            ? 10
+                                            : 0,
+                              ),
                               alignment: Alignment.centerLeft,
                               decoration: BoxDecoration(
                                 border: Border(
                                   right: BorderSide(
                                     width: 1,
+                                    style: widget.borderType >= 2
+                                        ? BorderStyle.solid
+                                        : BorderStyle.none,
+                                    color: widget.topicBackgroundColor!,
+                                  ),
+                                  bottom: BorderSide(
+                                    width: 1,
+                                    style: tableRow[0] != "Label"
+                                        ? BorderStyle.none
+                                        : tableRow.length == 2
+                                            ? BorderStyle.none
+                                            : tableRow[2]
+                                                ? BorderStyle.solid
+                                                : BorderStyle.none,
                                     color: widget.topicBackgroundColor!,
                                   ),
                                 ),
@@ -61,7 +120,9 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                                     ? Padding(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 6.5),
-                                        child: Text(tableRow[1]),
+                                        child: Text(
+                                          tableRow[1],
+                                        ),
                                       )
                                     : tableRow[0] == "TextLink"
                                         ? InkWell(
@@ -118,7 +179,35 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                                                         onChanged: tableRow[2],
                                                         groupValue: tableRow[3],
                                                       )
-                                                    : Container(),
+                                                    : tableRow[0] == "Button"
+                                                        ? ElevatedButton(
+                                                            child: Text(
+                                                                tableRow[1]),
+                                                            onPressed:
+                                                                tableRow[2],
+                                                            style: ElevatedButton
+                                                                .styleFrom(
+                                                                    primary:
+                                                                        tableRow[
+                                                                            3],
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      color:
+                                                                          tableRow[
+                                                                              4],
+                                                                    )),
+                                                          )
+                                                        : tableRow[0] == "Icon"
+                                                            ? Icon(
+                                                                Icons
+                                                                    .trending_up,
+                                                                color: Colors
+                                                                    .green[500],
+                                                              )
+                                                            : tableRow[0] ==
+                                                                    "Custom"
+                                                                ? tableRow[1]
+                                                                : Container(),
                               ),
                             ),
                           ),
