@@ -23,6 +23,8 @@ class SimplifiedCustomResponsiveTable extends StatefulWidget {
 
   final String searchKey;
 
+  final String searchValue;
+
   final List<Map<String, dynamic>> data;
 
   final bool removeCheckBox;
@@ -42,6 +44,7 @@ class SimplifiedCustomResponsiveTable extends StatefulWidget {
     this.data = const [],
     this.removeCheckBox = true,
     this.footer = true,
+    this.searchValue = "",
   }) : super(key: key);
 
   @override
@@ -57,7 +60,6 @@ class _SimplifiedCustomResponsiveTableState
   int _total = 100;
   int? _currentPerPage = 10;
   List<bool>? _expanded;
-  String? _searchKey = "id";
 
   int _currentPage = 1;
   bool _isSearch = false;
@@ -107,13 +109,13 @@ class _SimplifiedCustomResponsiveTableState
 
   _filterData(value) {
     setState(() => _isLoading = true);
-
+    print("filter  " + widget.searchKey);
     try {
       if (value == "" || value == null) {
         _sourceFiltered = _sourceOriginal;
       } else {
         _sourceFiltered = _sourceOriginal
-            .where((data) => data[_searchKey!]
+            .where((data) => data[widget.searchKey]
                 .toString()
                 .toLowerCase()
                 .contains(value.toString().toLowerCase()))
@@ -137,7 +139,6 @@ class _SimplifiedCustomResponsiveTableState
     //window.document.onContextMenu.listen((evt) => evt.preventDefault());
 
     setState(() {
-      _searchKey = widget.searchKey;
       _data = widget.data;
       _headers = widget.headers;
     });
@@ -149,6 +150,7 @@ class _SimplifiedCustomResponsiveTableState
 
   @override
   Widget build(BuildContext context) {
+    _filterData(widget.searchValue);
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -250,7 +252,7 @@ class _SimplifiedCustomResponsiveTableState
                         ? _currentPerPage!
                         : _sourceFiltered.length;
                     _source = _sourceFiltered.getRange(0, _rangeTop).toList();
-                    _searchKey = value;
+                    // _searchKey = value;
 
                     _isLoading = false;
                   });
@@ -278,86 +280,90 @@ class _SimplifiedCustomResponsiveTableState
                 },
                 footers: widget.footer
                     ? [
-                  IconButton(
-                      onPressed: _initializeData,
-                      icon: Icon(
-                        Icons.refresh_sharp,
-                        size: 16,
-                      )),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: Text("Page"),
-                  ),
-                  Container(
-                    color: Colors.grey[300],
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 5, horizontal: 8),
-                      child:
-                          Text("${(_currentPage / _currentPerPage!).ceil()}"),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text("Rows per page"),
-                  ),
-                  if (_perPages.isNotEmpty)
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: DropdownButton<int>(
-                        value: _currentPerPage,
-                        items: _perPages
-                            .map((e) => DropdownMenuItem<int>(
-                                  child: Text("$e"),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            _currentPerPage = value;
-                            _currentPage = 1;
-                            _resetData();
-                          });
-                        },
-                        isExpanded: false,
-                      ),
-                    ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: Text("$_currentPage - $_currentPerPage of $_total"),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      size: 16,
-                    ),
-                    onPressed: _currentPage == 1
-                        ? null
-                        : () {
-                            var _nextSet = _currentPage - _currentPerPage!;
-                            setState(() {
-                              _currentPage = _nextSet > 1 ? _nextSet : 1;
-                              _resetData(start: _currentPage - 1);
-                            });
-                          },
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward_ios, size: 16),
-                    onPressed: _currentPage + _currentPerPage! - 1 > _total
-                        ? null
-                        : () {
-                            var _nextSet = _currentPage + _currentPerPage!;
+                        IconButton(
+                            onPressed: _initializeData,
+                            icon: Icon(
+                              Icons.refresh_sharp,
+                              size: 16,
+                            )),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          child: Text("Page"),
+                        ),
+                        Container(
+                          color: Colors.grey[300],
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 8),
+                            child: Text(
+                                "${(_currentPage / _currentPerPage!).ceil()}"),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text("Rows per page"),
+                        ),
+                        if (_perPages.isNotEmpty)
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            child: DropdownButton<int>(
+                              value: _currentPerPage,
+                              items: _perPages
+                                  .map((e) => DropdownMenuItem<int>(
+                                        child: Text("$e"),
+                                        value: e,
+                                      ))
+                                  .toList(),
+                              onChanged: (dynamic value) {
+                                setState(() {
+                                  _currentPerPage = value;
+                                  _currentPage = 1;
+                                  _resetData();
+                                });
+                              },
+                              isExpanded: false,
+                            ),
+                          ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          child: Text(
+                              "$_currentPage - $_currentPerPage of $_total"),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                            size: 16,
+                          ),
+                          onPressed: _currentPage == 1
+                              ? null
+                              : () {
+                                  var _nextSet =
+                                      _currentPage - _currentPerPage!;
+                                  setState(() {
+                                    _currentPage = _nextSet > 1 ? _nextSet : 1;
+                                    _resetData(start: _currentPage - 1);
+                                  });
+                                },
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.arrow_forward_ios, size: 16),
+                          onPressed:
+                              _currentPage + _currentPerPage! - 1 > _total
+                                  ? null
+                                  : () {
+                                      var _nextSet =
+                                          _currentPage + _currentPerPage!;
 
-                            setState(() {
-                              _currentPage = _nextSet < _total
-                                  ? _nextSet
-                                  : _total - _currentPerPage!;
-                              _resetData(start: _nextSet - 1);
-                            });
-                          },
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                  ),
+                                      setState(() {
+                                        _currentPage = _nextSet < _total
+                                            ? _nextSet
+                                            : _total - _currentPerPage!;
+                                        _resetData(start: _nextSet - 1);
+                                      });
+                                    },
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                        ),
                       ]
                     : [],
               ),

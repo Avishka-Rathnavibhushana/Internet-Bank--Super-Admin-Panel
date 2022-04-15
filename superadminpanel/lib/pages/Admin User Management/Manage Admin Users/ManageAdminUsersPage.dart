@@ -37,18 +37,18 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
       "lastname": "Rathnavibushana",
     },
     {
-      "username": "Avishka",
-      "employeeid": "00001520",
-      "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
+      "username": "Irosha",
+      "employeeid": "12001521",
+      "title": "MRS",
+      "firstname": "Irosha",
+      "lastname": "Erandi",
     },
     {
-      "username": "Avishka",
-      "employeeid": "00001520",
+      "username": "Ashen",
+      "employeeid": "86001356",
       "title": "MR",
-      "firstname": "Avishka",
-      "lastname": "Rathnavibushana",
+      "firstname": "Ashen",
+      "lastname": "Shanuka",
     },
   ];
 
@@ -90,6 +90,9 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
         textAlign: TextAlign.left),
   ];
 
+  String searchValue = "";
+  String searchKey = "username";
+
   @override
   void initState() {
     window.document.onContextMenu.listen((evt) => evt.preventDefault());
@@ -112,13 +115,45 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                       buttons: [
                         [
                           "Search",
-                          () => {print("1")},
+                          () {
+                            setState(() {
+                              if (userNameTextEditingController.text != "") {
+                                searchKey = "username";
+                                searchValue =
+                                    userNameTextEditingController.text;
+                              } else if (firstNameTextEditingController.text !=
+                                  "") {
+                                searchKey = "firstname";
+                                searchValue =
+                                    firstNameTextEditingController.text;
+                              } else if (employeeIdTextEditingController.text !=
+                                  "") {
+                                print("empid");
+                                searchKey = "employeeid";
+                                searchValue =
+                                    employeeIdTextEditingController.text;
+                              } else if (status != "- Select an option -") {
+                                searchKey = "title";
+                                searchValue = status;
+                              }
+                            });
+                          },
                           AppColors.buttonLightGreenColor,
                           AppColors.white,
                         ],
                         [
                           "Reset",
-                          () => {print("2")},
+                          () {
+                            print("2");
+                            setState(() {
+                              userNameTextEditingController.text = "";
+                              firstNameTextEditingController.text = "";
+                              employeeIdTextEditingController.text = "";
+                              status = "- Select an option -";
+                              searchKey = "username";
+                              searchValue = "";
+                            });
+                          },
                           Colors.grey[700],
                           AppColors.white,
                         ]
@@ -173,6 +208,8 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SimplifiedCustomResponsiveTable(
+                    searchValue: searchValue,
+                    searchKey: searchKey,
                     footerBackgroundColor: Colors.grey[300]!,
                     headerDecoration: BoxDecoration(
                       color: Colors.grey[300],
@@ -202,7 +239,6 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                       ),
                     ),
                     titleBackgroundColor: Colors.blue[100]!,
-                    searchKey: "id",
                     data: data,
                   ),
                 ),

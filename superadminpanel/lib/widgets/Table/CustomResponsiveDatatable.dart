@@ -308,7 +308,6 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-         
           ...widget.headers
               .where((header) => header.show == true)
               .map(
@@ -347,7 +346,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                     )),
               )
               .toList(),
-               if (widget.showSelect && widget.selecteds != null)
+          if (widget.showSelect && widget.selecteds != null)
             widget.removeCheckBox
                 ? Container(
                     width: 0,
@@ -430,7 +429,6 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    
                     ...widget.headers
                         .where((header) => header.show == true)
                         .map(
@@ -462,7 +460,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                           ),
                         )
                         .toList(),
-                        if (widget.showSelect && widget.selecteds != null)
+                    if (widget.showSelect && widget.selecteds != null)
                       Row(
                         children: [
                           widget.removeCheckBox
@@ -547,7 +545,15 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                     ],
                   ),
                 ),
-
+              // if (widget.source!.length == 0)
+              //   Expanded(
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         Text("No Data"),
+              //       ],
+              //     ),
+              //   ),
               /// footer
               if (widget.footers != null)
                 Row(
@@ -604,6 +610,16 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
               if (widget.isLoading) const LinearProgressIndicator(),
 
               if (widget.autoHeight) Column(children: desktopList()),
+
+              //  if (widget.source!.length == 0)
+              //   Expanded(
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         Text("No Data"),
+              //       ],
+              //     ),
+              //   ),
 
               if (!widget.autoHeight)
                 // desktopList
