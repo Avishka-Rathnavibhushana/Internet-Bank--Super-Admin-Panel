@@ -1,6 +1,7 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/widgets/CustomLabelContainer.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -30,49 +31,57 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
         items: [
           ResponsiveRowColumnItem(
             rowFlex: 1,
-            child: Center(
-              child: MainForm(
-                buttons: [
-                  [
-                    "Approve",
-                    () => {print("1")},
-                    AppColors.buttonLightGreenColor,
-                    AppColors.white,
-                  ],
-                  [
-                    "Reject",
-                    () => {print("1")},
-                    Colors.red[200],
-                    AppColors.white,
-                  ],
-                  [
-                    "Reset",
-                    () => {print("1")},
-                    AppColors.white,
-                    Colors.black,
-                    Colors.grey,
-                  ],
-                ],
-                textFieldItems: [
-                  [
-                    "Phone Number",
-                    "TextField",
-                    phoneNumberTextEditingController,
-                    true,
-                    true,
-                  ],
-                  [
-                    "Officer Name",
-                    "TextField",
-                    OfficerNameTextEditingController,
-                    true,
-                    true,
-                  ],
-                ],
-                topic: 'User Status',
-                topicBackgroundColor: Colors.blue[100],
-                topicTextColor: Colors.blue[150],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomLabelContainer(text: "Admin Schedular Notifier"),
+                Center(
+                  child: MainForm(
+                    buttons: [
+                      [
+                        "Update",
+                        () => {print("1")},
+                        AppColors.buttonLightGreenColor,
+                        AppColors.white,
+                      ],
+                      [
+                        "Delete",
+                        () => {print("1")},
+                        Colors.red[200],
+                        AppColors.white,
+                      ],
+                      [
+                        "Reset",
+                        () => {print("1")},
+                        AppColors.white,
+                        Colors.black,
+                        Colors.grey,
+                      ],
+                    ],
+                    textFieldItems: [
+                      [
+                        "Phone Number",
+                        "TextField",
+                        phoneNumberTextEditingController,
+                        true,
+                        true,
+                      ],
+                      [
+                        "Officer Name",
+                        "TextField",
+                        OfficerNameTextEditingController,
+                        true,
+                        true,
+                      ],
+                    ],
+                    topic: '',
+                    isHeaderAvailable: false,
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
+                  ),
+                ),
+              ],
             ),
           ),
           ResponsiveRowColumnItem(
@@ -88,25 +97,25 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
                 buttons: [],
                 textFieldItems: [
                   [
-                    "Admin Comment",
+                    "",
                     "Table",
                     [
                       [
-                        ["Label", "#"],
-                        ["Label", "Schedular Notifier Number"],
-                        ["Label", "Officer Name"],
-                        ["Label", "Action"],
+                        ["Label", "#", false, true],
+                        ["Label", "Schedular Notifier Number", false, true],
+                        ["Label", "Officer Name", false, true],
+                        ["Label", "Action", false, true],
                       ],
                       [
-                        ["Label", "1"],
-                        ["Label", ""],
-                        ["Label", "Rumesh Rodrigo"],
+                        ["Label", "1", false, false],
+                        ["Label", "", false, false],
+                        ["Label", "Rumesh Rodrigo", false, false],
                         ["TextLink", "Edit/Delete  ", () {}]
                       ],
                     ],
                   ],
                 ],
-                topic: 'User Status',
+                topic: '',
                 topicBackgroundColor: Colors.blue[100],
                 topicTextColor: Colors.blue[150],
               ),

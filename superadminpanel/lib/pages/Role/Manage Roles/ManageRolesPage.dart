@@ -71,14 +71,14 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
         textAlign: TextAlign.left),
   ];
 
-    List<bool> selected = [];
+  List<bool> selected = [];
   List<Color> selectedColors = [];
   List<List<dynamic>> selectedData = [];
   void initState() {
-    window.document.onContextMenu.listen((evt) => evt.preventDefault());
+    document.onContextMenu.listen((evt) => evt.preventDefault());
     super.initState();
 
-        setState(() {
+    setState(() {
       selectedColors = [Colors.grey[400]!, Colors.grey[400]!];
       selected = [false, false];
       selectedData = [
@@ -93,8 +93,6 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
       ];
     });
   }
-
-   
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +152,10 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
                   [
                     "",
                     "Custom",
-                    ClickableList(selected:selected, selectedColors: selectedColors, selectedData: selectedData),
+                    ClickableList(
+                        selected: selected,
+                        selectedColors: selectedColors,
+                        selectedData: selectedData),
                   ],
                 ],
                 topic: 'Add User Role',
@@ -173,7 +174,7 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SimplifiedCustomResponsiveTable(
-                footer: false,
+                footer: true,
                 removeCheckBox: true,
                 footerBackgroundColor: Colors.grey[300]!,
                 headerDecoration: BoxDecoration(
@@ -184,21 +185,24 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
                   [
                     "Edit",
                     1,
-                    (data) {
-                      print(data["roleName"]);
-                      // Navigator.pushNamed(context, RouteNames.editRoles)
-                      // await Utils.navigateTo(context, RouteNames.editRoles, false);
+                    (data) async {
+                      await Utils.navigateTo(
+                          context, RouteNames.manageRoles, false);
+                      await Utils.navigateTo(
+                          context, RouteNames.editRoles, false);
+                          
                     }
                   ],
                 ],
                 rightClickable: true,
                 title: Text(
                   "User Roles",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
                   ),
                 ),
-                titleBackgroundColor: Colors.blue[100]!,
+                titleBackgroundColor: Colors.blue[700]!,
                 searchKey: "Role Name",
                 data: data,
               ),
@@ -209,4 +213,3 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
     );
   }
 }
-

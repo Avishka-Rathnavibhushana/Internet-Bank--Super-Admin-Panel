@@ -2,7 +2,9 @@ import 'dart:html';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/RouteNames.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/utils/Utils.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -177,7 +179,7 @@ class _AdminUserApprovalQueuePageState
 
   @override
   void initState() {
-    window.document.onContextMenu.listen((evt) => evt.preventDefault());
+    document.onContextMenu.listen((evt) => evt.preventDefault());
     super.initState();
   }
 
@@ -256,17 +258,13 @@ class _AdminUserApprovalQueuePageState
                     headers: headers,
                     rightClickActions: [
                       [
-                        "Edit",
+                        "Approve",
                         1,
-                        (data) {
-                          print(data["username"]);
-                        }
-                      ],
-                      [
-                        "Change Password",
-                        2,
-                        (data) {
-                          print(data["title"]);
+                        (data) async {
+                          await Utils.navigateTo(context,
+                              RouteNames.adminUserApprovalQueue, false);
+                          await Utils.navigateTo(
+                              context, RouteNames.adminUserApproval, false);
                         }
                       ],
                     ],
@@ -274,10 +272,11 @@ class _AdminUserApprovalQueuePageState
                     title: Text(
                       "Admin Users",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
                       ),
                     ),
-                    titleBackgroundColor: Colors.blue[100]!,
+                    titleBackgroundColor: Colors.blue[700]!,
                     searchKey: "id",
                     data: data,
                   ),

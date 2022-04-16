@@ -84,9 +84,7 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                               margin: EdgeInsets.only(
                                 right: tableRow[0] != "Label"
                                     ? 0
-                                    : tableRow.length == 2
-                                        ? 0
-                                        : tableRow[2]
+                                    : tableRow[2]
                                             ? 10
                                             : 0,
                               ),
@@ -104,9 +102,7 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                                     width: 1,
                                     style: tableRow[0] != "Label"
                                         ? BorderStyle.none
-                                        : tableRow.length == 2
-                                            ? BorderStyle.none
-                                            : tableRow[2]
+                                        : tableRow[2]
                                                 ? BorderStyle.solid
                                                 : BorderStyle.none,
                                     color: widget.topicBackgroundColor!,
@@ -122,6 +118,11 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                                             vertical: 6.5),
                                         child: Text(
                                           tableRow[1],
+                                          style: TextStyle(
+                                            fontWeight: tableRow[3]
+                                                ? FontWeight.w900
+                                                : FontWeight.normal,
+                                          ),
                                         ),
                                       )
                                     : tableRow[0] == "TextLink"

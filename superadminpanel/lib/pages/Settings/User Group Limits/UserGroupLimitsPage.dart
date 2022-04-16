@@ -31,14 +31,14 @@ class _UserGroupLimitsPageState extends State<UserGroupLimitsPage> {
                 buttons: [],
                 textFieldItems: [
                   [
-                    "Admin Comment",
+                    "",
                     "Table",
                     [
                       [
-                        ["Label", "Title"],
+                        ["Label", "DEFAULT", false, false],
                         [
                           "TextLink",
-                          "MISS",
+                          "Add/Edit",
                           () async {
                             await Utils.navigateTo(context,
                                 RouteNames.createUserGroupLimits, false);
@@ -66,7 +66,8 @@ class _UserGroupLimitsPageState extends State<UserGroupLimitsPage> {
                     ],
                   ],
                 ],
-                topic: 'User Status',
+                topic: '',
+                isHeaderAvailable: false,
                 topicBackgroundColor: Colors.blue[100],
                 topicTextColor: Colors.blue[150],
               ),

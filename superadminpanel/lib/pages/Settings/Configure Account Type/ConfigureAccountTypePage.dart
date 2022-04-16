@@ -114,7 +114,8 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
                     },
                   ],
                 ],
-                topic: 'User Status',
+                topic: '',
+                isHeaderAvailable: false,
                 topicBackgroundColor: Colors.blue[100],
                 topicTextColor: Colors.blue[150],
               ),
@@ -133,16 +134,16 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
                 buttons: [],
                 textFieldItems: [
                   [
-                    "Admin Comment",
+                    "",
                     "Table",
                     [
                       [
-                        ["Label", "Field Name"],
-                        ["Label", "Display Name"],
-                        ["Label", "Action"],
+                        ["Label", "Field Name", false, true],
+                        ["Label", "Display Name", false, true],
+                        ["Label", "Action", false, true],
                       ],
                       [
-                        ["Label", "AccountNumber"],
+                        ["Label", "AccountNumber", false, false],
                         ["TextBox", yec],
                         [
                           "CheckBox",
@@ -157,7 +158,7 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
                     ],
                   ],
                 ],
-                topic: 'User Status',
+                topic: '',
                 topicBackgroundColor: Colors.blue[100],
                 topicTextColor: Colors.blue[150],
               ),

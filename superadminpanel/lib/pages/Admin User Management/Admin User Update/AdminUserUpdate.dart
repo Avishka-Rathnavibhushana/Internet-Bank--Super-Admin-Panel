@@ -28,48 +28,12 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
   TextEditingController employeeIdTextEditingController =
       TextEditingController();
 
-  // table data
-  List<Map<String, dynamic>> data = [
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-  ];
-
-  List<DatatableHeader> headers = [
-    DatatableHeader(
-        text: "Role Name",
-        value: "rolename",
-        show: true,
-        sortable: false,
-        flex: 1,
-        textAlign: TextAlign.left),
-    DatatableHeader(
-        text: "Description",
-        value: "description",
-        show: true,
-        sortable: false,
-        flex: 2,
-        textAlign: TextAlign.left),
-  ];
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return AppScaffold(
-      pageTitle: [PageTitles.adminUserManagement, PageTitles.adminUserUpdate],
+      pageTitle: [PageTitles.adminUserManagement,
+        PageTitles.manageAdminUsers, PageTitles.adminUserUpdate],
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
@@ -157,25 +121,35 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                 rowFlex: 2,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: SimplifiedCustomResponsiveTable(
-                    footer: false,
-                    removeCheckBox: false,
-                    footerBackgroundColor: Colors.grey[300]!,
-                    headerDecoration: BoxDecoration(
-                      color: Colors.grey[300],
-                    ),
-                    headers: headers,
-                    rightClickActions: [],
-                    rightClickable: false,
-                    title: Text(
-                      "Role",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    titleBackgroundColor: Colors.blue[100]!,
-                    searchKey: "description",
-                    data: data,
+                  child: MainForm(
+                    isHeaderAvailable: true,
+                    buttons: [],
+                    textFieldItems: [
+                      [
+                        "",
+                        "Table",
+                        [
+                          [
+                            ["Label", "Role Name", false, true],
+                            ["Label", "Description", false, true],
+                            ["Label", "Action", false, true],
+                          ],
+                          [
+                            ["Label", "24x7CallCenter", false, false],
+                            ["Label", "Call Center", false, false],
+                            ["CheckBox", false, (vale) {}]
+                          ],
+                          [
+                            ["Label", "24x7CallCenter", false, false],
+                            ["Label", "Call Center", false, false],
+                            ["CheckBox", false, (vale) {}]
+                          ],
+                        ],
+                      ],
+                    ],
+                    topic: 'Role',
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
                   ),
                 ),
               ),

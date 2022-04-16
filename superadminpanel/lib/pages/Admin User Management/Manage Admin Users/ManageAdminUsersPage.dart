@@ -2,7 +2,9 @@ import 'dart:html';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/RouteNames.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/utils/Utils.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -95,7 +97,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
 
   @override
   void initState() {
-    window.document.onContextMenu.listen((evt) => evt.preventDefault());
+    document.onContextMenu.listen((evt) => evt.preventDefault());
     super.initState();
   }
 
@@ -219,15 +221,21 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                       [
                         "Edit",
                         1,
-                        (data) {
-                          print(data["username"]);
+                        (data) async {
+                          await Utils.navigateTo(
+                              context, RouteNames.manageAdminUsers, false);
+                          await Utils.navigateTo(
+                              context, RouteNames.adminUserUpdate, false);
                         }
                       ],
                       [
                         "Change Password",
                         2,
-                        (data) {
-                          print(data["title"]);
+                        (data) async {
+                          await Utils.navigateTo(
+                              context, RouteNames.manageAdminUsers, false);
+                          await Utils.navigateTo(
+                              context, RouteNames.manageBankingUsers, false);
                         }
                       ],
                     ],
@@ -235,10 +243,11 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                     title: Text(
                       "Admin Users",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
                       ),
                     ),
-                    titleBackgroundColor: Colors.blue[100]!,
+                    titleBackgroundColor: Colors.blue[700]!,
                     data: data,
                   ),
                 ),

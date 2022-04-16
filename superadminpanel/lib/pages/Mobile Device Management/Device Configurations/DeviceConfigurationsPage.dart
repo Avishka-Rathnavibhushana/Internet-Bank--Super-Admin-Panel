@@ -2,6 +2,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/colors.dart';
 import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/CreateUserGroupLimitsPage.dart';
+import 'package:superadminpanel/widgets/CustomLabelContainer.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -43,58 +44,67 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
         items: [
           ResponsiveRowColumnItem(
             rowFlex: 1,
-            child: Center(
-              child: MainForm(
-                buttons: [
-                  [
-                    "Update Configurations",
-                    () => {print("1")},
-                    AppColors.buttonLightGreenColor,
-                    AppColors.white,
-                  ],
-                ],
-                textFieldItems: [
-                  [
-                    "",
-                    "Radio",
-                    [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomLabelContainer(
+                    text:
+                        "Update the global configuration details for handle mobile devices."),
+                Center(
+                  child: MainForm(
+                    buttons: [
                       [
-                        "Single Device",
-                        deviceCount,
-                        (value) {
-                          setState(() {
-                            deviceCount = "Single Device";
-                            
-                            deviceCountTextEditingController.text == "1";
-                          });
-                        }
-                      ],
-                      [
-                        "Multiple Devices",
-                        deviceCount,
-                        (value) {
-                          setState(() {
-                            deviceCount = "Multiple Devices";
-                            deviceCountTextEditingController.text == "2";
-                          });
-                        }
+                        "Update Configurations",
+                        () => {print("1")},
+                        AppColors.buttonLightGreenColor,
+                        AppColors.white,
                       ],
                     ],
-                  ],
-                  [
-                    "",
-                    "TextField",
-                    deviceCountTextEditingController,
-                    true,
-                    true,
-                    deviceCount == "Single Device" ? false : true,
-                  ],
-                ],
-                topic: '',
-                isHeaderAvailable: false,
-                topicBackgroundColor: Colors.blue[100],
-                topicTextColor: Colors.blue[150],
-              ),
+                    textFieldItems: [
+                      [
+                        "",
+                        "Radio",
+                        [
+                          [
+                            "Single Device",
+                            deviceCount,
+                            (value) {
+                              setState(() {
+                                deviceCount = "Single Device";
+
+                                deviceCountTextEditingController.text == "1";
+                              });
+                            }
+                          ],
+                          [
+                            "Multiple Devices",
+                            deviceCount,
+                            (value) {
+                              setState(() {
+                                deviceCount = "Multiple Devices";
+                                deviceCountTextEditingController.text == "2";
+                              });
+                            }
+                          ],
+                        ],
+                      ],
+                      [
+                        "",
+                        "TextField",
+                        deviceCountTextEditingController,
+                        true,
+                        true,
+                        deviceCount == "Single Device" ? false : true,
+                      ],
+                    ],
+                    topic: '',
+                    isHeaderAvailable: false,
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
+                  ),
+                ),
+              ],
             ),
           ),
         ],

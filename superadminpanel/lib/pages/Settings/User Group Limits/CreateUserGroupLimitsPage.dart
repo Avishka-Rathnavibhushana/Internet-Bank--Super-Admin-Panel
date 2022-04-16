@@ -1,6 +1,7 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/widgets/CustomLabelContainer.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -31,69 +32,94 @@ class _CreateUserGroupLimitsPageState extends State<CreateUserGroupLimitsPage> {
         items: [
           ResponsiveRowColumnItem(
             rowFlex: 1,
-            child: Center(
-              child: MainForm(
-                isHeaderAvailable: false,
-                buttons: [
-                  [
-                    "Update",
-                    () => {print("1")},
-                    AppColors.buttonLightGreenColor,
-                    AppColors.white,
-                  ],
-                  [
-                    "Reset",
-                    () => {print("1")},
-                    Colors.grey[700],
-                    AppColors.white,
-                  ],
-                ],
-                textFieldItems: [
-                  ["", "Custom", TextLabel(text: "User Group: GOLD")],
-                  [
-                    "Admin Comment",
-                    "Table",
-                    [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomLabelContainer(
+                    text: "**Please fill all amount feild before submit."),
+                Center(
+                  child: MainForm(
+                    isHeaderAvailable: false,
+                    buttons: [
                       [
-                        ["Label", ""],
-                        ["Label", "Daily Limit"],
-                        ["Label", "Transaction Limit"],
-                        ["Label", "OTP initiation Sealing Value"],
+                        "Update",
+                        () => {print("1")},
+                        AppColors.buttonLightGreenColor,
+                        AppColors.white,
                       ],
                       [
-                        ["Label", "Own account"],
-                        ["TextBox", yec],
-                        ["TextBox", yec],
-                        ["Label", ""]
-                      ],
-                      [
-                        ["Label", "3rd Party account within same bank"],
-                        ["TextBox", yec],
-                        ["TextBox", yec],
-                        ["TextBox", yec]
-                      ],
-                      [
-                        [
-                          "Label",
-                          "3rd part account other bank and bill payments"
-                        ],
-                        ["TextBox", yec],
-                        ["TextBox", yec],
-                        ["TextBox", yec]
-                      ],
-                      [
-                        ["Label", "sPay anyone fund Transfers"],
-                        ["TextBox", yec],
-                        ["TextBox", yec],
-                        ["Label", ""]
+                        "Reset",
+                        () => {print("1")},
+                        Colors.grey[700],
+                        AppColors.white,
                       ],
                     ],
-                  ],
-                ],
-                topic: 'User Status',
-                topicBackgroundColor: Colors.blue[100],
-                topicTextColor: Colors.blue[150],
-              ),
+                    textFieldItems: [
+                      ["", "Custom", TextLabel(text: "User Group: GOLD")],
+                      [
+                        "",
+                        "Table",
+                        [
+                          [
+                            ["Label", "", false, true],
+                            ["Label", "Daily Limit", false, true],
+                            ["Label", "Transaction Limit", false, true],
+                            [
+                              "Label",
+                              "OTP initiation Sealing Value",
+                              false,
+                              true
+                            ],
+                          ],
+                          [
+                            ["Label", "Own account", false, true],
+                            ["TextBox", yec],
+                            ["TextBox", yec],
+                            ["Label", "", false, false]
+                          ],
+                          [
+                            [
+                              "Label",
+                              "3rd Party account within same bank",
+                              false,
+                              true
+                            ],
+                            ["TextBox", yec],
+                            ["TextBox", yec],
+                            ["TextBox", yec]
+                          ],
+                          [
+                            [
+                              "Label",
+                              "3rd part account other bank and bill payments",
+                              false,
+                              true
+                            ],
+                            ["TextBox", yec],
+                            ["TextBox", yec],
+                            ["TextBox", yec]
+                          ],
+                          [
+                            [
+                              "Label",
+                              "sPay anyone fund Transfers",
+                              false,
+                              true
+                            ],
+                            ["TextBox", yec],
+                            ["TextBox", yec],
+                            ["Label", "", false, false]
+                          ],
+                        ],
+                      ],
+                    ],
+                    topic: 'User Status',
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
+                  ),
+                ),
+              ],
             ),
           )
         ],
@@ -109,84 +135,5 @@ class TextLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(text);
-  }
-}
-
-class SimpleCustomTable extends StatefulWidget {
-  final itemList;
-
-  final Color? topicBackgroundColor;
-  const SimpleCustomTable({
-    Key? key,
-    required this.topicBackgroundColor,
-    required this.itemList,
-  }) : super(key: key);
-
-  @override
-  State<SimpleCustomTable> createState() => _SimpleCustomTableState();
-}
-
-class _SimpleCustomTableState extends State<SimpleCustomTable> {
-  Color buttonColor = Colors.blue;
-  bool underlined = false;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ...widget.itemList
-            .map(
-              (tablColumn) => Row(
-                children: [
-                  ...tablColumn
-                      .map(
-                        (tableRow) => Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                width: 1,
-                                color: widget.topicBackgroundColor!,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(5),
-                              child: tableRow.length == 1
-                                  ? Text(tableRow[0])
-                                  : InkWell(
-                                      onHover: (value) {
-                                        if (value) {
-                                          setState(() {
-                                            buttonColor = Colors.blue[200]!;
-                                            underlined = true;
-                                          });
-                                        } else {
-                                          setState(() {
-                                            buttonColor = Colors.blue;
-                                            underlined = false;
-                                          });
-                                        }
-                                      },
-                                      onTap: tableRow[1],
-                                      child: Text(
-                                        tableRow[0],
-                                        style: TextStyle(
-                                            color: buttonColor,
-                                            decoration: underlined
-                                                ? TextDecoration.underline
-                                                : TextDecoration.none),
-                                      ),
-                                    ),
-                            ),
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ],
-              ),
-            )
-            .toList(),
-      ],
-    );
   }
 }

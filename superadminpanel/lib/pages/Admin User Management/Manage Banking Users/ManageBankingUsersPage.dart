@@ -27,6 +27,7 @@ class _ManageBankingUsersPageState extends State<ManageBankingUsersPage> {
     return AppScaffold(
       pageTitle: [
         PageTitles.adminUserManagement,
+        PageTitles.manageAdminUsers,
         PageTitles.manageBankingUsers
       ],
       body: CustomPageView(

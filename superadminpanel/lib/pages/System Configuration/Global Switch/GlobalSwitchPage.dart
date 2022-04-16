@@ -1,5 +1,6 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/widgets/CustomLabelContainer.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
@@ -28,80 +29,89 @@ class _GlobalSwitchPageState extends State<GlobalSwitchPage> {
         items: [
           ResponsiveRowColumnItem(
             rowFlex: 1,
-            child: Center(
-              child: MainForm(
-                buttons: [
-                  [
-                    "Submit",
-                    () => {print("1")},
-                    AppColors.buttonLightGreenColor,
-                    AppColors.white,
-                  ],
-                ],
-                textFieldItems: [
-                  [
-                    "Admin Comment",
-                    "Table",
-                    [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomLabelContainer(
+                    text:
+                        "Internet Banking Activate/Deactivate Configurations"),
+                Center(
+                  child: MainForm(
+                    buttons: [
                       [
-                        ["Label", ""],
-                        ["Label", "Activate"],
-                        ["Label", "Deactivate"],
+                        "Submit",
+                        () => {print("1")},
+                        AppColors.buttonLightGreenColor,
+                        AppColors.white,
                       ],
+                    ],
+                    textFieldItems: [
                       [
-                        ["Label", "INTERNET_BANKING"],
+                        "",
+                        "Table",
                         [
-                          "Radio",
-                          "Activate",
-                          (value) {
-                            setState(() {
-                              internetBankingRadio = value;
-                            });
-                          },
-                          internetBankingRadio
-                        ],
-                        [
-                          "Radio",
-                          "Deactivate",
-                          (value) {
-                            setState(() {
-                              internetBankingRadio = "Deactivate";
-                            });
-                          },
-                          internetBankingRadio
-                        ],
-                      ],
-                      [
-                        ["Label", "MOBILE"],
-                        [
-                          "Radio",
-                          "Activate",
-                          (value) {
-                            setState(() {
-                              mobileRadio = "Activate";
-                            });
-                          },
-                          mobileRadio
-                        ],
-                        [
-                          "Radio",
-                          "Deactivate",
-                          (value) {
-                            setState(() {
-                              mobileRadio = "Deactivate";
-                            });
-                          },
-                          mobileRadio
+                          [
+                            ["Label", "", false, true],
+                            ["Label", "Activate", false, true],
+                            ["Label", "Deactivate", false, true],
+                          ],
+                          [
+                            ["Label", "INTERNET_BANKING", false, false],
+                            [
+                              "Radio",
+                              "Activate",
+                              (value) {
+                                setState(() {
+                                  internetBankingRadio = value;
+                                });
+                              },
+                              internetBankingRadio
+                            ],
+                            [
+                              "Radio",
+                              "Deactivate",
+                              (value) {
+                                setState(() {
+                                  internetBankingRadio = "Deactivate";
+                                });
+                              },
+                              internetBankingRadio
+                            ],
+                          ],
+                          [
+                            ["Label", "MOBILE", false, false],
+                            [
+                              "Radio",
+                              "Activate",
+                              (value) {
+                                setState(() {
+                                  mobileRadio = "Activate";
+                                });
+                              },
+                              mobileRadio
+                            ],
+                            [
+                              "Radio",
+                              "Deactivate",
+                              (value) {
+                                setState(() {
+                                  mobileRadio = "Deactivate";
+                                });
+                              },
+                              mobileRadio
+                            ],
+                          ],
                         ],
                       ],
                     ],
-                  ],
-                ],
-                topic: '',
-                isHeaderAvailable: false,
-                topicBackgroundColor: Colors.blue[100],
-                topicTextColor: Colors.blue[150],
-              ),
+                    topic: '',
+                    isHeaderAvailable: false,
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
+                  ),
+                ),
+              ],
             ),
           ),
         ],

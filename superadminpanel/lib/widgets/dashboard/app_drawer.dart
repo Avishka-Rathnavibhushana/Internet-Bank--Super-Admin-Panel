@@ -64,11 +64,9 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
   @override
   Widget build(BuildContext context) {
     if (_selectedRoute == RouteNames.manageAdminUsers ||
-        _selectedRoute == RouteNames.adminUserUpdate ||
-        _selectedRoute == RouteNames.manageBankingUsers ||
+        
         _selectedRoute == RouteNames.createAdminUser ||
-        _selectedRoute == RouteNames.adminUserApprovalQueue ||
-        _selectedRoute == RouteNames.adminUserApproval) {
+        _selectedRoute == RouteNames.adminUserApprovalQueue ) {
       adminUserManagementExpandableController.expanded = true;
     } else if (_selectedRoute == RouteNames.changePassword ||
         _selectedRoute == RouteNames.bankSetting ||
@@ -148,26 +146,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                         },
                         selected: _selectedRoute == RouteNames.manageAdminUsers,
                       ),
-                      ListTile(
-                        title: const Text(PageTitles.adminUserUpdate),
-                        onTap: () async {
-                          await Utils.navigateTo(
-                              context, RouteNames.adminUserUpdate, widget.permanentlyDisplay);
-                          adminUserManagementExpandableController.expanded =
-                              true;
-                        },
-                        selected: _selectedRoute == RouteNames.adminUserUpdate,
-                      ),
-                      ListTile(
-                        title: const Text(PageTitles.manageBankingUsers),
-                        onTap: () async {
-                          await Utils.navigateTo(
-                              context, RouteNames.manageBankingUsers, widget.permanentlyDisplay);
-                          adminUserManagementExpandableController.expanded =
-                              true;
-                        },
-                        selected: _selectedRoute == RouteNames.manageBankingUsers,
-                      ),
+                      
                       ListTile(
                         title: const Text(PageTitles.createAdminUser),
                         onTap: () async {
@@ -188,17 +167,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                         },
                         selected: _selectedRoute == RouteNames.adminUserApprovalQueue,
                       ),
-                      ListTile(
-                        title: const Text(PageTitles.adminUserApproval),
-                        onTap: () async {
-                          await Utils.navigateTo(
-                              context, RouteNames.adminUserApproval, widget.permanentlyDisplay);
-                          adminUserManagementExpandableController.expanded =
-                              true;
-                        },
-                        selected: _selectedRoute == RouteNames.adminUserApproval,
-                      ),
-                      
+                     
                     ],
                   ),
                   collapsed: Container(),

@@ -109,7 +109,6 @@ class _SimplifiedCustomResponsiveTableState
 
   _filterData(value) {
     setState(() => _isLoading = true);
-    print("filter  " + widget.searchKey);
     try {
       if (value == "" || value == null) {
         _sourceFiltered = _sourceOriginal;

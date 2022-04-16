@@ -1,5 +1,6 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/constants/colors.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -33,43 +34,6 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
   TextEditingController passwordTextEditingController = TextEditingController();
   TextEditingController reTypePasswordTextEditingController =
       TextEditingController();
-
-// table data
-  List<Map<String, dynamic>> data = [
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-    {
-      "rolename": "24x7CallCenter",
-      "description": "Call center",
-    },
-  ];
-
-  List<DatatableHeader> headers = [
-    DatatableHeader(
-        text: "Role Name",
-        value: "rolename",
-        show: true,
-        sortable: false,
-        flex: 1,
-        textAlign: TextAlign.left),
-    DatatableHeader(
-        text: "Description",
-        value: "description",
-        show: true,
-        sortable: false,
-        flex: 2,
-        textAlign: TextAlign.left),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -183,6 +147,7 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
                           true,
                           true,
                         ],
+                        ["", "Custom", Text("Note: User Id/Password minimum length 8..*", style: TextStyle(color: AppColors.primaryColor,),),],
                       ],
                       topic: 'User Name and Password',
                       topicBackgroundColor: Colors.blue[100],
@@ -198,25 +163,48 @@ class _CreateAdminUserPageState extends State<CreateAdminUserPage> {
                 rowFlex: 2,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: SimplifiedCustomResponsiveTable(
-                    footer: false,
-                    removeCheckBox: false,
-                    footerBackgroundColor: Colors.grey[300]!,
-                    headerDecoration: BoxDecoration(
-                      color: Colors.grey[300],
-                    ),
-                    headers: headers,
-                    rightClickActions: [],
-                    rightClickable: false,
-                    title: Text(
-                      "Role",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    titleBackgroundColor: Colors.blue[100]!,
-                    searchKey: "description",
-                    data: data,
+                  child: MainForm(
+                    isHeaderAvailable: true,
+                    buttons: [
+                      [
+                        "Submit",
+                        () {},
+                        AppColors.buttonLightGreenColor,
+                        AppColors.white,
+                      ],
+                      [
+                        "Reset",
+                        () {},
+                        Colors.grey[700],
+                        AppColors.white,
+                      ]
+                    ],
+                    textFieldItems: [
+                      [
+                        "",
+                        "Table",
+                        [
+                          [
+                            ["Label", "Role", false, true],
+                            ["Label", "Description", false, true],
+                            ["Label", "", false, true],
+                          ],
+                          [
+                            ["CheckBox", false, (vale) {}],
+                            ["Label", "24x7CallCenter", false, false],
+                            ["Label", "Call Center", false, false],
+                          ],
+                          [
+                            ["CheckBox", false, (vale) {}],
+                            ["Label", "24x7CallCenter", false, false],
+                            ["Label", "Call Center", false, false],
+                          ],
+                        ],
+                      ],
+                    ],
+                    topic: 'Role',
+                    topicBackgroundColor: Colors.blue[100],
+                    topicTextColor: Colors.blue[150],
                   ),
                 ),
               ),

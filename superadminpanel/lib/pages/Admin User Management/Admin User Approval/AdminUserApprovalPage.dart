@@ -21,7 +21,11 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.adminUserManagement, PageTitles.adminUserApproval],
+      pageTitle: [
+        PageTitles.adminUserManagement,
+        PageTitles.adminUserApprovalQueue,
+        PageTitles.adminUserApproval
+      ],
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
@@ -33,20 +37,20 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                   buttons: [],
                   textFieldItems: [
                     [
-                      "Admin Comment",
+                      "",
                       "Table",
                       [
                         [
-                          ["Label", "Title"],
-                          ["Label", "MISS"]
+                          ["Label", "Title", false, true],
+                          ["Label", "MISS", false, true]
                         ],
                         [
-                          ["Label", "Title"],
-                          ["Label", "MISS"]
+                          ["Label", "Title", false, false],
+                          ["Label", "MISS", false, false]
                         ],
                         [
-                          ["Label", "Title"],
-                          ["Label", "MISS"]
+                          ["Label", "Title", false, false],
+                          ["Label", "MISS", false, false]
                         ],
                       ],
                     ],

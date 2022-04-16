@@ -43,22 +43,22 @@ class _EditRolesPagePageState extends State<EditRolesPagePage> {
                     false,
                   ],
                   [
-                    "Admin Comment",
+                    "",
                     "Table",
                     [
                       [
-                        ["Label", "Privilege Description"],
-                        ["Label", "Code"],
-                        ["Label", "Action"],
+                        ["Label", "Privilege Description", false, true],
+                        ["Label", "Code", false, true],
+                        ["Label", "Action", false, true],
                       ],
                       [
-                        ["Label", "Configure Account Type"],
-                        ["Label", "2017"],
+                        ["Label", "Configure Account Type", false, false],
+                        ["Label", "2017", false, false],
                         ["CheckBox", false, (vale) {}]
                       ],
                       [
-                        ["Label", "Configure Account Type"],
-                        ["Label", "2017"],
+                        ["Label", "Configure Account Type", false, false],
+                        ["Label", "2017", false, false],
                         ["CheckBox", false, (vale) {}]
                       ],
                     ],
