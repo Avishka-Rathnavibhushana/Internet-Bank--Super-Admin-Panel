@@ -24,6 +24,7 @@ import 'package:superadminpanel/pages/System%20Configuration/Global%20Switch/Glo
 import 'package:superadminpanel/pages/System%20Configuration/Pay%20Anyone%20Configuration/PayAnyoneConfigurationPage.dart';
 import 'package:superadminpanel/pages/System%20Configuration/Security%20View%20Configuration/SecurityViewConfigurationPage.dart';
 import 'package:superadminpanel/pages/System%20Configuration/Sms%20Configuration/SmsConfigurationPage.dart';
+import 'package:superadminpanel/pages/User/Login.dart';
 import 'constants/RouteNames.dart';
 import 'pages/Admin%20User%20Management/Manage%20Admin%20Users/ManageAdminUsersPage.dart';
 import 'widgets/dashboard/app_route_observer.dart';
@@ -58,9 +59,11 @@ class DemoApp extends StatelessWidget {
               value: (dynamic _) => const _InanimatePageTransitionsBuilder()),
         ),
       ),
-      initialRoute: RouteNames.manageAdminUsers,
+      initialRoute: RouteNames.login,
       navigatorObservers: [AppRouteObserver()],
       routes: {
+        //User
+        RouteNames.login: (_) => LoginPage(),
         //Admin user management
         RouteNames.manageAdminUsers: (_) => MangeAdminUsersPage(),
         RouteNames.adminUserUpdate: (_) => AdminUserUpdate(),

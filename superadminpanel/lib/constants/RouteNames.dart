@@ -1,6 +1,9 @@
 class RouteNames {
   // static const String root = '/';
 
+  //User
+  static const String login = '/login';
+
   //Admin user management
   static const String manageAdminUsers = '/manageAdminUsers';
   static const String adminUserUpdate = '/manageAdminUsers/updateAdminUser';
