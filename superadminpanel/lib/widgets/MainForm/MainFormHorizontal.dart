@@ -1,13 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:superadminpanel/constants/Colors.dart';
-import 'package:superadminpanel/widgets/MainForm/CustomSimpleTable.dart';
 
-import 'AppDropdownInput.dart';
-
+// ignore: must_be_immutable
 class MainFormHorizontal extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   var isHeaderAvailable;
 
   MainFormHorizontal({
@@ -23,7 +20,7 @@ class MainFormHorizontal extends StatelessWidget {
   var buttons = [];
   var textFieldItems = [];
   // textFieldItems types
-  // 1) TextField
+  // 1) TextField - [[0]Label Name:String, [1]Type:String="TextField", [2]controller:TextEditingController, [3 - optional]enabled:bool]
   String topic = "";
   Color? topicBackgroundColor = AppColors.white;
   Color? topicTextColor = AppColors.white;

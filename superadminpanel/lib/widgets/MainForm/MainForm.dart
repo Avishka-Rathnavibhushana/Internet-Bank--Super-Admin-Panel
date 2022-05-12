@@ -6,7 +6,9 @@ import 'package:superadminpanel/widgets/MainForm/CustomSimpleTable.dart';
 
 import 'AppDropdownInput.dart';
 
+// ignore: must_be_immutable
 class MainForm extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   var isHeaderAvailable;
 
   MainForm({
@@ -22,14 +24,14 @@ class MainForm extends StatelessWidget {
   var buttons = [];
   var textFieldItems = [];
   // textFieldItems types
-  // 1) TextField - [[0]Label Name:String, [1]Type:String="TextField", [2]controller:TextEditingController,true, [3]enabled:bool, [4]isRequired:bool]
+  // 1) TextField - [[0]Label Name:String, [1]Type:String="TextField", [2]controller:TextEditingController, [3]enabled:bool, [4]isRequired:bool, [5]errorTextVisible:bool, [6 - optional]obsecureText:bool, [7 - optional]errorText:String]
   // 2) DropDownTextField - [[0]Label Name:String, [1]Type:String="DropDownTextField", [2]options:List<dynamic>, [3]value:dynamic, [4]isRequired:bool, [5]onchanged:Function(dynamic)]
-  // 3) LabelField
-  // 4) CkeckBoxField
-  // 5) Radio
-  // 6) TextArea - [[0]Label Name:String, [1]Type:String="TextArea", [2]controller:TextEditingController,true, [3]maxLines:int, [4]isRequired:bool, [5]enabled:bool]
-  // 7) Table
-  // 8) Custom
+  // 3) LabelField - [[0 - removed]Label Name:String, [1]Type:String="LabelField", [2]content:String]
+  // 4) CkeckBoxField - [[0 - removed]Label Name:String, [1]Type:String="CkeckBoxField", [2]value:bool, [3]onChanged:Function(bool)]
+  // 5) Radio - [[0 - removed]Label Name:String, [1]Type:String="Radio", [2]items:List<dynamic>]
+  // 6) TextArea - [[0]Label Name:String, [1]Type:String="TextArea", [2]controller:TextEditingController, [3]maxLines:int, [4]isRequired:bool, [5]enabled:bool, [6]errorTextVisible:bool]
+  // 7) Table - [[0 - removed]Label Name:String, [1]Type:String="Table", [2]items:dynamic]
+  // 8) Custom - [[0 - removed]Label Name:String, [1]Type:String="Custom", [2]child:widget]
   String topic = "";
   Color? topicBackgroundColor = AppColors.white;
   Color? topicTextColor = AppColors.white;
@@ -84,7 +86,7 @@ class MainForm extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       (item[1] == "TextField" ||
-                              item[1] == "DropDownTextField" ||
+                                  item[1] == "DropDownTextField" ||
                                   item[1] == "TextArea") &&
                               item[0] != ""
                           ? Padding(
@@ -95,9 +97,10 @@ class MainForm extends StatelessWidget {
                                   Text(item[0]),
                                   item[4]
                                       ? const Text(
-                                    "*",
-                                    style: TextStyle(color: Colors.red),
-                                  ):Container(),
+                                          "*",
+                                          style: TextStyle(color: Colors.red),
+                                        )
+                                      : Container(),
                                 ],
                               ),
                             )

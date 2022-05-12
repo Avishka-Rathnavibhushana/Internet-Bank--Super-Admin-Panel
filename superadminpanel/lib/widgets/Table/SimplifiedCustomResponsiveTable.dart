@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/colors.dart';
@@ -83,7 +81,7 @@ class _SimplifiedCustomResponsiveTableState
     _expanded = List.generate(_currentPerPage!, (index) => false);
 
     setState(() => _isLoading = true);
-    Future.delayed(Duration(seconds: 3)).then((value) {
+    
       _sourceOriginal.clear();
       _sourceOriginal.addAll(_data);
       _sourceFiltered = _sourceOriginal;
@@ -92,14 +90,14 @@ class _SimplifiedCustomResponsiveTableState
           .getRange(0, _total < _currentPerPage! ? _total : _currentPerPage!)
           .toList();
       setState(() => _isLoading = false);
-    });
+    
   }
 
   _resetData({start: 0}) async {
     setState(() => _isLoading = true);
     var _expandedLen =
         _total - start < _currentPerPage! ? _total - start : _currentPerPage;
-    Future.delayed(Duration(seconds: 0)).then((value) {
+    Future.delayed(const Duration(seconds: 0)).then((value) {
       _expanded = List.generate(_expandedLen as int, (index) => false);
       _source.clear();
       _source = _sourceFiltered.getRange(start, start + _expandedLen).toList();
@@ -232,7 +230,7 @@ class _SimplifiedCustomResponsiveTableState
                   /// print(header);
                 },
                 onTabRow: (data) {
-                  print(data);
+                  //print(data);
                 },
                 onSort: (value) {
                   setState(() => _isLoading = true);
@@ -261,7 +259,6 @@ class _SimplifiedCustomResponsiveTableState
                 sortColumn: _sortColumn,
                 isLoading: _isLoading,
                 onSelect: (value, item) {
-                  print("$value  $item ");
                   if (value!) {
                     setState(() => _selecteds.add(item));
                   } else {
@@ -299,7 +296,7 @@ class _SimplifiedCustomResponsiveTableState
                           ),
                         ),
                         const Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: EdgeInsets.only(left: 10),
                           child: Text("Rows per page"),
                         ),
                         if (_perPages.isNotEmpty)
@@ -343,10 +340,10 @@ class _SimplifiedCustomResponsiveTableState
                                     _resetData(start: _currentPage - 1);
                                   });
                                 },
-                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          padding:const EdgeInsets.symmetric(horizontal: 15),
                         ),
                         IconButton(
-                          icon: Icon(Icons.arrow_forward_ios, size: 16),
+                          icon:const Icon(Icons.arrow_forward_ios, size: 16),
                           onPressed:
                               _currentPage + _currentPerPage! - 1 > _total
                                   ? null

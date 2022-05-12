@@ -117,7 +117,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: adminUserManagementExpandableController,
                   header: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       children: const [
@@ -176,7 +176,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: settingExpandableController,
                   header: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -189,7 +189,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                         SizedBox(
                           width: 3,
                         ),
-                        Center(child: const Text(PageTitles.settingUpperCase)),
+                        Center(child: Text(PageTitles.settingUpperCase)),
                       ],
                     ),
                   ),
@@ -270,7 +270,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: roleExpandableController,
                   header: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -435,7 +435,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                 ExpandablePanel(
                   controller: mobileDeviceConfigurationExpandableController,
                   header: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

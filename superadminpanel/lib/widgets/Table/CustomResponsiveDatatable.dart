@@ -421,7 +421,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                     top: widget.showSelect ? 8 : 15,
                     bottom: widget.showSelect ? 8 : 15),
 
-                /// TODO:
+         
                 decoration: widget.selecteds!.contains(data)
                     ? _selectedDecoration
                     : _rowDecoration,
@@ -463,7 +463,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                       Row(
                         children: [
                           widget.removeCheckBox
-                              ? Container(
+                              ? const SizedBox(
                                   width: 0,
                                   height: 0,
                                 )

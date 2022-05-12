@@ -89,7 +89,6 @@ class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
         "type": typeName
       });
       bool data = await RoleAndPrivilegesAPIs.createPrivilegeAPI(privilege);
-      print(data);
       reset();
     }
     
