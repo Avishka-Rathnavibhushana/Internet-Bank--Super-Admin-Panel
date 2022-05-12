@@ -32,7 +32,8 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return AppScaffold(
-      pageTitle: [PageTitles.adminUserManagement,
+      pageTitle: const [
+        PageTitles.adminUserManagement,
         PageTitles.manageAdminUsers, PageTitles.adminUserUpdate],
       body: SingleChildScrollView(
         child: Padding(
@@ -76,6 +77,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         firstNameTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "Last Name",
@@ -83,6 +85,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         lastNameTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "E-mail",
@@ -90,6 +93,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         emailTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "Confirm E-mail",
@@ -97,6 +101,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         confirmEmailTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "Employee id",
@@ -104,6 +109,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                         employeeIdTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                     ],
                     topic: 'Personal Details',
@@ -112,7 +118,7 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                   ),
                 ),
               ),
-              ResponsiveRowColumnItem(
+              const ResponsiveRowColumnItem(
                 child: SizedBox(
                   height: 20,
                 ),

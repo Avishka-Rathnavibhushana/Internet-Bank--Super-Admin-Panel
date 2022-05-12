@@ -31,7 +31,10 @@ class _ManageDevicesPageState extends State<ManageDevicesPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.mobileDeviceManagement, PageTitles.manageDevices],
+      pageTitle: const [
+        PageTitles.mobileDeviceManagement,
+        PageTitles.manageDevices
+      ],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(
@@ -59,6 +62,7 @@ class _ManageDevicesPageState extends State<ManageDevicesPage> {
                     userNameTextEditingController,
                     true,
                     true,
+                    false, // validation
                   ],
                   [
                     "UUID",
@@ -66,6 +70,7 @@ class _ManageDevicesPageState extends State<ManageDevicesPage> {
                     uuidTextEditingController,
                     true,
                     true,
+                    false, // validation
                   ],
                   [
                     "IMEI",
@@ -73,6 +78,7 @@ class _ManageDevicesPageState extends State<ManageDevicesPage> {
                     uuidTextEditingController,
                     true,
                     true,
+                    false, // validation
                   ],
                 ],
                 topic: '',

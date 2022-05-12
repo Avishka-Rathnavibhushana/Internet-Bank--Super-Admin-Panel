@@ -10,7 +10,7 @@ class DropDownContainer extends StatelessWidget {
       Widget w = Row(
         children: [
           Text(entry.key.toString()),
-          Spacer(),
+          const Spacer(),
           Text(entry.value.toString()),
         ],
       );

@@ -186,7 +186,7 @@ class _AdminUserApprovalQueuePageState
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.adminUserManagement,
         PageTitles.adminUserApprovalQueue
       ],
@@ -220,6 +220,7 @@ class _AdminUserApprovalQueuePageState
                           userNameTextEditingController,
                           true,
                           false,
+                          false, // validation
                         ],
                         [
                           "First Name",
@@ -227,6 +228,7 @@ class _AdminUserApprovalQueuePageState
                           firstNameTextEditingController,
                           true,
                           false,
+                          false, // validation
                         ],
                         [
                           "Emlpoyee Id",
@@ -234,6 +236,7 @@ class _AdminUserApprovalQueuePageState
                           employeeIdTextEditingController,
                           true,
                           false,
+                          false, // validation
                         ],
                       ],
                       topic: 'Filter',
@@ -241,7 +244,7 @@ class _AdminUserApprovalQueuePageState
                       topicTextColor: Colors.blue[150],
                     ),
                   )),
-              ResponsiveRowColumnItem(
+              const ResponsiveRowColumnItem(
                 child: SizedBox(
                   height: 20,
                 ),
@@ -269,7 +272,7 @@ class _AdminUserApprovalQueuePageState
                       ],
                     ],
                     rightClickable: true,
-                    title: Text(
+                    title: const Text(
                       "Admin Users",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,

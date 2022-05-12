@@ -37,7 +37,7 @@ class MainForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         padding: EdgeInsets.only(bottom: buttons.length == 0 ? 0 : 20),
         decoration: BoxDecoration(
@@ -93,7 +93,8 @@ class MainForm extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Text(item[0]),
-                                  item[4]?Text(
+                                  item[4]
+                                      ? const Text(
                                     "*",
                                     style: TextStyle(color: Colors.red),
                                   ):Container(),
@@ -109,10 +110,15 @@ class MainForm extends StatelessWidget {
                               child: TextField(
                                 controller: item[2],
                                 maxLines: 1,
+                                obscureText: item.length >= 7 ? item[6] : false,
                                 decoration: InputDecoration(
                                   isDense: true,
-                                  
-                                  contentPadding: EdgeInsets.symmetric(
+                                  errorText: item[5]
+                                      ? item.length >= 8
+                                          ? item[7]
+                                          : 'Field cannot be empty.'
+                                      : null,
+                                  contentPadding: const EdgeInsets.symmetric(
                                     vertical: 13,
                                     horizontal: 10,
                                   ),
@@ -120,7 +126,7 @@ class MainForm extends StatelessWidget {
                                   enabled: item[3],
                                   fillColor:
                                       item[3] ? Colors.white : Colors.grey[300],
-                                  border: OutlineInputBorder(),
+                                  border: const OutlineInputBorder(),
                                 ),
                               ),
                             )
@@ -185,6 +191,9 @@ class MainForm extends StatelessWidget {
                                                 maxLines: item[3],
                                                 decoration: InputDecoration(
                                                   isDense: true,
+                                                  errorText: item[6]
+                                                      ? 'Field cannot be empty.'
+                                                      : null,
                                                   contentPadding:
                                                       EdgeInsets.symmetric(
                                                     vertical: 13,

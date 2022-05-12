@@ -156,12 +156,12 @@ class _SimplifiedCustomResponsiveTableState
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxHeight: 500,
               minHeight: 500,
             ),
             child: Card(
-              margin: EdgeInsets.all(0),
+              margin: const EdgeInsets.all(0),
               elevation: 1,
               shadowColor: Colors.black,
               clipBehavior: Clip.none,
@@ -173,11 +173,11 @@ class _SimplifiedCustomResponsiveTableState
                 rightClickable: widget.rightClickable,
                 titleBackgroundColor: widget.titleBackgroundColor,
                 footerBackgroundColor: widget.footerBackgroundColor,
-                reponseScreenSizes: [
+                reponseScreenSizes: const [
                   ScreenSize.xs,
                 ],
                 rightClickActions: widget.rightClickActions,
-                actions: [
+                actions: const [
                   // if (_isSearch)
                   //   Expanded(
                   //       child: TextField(
@@ -219,7 +219,7 @@ class _SimplifiedCustomResponsiveTableState
                 autoHeight: false,
                 dropContainer: (data) {
                   if (int.tryParse(data['id'].toString())!.isEven) {
-                    return Text("is Even");
+                    return const Text("is Even");
                   }
                   return DropDownContainer(data: data);
                 },
@@ -281,13 +281,13 @@ class _SimplifiedCustomResponsiveTableState
                     ? [
                         IconButton(
                             onPressed: _initializeData,
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.refresh_sharp,
                               size: 16,
                             )),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 15),
-                          child: Text("Page"),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: const Text("Page"),
                         ),
                         Container(
                           color: Colors.grey[300],
@@ -298,13 +298,13 @@ class _SimplifiedCustomResponsiveTableState
                                 "${(_currentPage / _currentPerPage!).ceil()}"),
                           ),
                         ),
-                        Padding(
+                        const Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: Text("Rows per page"),
                         ),
                         if (_perPages.isNotEmpty)
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
                             child: DropdownButton<int>(
                               value: _currentPerPage,
                               items: _perPages
@@ -324,12 +324,12 @@ class _SimplifiedCustomResponsiveTableState
                             ),
                           ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Text(
                               "$_currentPage - $_currentPerPage of $_total"),
                         ),
                         IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_back_ios,
                             size: 16,
                           ),
@@ -361,7 +361,7 @@ class _SimplifiedCustomResponsiveTableState
                                         _resetData(start: _nextSet - 1);
                                       });
                                     },
-                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                         ),
                       ]
                     : [],

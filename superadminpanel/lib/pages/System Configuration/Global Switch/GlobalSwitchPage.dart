@@ -21,7 +21,7 @@ class _GlobalSwitchPageState extends State<GlobalSwitchPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.systemConfiguration,
         PageTitles.globalSwitchPageTopic
       ],
@@ -33,7 +33,7 @@ class _GlobalSwitchPageState extends State<GlobalSwitchPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(
+                const CustomLabelContainer(
                     text:
                         "Internet Banking Activate/Deactivate Configurations"),
                 Center(

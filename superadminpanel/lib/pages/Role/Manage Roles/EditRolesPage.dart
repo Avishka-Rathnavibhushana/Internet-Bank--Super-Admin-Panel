@@ -21,7 +21,7 @@ class _EditRolesPagePageState extends State<EditRolesPagePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.role,
         PageTitles.manageRoles,
         PageTitles.editRoles
@@ -41,6 +41,7 @@ class _EditRolesPagePageState extends State<EditRolesPagePage> {
                     descriptionTextEditingController,
                     true,
                     false,
+                    false, // validation
                   ],
                   [
                     "",

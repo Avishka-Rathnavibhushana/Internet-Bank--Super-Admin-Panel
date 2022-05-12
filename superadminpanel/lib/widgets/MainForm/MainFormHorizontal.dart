@@ -31,7 +31,7 @@ class MainFormHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         padding: EdgeInsets.only(bottom: buttons.length == 0 ? 0 : 20),
         decoration: BoxDecoration(
@@ -97,7 +97,8 @@ class MainFormHorizontal extends StatelessWidget {
                                       isDense: true,
                                       enabled:
                                           item.length == 4 ? item[3] : true,
-                                      contentPadding: EdgeInsets.symmetric(
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
                                         vertical: 13,
                                         horizontal: 10,
                                       ),
@@ -105,7 +106,7 @@ class MainFormHorizontal extends StatelessWidget {
                                       fillColor: item.length == 4 && !item[3]
                                           ? Colors.grey[300]
                                           : Colors.white,
-                                      border: OutlineInputBorder(),
+                                      border: const OutlineInputBorder(),
                                     ),
                                   ),
                                 )
@@ -123,7 +124,7 @@ class MainFormHorizontal extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisSize: MainAxisSize.min,
                         children: buttons
-                            .map((item) => new Padding(
+                            .map((item) => Padding(
                                   padding: const EdgeInsets.only(right: 5),
                                   child: Container(
                                     decoration: BoxDecoration(

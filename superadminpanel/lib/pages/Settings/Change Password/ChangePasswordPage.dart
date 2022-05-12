@@ -27,7 +27,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.setting, PageTitles.changePassword],
+      pageTitle: const [PageTitles.setting, PageTitles.changePassword],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(
@@ -36,7 +36,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(text: "Admin Change Password"),
+                const CustomLabelContainer(text: "Admin Change Password"),
                 Center(
                   child: MainForm(
                     buttons: [
@@ -61,6 +61,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         currentPasswordTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "New Login Password",
@@ -68,6 +69,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         newPasswordTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "Confirm New Login Password",
@@ -75,6 +77,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         confirmNewPasswordTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                     ],
                     topic: '',

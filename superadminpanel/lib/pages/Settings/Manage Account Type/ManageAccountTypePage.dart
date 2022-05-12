@@ -23,7 +23,7 @@ class _ManageAccountTypePageState extends State<ManageAccountTypePage> {
   bool passwordLoginStatus = true;
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return const AppScaffold(
       pageTitle: [PageTitles.setting, PageTitles.manageAccountType],
       body: CustomPageView(
         items: [ResponsiveRowColumnItem(rowFlex: 1, child: Text("No UI"))],

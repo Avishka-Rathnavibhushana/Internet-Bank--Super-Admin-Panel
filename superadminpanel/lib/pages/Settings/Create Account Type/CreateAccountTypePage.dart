@@ -23,7 +23,7 @@ class _CreateAccountTypePageState extends State<CreateAccountTypePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.setting, PageTitles.createAccountType],
+      pageTitle: const [PageTitles.setting, PageTitles.createAccountType],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(
@@ -32,7 +32,7 @@ class _CreateAccountTypePageState extends State<CreateAccountTypePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(text: "Create Acount Type"),
+                const CustomLabelContainer(text: "Create Acount Type"),
                 Center(
                   child: MainForm(
                     buttons: [
@@ -57,6 +57,7 @@ class _CreateAccountTypePageState extends State<CreateAccountTypePage> {
                         accountTypeTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                     ],
                     topic: '',

@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class AppDropdownInput<String> extends StatelessWidget {
@@ -5,7 +6,8 @@ class AppDropdownInput<String> extends StatelessWidget {
   final String value;
   final void Function(String?) onChanged;
 
-  AppDropdownInput({
+  // ignore: use_key_in_widget_constructors
+  const AppDropdownInput({
     this.options = const [],
     required this.value,
     required this.onChanged,
@@ -16,7 +18,7 @@ class AppDropdownInput<String> extends StatelessWidget {
     return FormField(
       builder: (FormFieldState<String> state) {
         return InputDecorator(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             isDense: true,
             contentPadding: EdgeInsets.symmetric(
               vertical: 13,

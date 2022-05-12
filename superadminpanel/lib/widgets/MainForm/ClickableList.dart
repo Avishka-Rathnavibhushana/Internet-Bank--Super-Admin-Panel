@@ -36,12 +36,11 @@ class _ClickableListState extends State<ClickableList> {
                       widget.selectedColors[item[1]] = Colors.grey[400]!;
                     }
                   });
-                  print("1");
-                  print(widget.selected[0]);
+
                 },
                 selectedColor: widget.selectedColors[item[1]],
               ),
-              Divider(
+              const Divider(
                 color: Colors.white,
                 height: 1,
               ),

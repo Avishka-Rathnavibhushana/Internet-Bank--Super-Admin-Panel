@@ -25,7 +25,7 @@ class _ManageBankingUsersPageState extends State<ManageBankingUsersPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.adminUserManagement,
         PageTitles.manageAdminUsers,
         PageTitles.manageBankingUsers

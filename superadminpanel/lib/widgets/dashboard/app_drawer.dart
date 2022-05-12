@@ -120,7 +120,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     height: 50,
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.arrow_forward_ios_sharp,
                           size: 13,
@@ -128,7 +128,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                         SizedBox(
                           width: 3,
                         ),
-                        const Text(PageTitles.adminUserManagementUpperCase),
+                        Text(PageTitles.adminUserManagementUpperCase),
                       ],
                     ),
                   ),
@@ -181,7 +181,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.arrow_forward_ios_sharp,
                           size: 13,
@@ -275,7 +275,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.arrow_forward_ios_sharp,
                           size: 13,
@@ -338,7 +338,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.arrow_forward_ios_sharp,
                           size: 13,
@@ -347,7 +347,8 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                           width: 3,
                         ),
                         Center(
-                            child: const Text(
+                            child:
+                                Text(
                                 PageTitles.systemConfigurationUpperCase)),
                       ],
                     ),
@@ -439,7 +440,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.arrow_forward_ios_sharp,
                           size: 13,
@@ -448,7 +449,7 @@ final ExpandableController mobileDeviceConfigurationExpandableController =
                           width: 3,
                         ),
                         Center(
-                            child: const Text(
+                            child: Text(
                                 PageTitles.mobileDeviceManagementUpperCase)),
                       ],
                     ),

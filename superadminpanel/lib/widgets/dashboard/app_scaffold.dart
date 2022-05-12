@@ -1,22 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:superadminpanel/constants/Colors.dart';
+import 'package:superadminpanel/constants/RouteNames.dart';
+import 'package:superadminpanel/constants/userData.dart';
 
 import 'app_drawer.dart';
 
 /// A responsive scaffold for our application.
 /// Displays the navigation drawer alongside the [Scaffold] if the screen/window size is large enough
-class AppScaffold extends StatelessWidget {
-  const AppScaffold({required this.body, required this.pageTitle, Key? key})
-      : super(key: key);
-
+class AppScaffold extends StatefulWidget {
   final Widget body;
 
   final List<String> pageTitle;
+  const AppScaffold({required this.body, required this.pageTitle, Key? key})
+      : super(key: key);
 
+  @override
+  State<AppScaffold> createState() => _AppScaffoldState();
+}
+
+class _AppScaffoldState extends State<AppScaffold> {
+  bool loading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    checkLogin();
+  }
+
+  checkLogin() async {
+    setState(() {
+      loading = true;
+    });
+    if (bearer == "") {
+      await Future.delayed(const Duration(seconds: 2));
+      await Navigator.pushNamedAndRemoveUntil(
+          context, RouteNames.login, ModalRoute.withName('/login'));
+    }
+
+    setState(() {
+      loading = false;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final bool displayMobileLayout = MediaQuery.of(context).size.width < 900;
-    return Row(
+    return loading
+        ? const Center(child: CircularProgressIndicator())
+        : Row(
       children: [
         if (!displayMobileLayout)
           const AppDrawer(
@@ -34,28 +64,28 @@ class AppScaffold extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(
+                              const Icon(
                           Icons.home,
                           size: 12,
                         ),
-                        ...pageTitle.map((title) {
+                              ...widget.pageTitle.map((title) {
                           return Wrap(
                             //mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(
+                                    const Icon(
                                 Icons.arrow_forward_ios_rounded,
                                 size: 12,
                               ),
                               Text(
                                 title,
-                                style: TextStyle(fontSize: 10),
+                                      style: const TextStyle(fontSize: 10),
                               ),
                             ],
                           );
                         }),
                       ],
                     ),
-                    Text(pageTitle.last),
+                          Text(widget.pageTitle.last),
                   ],
                 ),
                 actions: [],
@@ -69,7 +99,7 @@ class AppScaffold extends StatelessWidget {
                       permanentlyDisplay: false,
                     )
                   : null,
-              body: body),
+                    body: widget.body),
         )
       ],
     );

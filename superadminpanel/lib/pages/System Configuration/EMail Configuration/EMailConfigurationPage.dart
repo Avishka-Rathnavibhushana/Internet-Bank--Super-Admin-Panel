@@ -22,7 +22,7 @@ class _EMailConfigurationPageState extends State<EMailConfigurationPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.systemConfiguration,
         PageTitles.emailConfigurationPageTopic
       ],
@@ -34,7 +34,7 @@ class _EMailConfigurationPageState extends State<EMailConfigurationPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(
+                const CustomLabelContainer(
                     text: "IB Email Activate/Deactivate Configurations"),
                 Center(
                   child: MainForm(

@@ -21,7 +21,7 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.adminUserManagement,
         PageTitles.adminUserApprovalQueue,
         PageTitles.adminUserApproval
@@ -35,7 +35,7 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                 rowFlex: 1,
                 child: MainForm(
                   buttons: [],
-                  textFieldItems: [
+                  textFieldItems: const [
                     [
                       "",
                       "Table",
@@ -60,7 +60,7 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                   topicTextColor: Colors.blue[150],
                 ),
               ),
-              ResponsiveRowColumnItem(
+              const ResponsiveRowColumnItem(
                 child: SizedBox(
                   height: 20,
                 ),
@@ -90,6 +90,7 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                       3,
                       true,
                       true,
+                      false, // validation
                     ],
                   ],
                   topic: 'Action',

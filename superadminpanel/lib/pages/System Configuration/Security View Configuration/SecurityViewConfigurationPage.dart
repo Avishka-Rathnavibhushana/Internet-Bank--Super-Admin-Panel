@@ -24,7 +24,7 @@ class _SecurityViewConfigurationPageState
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.systemConfiguration,
         PageTitles.securityViewConfigurationPageTopic
       ],
@@ -36,7 +36,7 @@ class _SecurityViewConfigurationPageState
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(
+                const CustomLabelContainer(
                     text:
                         "Internet Banking Activate/Deactivate Configuartions"),
                 Center(

@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:superadminpanel/pages/Admin%20User%20Management/Admin%20User%20Approval/AdminUserApprovalPage.dart';
 import 'package:superadminpanel/pages/Admin%20User%20Management/Admin%20User%20Update/AdminUserUpdate.dart';
@@ -32,6 +33,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 void main() => runApp(DemoApp());
 
+// ignore: use_key_in_widget_constructors
 class DemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -47,16 +49,13 @@ class DemoApp extends StatelessWidget {
           const ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
         ],
       ),
+      scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         pageTransitionsTheme: PageTransitionsTheme(
           // makes all platforms that can run Flutter apps display routes without any animation
-          builders: Map<TargetPlatform,
-                  _InanimatePageTransitionsBuilder>.fromIterable(
-              TargetPlatform.values.toList(),
-              key: (dynamic k) => k,
-              value: (dynamic _) => const _InanimatePageTransitionsBuilder()),
+          builders: { for (var k in TargetPlatform.values.toList()) k : const _InanimatePageTransitionsBuilder() },
         ),
       ),
       initialRoute: RouteNames.login,
@@ -114,4 +113,14 @@ class _InanimatePageTransitionsBuilder extends PageTransitionsBuilder {
       Widget child) {
     return child;
   }
+}
+
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

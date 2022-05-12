@@ -46,10 +46,12 @@ class _ClickableContainerState extends State<ClickableContainer> {
               size: 20,
               color: Colors.white.withOpacity(0.5),
             ),
-            Text(
-              widget.text,
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.5),
+            Expanded(
+              child: Text(
+                widget.text,
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.5),
+                ),
               ),
             )
           ],

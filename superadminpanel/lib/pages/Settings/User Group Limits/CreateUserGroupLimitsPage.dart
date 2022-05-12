@@ -23,7 +23,7 @@ class _CreateUserGroupLimitsPageState extends State<CreateUserGroupLimitsPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.setting,
         PageTitles.userGroupLimits,
         PageTitles.createUserGroupLimits
@@ -36,7 +36,7 @@ class _CreateUserGroupLimitsPageState extends State<CreateUserGroupLimitsPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(
+                const CustomLabelContainer(
                     text: "**Please fill all amount feild before submit."),
                 Center(
                   child: MainForm(

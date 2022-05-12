@@ -1,6 +1,8 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/api/roleAndPrivilegesAPIs.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/modals/Privilege.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
@@ -18,51 +20,81 @@ class ViewPrivilegesPagePage extends StatefulWidget {
 
 class _ViewPrivilegesPagePageState extends State<ViewPrivilegesPagePage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  List<List<List<dynamic>>> tableData = [];
+
+  bool loading = false;
+
+  Future<void> loadData() async {
+    setState(() {
+      loading = true;
+    });
+    List<Privilege> data = await RoleAndPrivilegesAPIs.findAllPrivilegeAPI();
+    List<List<List<dynamic>>> tableDataTemp = [];
+    for (Privilege item in data) {
+      List<List<dynamic>> row = [
+        ["Label", item.code, false, false],
+        ["Label", item.name, false, false],
+        ["Label", item.description, false, false],
+        ["Label", item.type, false, false],
+      ];
+      setState(() {
+        tableDataTemp.add(row);
+      });
+      print(tableDataTemp);
+    }
+    setState(() {
+      tableData = tableDataTemp;
+    });
+    setState(() {
+      loading = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.role, PageTitles.viewPrivileges],
-      body: CustomPageView(
-        items: [
-          ResponsiveRowColumnItem(
-            rowFlex: 1,
-            child: Center(
-              child: MainForm(
-                isHeaderAvailable: false,
-                buttons: [],
-                textFieldItems: [
-                  [
-                    "",
-                    "Table",
-                    [
-                      [
-                        ["Label", "Code", false, true],
-                        ["Label", "Name", false, true],
-                        ["Label", "Description", false, true],
-                        ["Label", "Type", false, true],
+      pageTitle: const [PageTitles.role, PageTitles.viewPrivileges],
+      body: loading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : CustomPageView(
+              items: [
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: Center(
+                    child: MainForm(
+                      isHeaderAvailable: false,
+                      buttons: [],
+                      textFieldItems: [
+                        [
+                          "",
+                          "Table",
+                          [
+                            [
+                              ["Label", "Code", false, true],
+                              ["Label", "Name", false, true],
+                              ["Label", "Description", false, true],
+                              ["Label", "Type", false, true],
+                            ],
+                            ...tableData,
+                          ],
+                        ],
                       ],
-                      [
-                        ["Label", "2017", false, false],
-                        ["Label", "ADMIN_BANK_SETTING", false, false],
-                        ["Label", "Bank Settings", false, false],
-                        ["Label", "BANK_ADMIN", false, false],
-                      ],
-                      [
-                        ["Label", "2017", false, false],
-                        ["Label", "ADMIN_BANK_SETTING", false, false],
-                        ["Label", "Bank Settings", false, false],
-                        ["Label", "BANK_ADMIN", false, false],
-                      ],
-                    ],
-                  ],
-                ],
-                topic: '',
-                topicBackgroundColor: Colors.blue[100],
-                topicTextColor: Colors.blue[150],
-              ),
+                      topic: '',
+                      topicBackgroundColor: Colors.blue[100],
+                      topicTextColor: Colors.blue[150],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

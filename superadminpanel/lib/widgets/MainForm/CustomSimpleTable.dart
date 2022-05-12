@@ -73,152 +73,165 @@ class _SimpleCustomTableState extends State<SimpleCustomTable> {
                     ),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    ...tablColumn
-                        .map(
-                          (tableRow) => Expanded(
-                            flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.only(
-                                right: tableRow[0] != "Label"
-                                    ? 0
-                                    : tableRow[2]
-                                            ? 10
-                                            : 0,
-                              ),
-                              alignment: Alignment.centerLeft,
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  right: BorderSide(
-                                    width: 1,
-                                    style: widget.borderType >= 2
-                                        ? BorderStyle.solid
-                                        : BorderStyle.none,
-                                    color: widget.topicBackgroundColor!,
-                                  ),
-                                  bottom: BorderSide(
-                                    width: 1,
-                                    style: tableRow[0] != "Label"
-                                        ? BorderStyle.none
-                                        : tableRow[2]
-                                                ? BorderStyle.solid
-                                                : BorderStyle.none,
-                                    color: widget.topicBackgroundColor!,
+                child: IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                     
+                      ...tablColumn
+                          .map(
+                            (tableRow) => Expanded(
+                              flex: 1,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                  right: tableRow[0] != "Label"
+                                      ? 0
+                                      : tableRow[2]
+                                          ? 10
+                                          : 0,
+                                ),
+                                alignment: Alignment.centerLeft,
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    right: BorderSide(
+                                      width: 1,
+                                      style: widget.borderType >= 2
+                                          ? BorderStyle.solid
+                                          : BorderStyle.none,
+                                      color: widget.topicBackgroundColor!,
+                                    ),
+                                    bottom: BorderSide(
+                                      width: 1,
+                                      style: tableRow[0] != "Label"
+                                          ? BorderStyle.none
+                                          : tableRow[2]
+                                              ? BorderStyle.solid
+                                              : BorderStyle.none,
+                                      color: widget.topicBackgroundColor!,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 5),
-                                child: tableRow[0] == "Label"
-                                    ? Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 6.5),
-                                        child: Text(
-                                          tableRow[1],
-                                          style: TextStyle(
-                                            fontWeight: tableRow[3]
-                                                ? FontWeight.w900
-                                                : FontWeight.normal,
-                                          ),
-                                        ),
-                                      )
-                                    : tableRow[0] == "TextLink"
-                                        ? InkWell(
-                                            onHover: (value) {
-                                              if (value) {
-                                                setState(() {
-                                                  buttonColor =
-                                                      Colors.blue[200]!;
-                                                  underlined = true;
-                                                });
-                                              } else {
-                                                setState(() {
-                                                  buttonColor = Colors.blue;
-                                                  underlined = false;
-                                                });
-                                              }
-                                            },
-                                            onTap: tableRow[2],
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 6.5),
-                                              child: Text(
-                                                tableRow[1],
-                                                style: TextStyle(
-                                                    color: buttonColor,
-                                                    decoration: underlined
-                                                        ? TextDecoration
-                                                            .underline
-                                                        : TextDecoration.none),
-                                              ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 5),
+                                  child: tableRow[0] == "Label"
+                                      ? Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 6.5),
+                                          child: Text(
+                                            tableRow[1],
+                                            style: TextStyle(
+                                              fontWeight: tableRow[3]
+                                                  ? FontWeight.w900
+                                                  : FontWeight.normal,
                                             ),
-                                          )
-                                        : tableRow[0] == "TextBox"
-                                            ? TextField(
-                                                controller: tableRow[1],
-                                                decoration: InputDecoration(
-                                                  isDense: true,
-                                                  contentPadding:
-                                                      EdgeInsets.symmetric(
-                                                    vertical: 9,
-                                                    horizontal: 10,
-                                                  ),
-                                                  border: OutlineInputBorder(),
+                                          ),
+                                        )
+                                      : tableRow[0] == "TextLink"
+                                          ? InkWell(
+                                              onHover: (value) {
+                                                if (value) {
+                                                  setState(() {
+                                                    buttonColor =
+                                                        Colors.blue[200]!;
+                                                    underlined = true;
+                                                  });
+                                                } else {
+                                                  setState(() {
+                                                    buttonColor = Colors.blue;
+                                                    underlined = false;
+                                                  });
+                                                }
+                                              },
+                                              onTap: tableRow[2],
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 6.5),
+                                                child: Text(
+                                                  tableRow[1],
+                                                  style: TextStyle(
+                                                      color: buttonColor,
+                                                      decoration: underlined
+                                                          ? TextDecoration
+                                                              .underline
+                                                          : TextDecoration.none),
                                                 ),
-                                              )
-                                            : tableRow[0] == "CheckBox"
-                                                ? Checkbox(
-                                                    value: tableRow[1],
-                                                    onChanged: tableRow[2])
-                                                : tableRow[0] == "Radio"
-                                                    ? Radio(
-                                                        value: tableRow[1],
-                                                        onChanged: tableRow[2],
-                                                        groupValue: tableRow[3],
-                                                      )
-                                                    : tableRow[0] == "Button"
-                                                        ? ElevatedButton(
-                                                            child: Text(
-                                                                tableRow[1]),
-                                                            onPressed:
-                                                                tableRow[2],
-                                                            style: ElevatedButton
-                                                                .styleFrom(
-                                                                    primary:
-                                                                        tableRow[
-                                                                            3],
-                                                                    textStyle:
-                                                                        TextStyle(
-                                                                      color:
+                                              ),
+                                            )
+                                          : tableRow[0] == "TextBox"
+                                              ? TextField(
+                                                  controller: tableRow[1],
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    isDense: true,
+                                                    contentPadding:
+                                                        EdgeInsets.symmetric(
+                                                      vertical: 9,
+                                                      horizontal: 10,
+                                                    ),
+                                                    border: OutlineInputBorder(),
+                                                  ),
+                                                )
+                                              : tableRow[0] == "CheckBox"
+                                                  ? Checkbox(
+                                                      value: tableRow[1],
+                                                      onChanged: tableRow[2])
+                                                  : tableRow[0] == "Radio"
+                                                      ? Radio(
+                                                          value: tableRow[1],
+                                                          onChanged: tableRow[2],
+                                                          groupValue: tableRow[3],
+                                                        )
+                                                      : tableRow[0] == "Button"
+                                                          ? ElevatedButton(
+                                                              child: Text(
+                                                                  tableRow[1]),
+                                                              onPressed:
+                                                                  tableRow[2],
+                                                              style: ElevatedButton
+                                                                  .styleFrom(
+                                                                      primary:
                                                                           tableRow[
-                                                                              4],
-                                                                    )),
-                                                          )
-                                                        : tableRow[0] == "Icon"
-                                                            ? Icon(
-                                                                Icons
-                                                                    .trending_up,
-                                                                color: Colors
-                                                                    .green[500],
-                                                              )
-                                                            : tableRow[0] ==
-                                                                    "Custom"
-                                                                ? tableRow[1]
-                                                                : Container(),
+                                                                              3],
+                                                                      textStyle:
+                                                                          TextStyle(
+                                                                        color:
+                                                                            tableRow[
+                                                                                4],
+                                                                      )),
+                                                            )
+                                                          : tableRow[0] == "Icon"
+                                                              ? Icon(
+                                                                  Icons
+                                                                      .trending_up,
+                                                                  color: Colors
+                                                                      .green[500],
+                                                                )
+                                                              : tableRow[0] ==
+                                                                      "Custom"
+                                                                  ? tableRow[1]
+                                                                  : Container(),
+                                ),
                               ),
                             ),
-                          ),
-                        )
-                        .toList(),
-                  ],
+                          )
+                          .toList(),
+                    ],
+                  ),
                 ),
               ),
             )
             .toList(),
+         widget.itemList.length == 1
+            ? const Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Text("No data"),
+                ),
+              )
+            : Container(),
       ],
     );
   }

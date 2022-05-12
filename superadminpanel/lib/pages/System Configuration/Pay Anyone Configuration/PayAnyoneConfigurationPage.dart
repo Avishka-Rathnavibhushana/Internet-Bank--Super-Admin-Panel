@@ -24,7 +24,7 @@ class _PayAnyoneConfigurationPageState
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.systemConfiguration,
         PageTitles.payAnyoneConfigurationPageTopic
       ],
@@ -36,7 +36,7 @@ class _PayAnyoneConfigurationPageState
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(
+                const CustomLabelContainer(
                     text: "Pay Anyone Activate/Deactivate Configurations"),
                 Center(
                   child: MainForm(

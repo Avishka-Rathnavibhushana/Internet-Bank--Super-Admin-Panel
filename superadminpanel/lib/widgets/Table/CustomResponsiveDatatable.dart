@@ -1,4 +1,3 @@
-import 'package:adaptivex/adaptivex.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_table/responsive_table.dart';
@@ -119,7 +118,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         widget.removeCheckBox
-            ? Container(
+            ? const SizedBox(
                 width: 0,
                 height: 0,
               )
@@ -131,7 +130,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
             //       if (widget.onSelectAll != null) widget.onSelectAll!(value);
             //     },
             //   ),
-            : Text(
+            : const Text(
                 "Acton",
                 textAlign: TextAlign.start,
               ),
@@ -197,7 +196,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                           ))
                       .toList(),
                   position: RelativeRect.fromSize(
-                      event.position & Size(48.0, 48.0), overlay.size));
+                      event.position & const Size(48.0, 48.0), overlay.size));
             }
           }
         },
@@ -360,8 +359,8 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                 //       if (widget.onSelectAll != null)
                 //         widget.onSelectAll!(value);
                 //     }),
-                : Padding(
-                    padding: const EdgeInsets.only(right: 15),
+                : const Padding(
+                    padding:  EdgeInsets.only(right: 15),
                     child: Text(
                       "Acton",
                       textAlign: TextAlign.start,
@@ -404,7 +403,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                               ))
                           .toList(),
                       position: RelativeRect.fromSize(
-                          event.position & Size(48.0, 48.0), overlay.size));
+                          event.position & const Size(48.0, 48.0), overlay.size));
                 }
               }
             },
@@ -507,7 +506,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                 Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(5),
                       topRight: Radius.circular(5),
                     ),
@@ -542,6 +541,15 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
 
                       /// mobileList
                       ...mobileList(),
+                      // widget.source!.length == 0
+                      //     ? Center(
+                      //         child: Padding(
+                      //           padding: const EdgeInsets.only(top: 30),
+                      //           child: Text("No data"),
+                      //         ),
+                      //       )
+                      //     : Container(),
+                            
                     ],
                   ),
                 ),
@@ -562,16 +570,20 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(5),
                             bottomRight: Radius.circular(5),
                           ),
-                          color: widget.footerBackgroundColor,
+                          color: widget.source!.length == 0
+                              ? Colors.white
+                              : widget.footerBackgroundColor,
                         ),
-                        child: Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [...widget.footers!],
-                        ),
+                        child: widget.source!.length == 0
+                            ? Container()
+                            : Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [...widget.footers!],
+                              ),
                       ),
                     ),
                   ],
@@ -589,7 +601,7 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                 Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(5),
                       topRight: Radius.circular(5),
                     ),
@@ -633,13 +645,22 @@ class _CustomResponsiveDatatableState extends State<CustomResponsiveDatatable> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(5),
                             bottomRight: Radius.circular(5),
                           ),
-                          color: widget.footerBackgroundColor,
+                          color: widget.source!.length == 0
+                              ? Colors.white
+                              : widget.footerBackgroundColor,
                         ),
-                        child: Wrap(
+                        child: widget.source!.length == 0
+                            ? const Center(
+                                // child: Padding(
+                                //   padding: const EdgeInsets.only(top: 20),
+                                //   child: Text("No data"),
+                                // ),
+                                )
+                            : Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
                           children: [...widget.footers!],
                         ),

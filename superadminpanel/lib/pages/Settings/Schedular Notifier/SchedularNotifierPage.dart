@@ -26,7 +26,7 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.setting, PageTitles.schedularNotifier],
+      pageTitle: const [PageTitles.setting, PageTitles.schedularNotifier],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(
@@ -35,7 +35,7 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(text: "Admin Schedular Notifier"),
+                const CustomLabelContainer(text: "Admin Schedular Notifier"),
                 Center(
                   child: MainForm(
                     buttons: [
@@ -66,6 +66,7 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
                         phoneNumberTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                       [
                         "Officer Name",
@@ -73,6 +74,7 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
                         OfficerNameTextEditingController,
                         true,
                         true,
+                        false, // validation
                       ],
                     ],
                     topic: '',

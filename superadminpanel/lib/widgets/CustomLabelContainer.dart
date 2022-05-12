@@ -16,7 +16,7 @@ class CustomLabelContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.primaryColor.withOpacity(0.5),
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(5),
           ),
           border: Border.all(
@@ -33,7 +33,7 @@ class CustomLabelContainer extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   color: AppColors.primaryColorDark,
                   fontSize: 16,
                 ),

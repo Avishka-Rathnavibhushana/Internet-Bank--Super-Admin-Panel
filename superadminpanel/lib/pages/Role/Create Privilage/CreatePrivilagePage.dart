@@ -1,6 +1,8 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
+import 'package:superadminpanel/api/roleAndPrivilegesAPIs.dart';
 import 'package:superadminpanel/constants/colors.dart';
+import 'package:superadminpanel/modals/Privilege.dart';
 import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/CreateUserGroupLimitsPage.dart';
 import 'package:superadminpanel/widgets/CustomLabelContainer.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
@@ -21,16 +23,100 @@ class CreatePrivilagePage extends StatefulWidget {
 class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
   TextEditingController privilegeNameTextEditingController =
       TextEditingController();
+  bool privilegeNameValidate = false;
   TextEditingController codeTextEditingController = TextEditingController();
+  bool codeValidate = false;
   TextEditingController descriptionTextEditingController =
       TextEditingController();
+      bool descriptionValidate = false;
 
   String category = "BANKING USER MANAGEMENT";
   String type = "BANK_ADMIN";
+
+  bool loading = false;
+
+  void submit() async {
+    setState(() {
+      loading = true;
+    });
+    String name = privilegeNameTextEditingController.text;
+    String code = codeTextEditingController.text;
+    String description = descriptionTextEditingController.text;
+    String categoryName = category;
+    String typeName = type;
+
+    if (name == "" || code == "" || description == "") {
+      if (name == "") {
+        setState(() {
+          privilegeNameValidate = true;
+        });
+      }else{
+        setState(() {
+          privilegeNameValidate = false;
+        });
+      }
+      if (code == "") {
+        setState(() {
+          codeValidate = true;
+        });
+      } else {
+        setState(() {
+          codeValidate = false;
+        });
+      }
+      if (description == "") {
+        setState(() {
+          descriptionValidate = true;
+        });
+      } else {
+        setState(() {
+          descriptionValidate = false;
+        });
+      }
+      print("Check required fields");
+    } else {
+      setState(() {
+        privilegeNameValidate = false;
+        codeValidate = false;
+        descriptionValidate = false;
+      });
+      Privilege privilege = Privilege.fromJson({
+        "category": categoryName,
+        "code": code,
+        "description": description,
+        "name": name,
+        "objectuuid": null,
+        "type": typeName
+      });
+      bool data = await RoleAndPrivilegesAPIs.createPrivilegeAPI(privilege);
+      print(data);
+      reset();
+    }
+    
+    setState(() {
+      loading = false;
+    });
+  }
+
+  void reset() {
+    setState(() {
+      privilegeNameTextEditingController.text = "";
+      codeTextEditingController.text = "";
+      descriptionTextEditingController.text = "";
+      category = "BANKING USER MANAGEMENT";
+      type = "BANK_ADMIN";
+    });
+    setState(() {
+      privilegeNameValidate = false;
+      codeValidate = false;
+      descriptionValidate = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [PageTitles.role, PageTitles.createPrivileges],
+      pageTitle: const [PageTitles.role, PageTitles.createPrivileges],
       body: CustomPageView(
         items: [
           ResponsiveRowColumnItem(
@@ -39,79 +125,84 @@ class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(text: "Create New Privilages"),
+                const CustomLabelContainer(text: "Create New Privilages"),
                 Center(
-                  child: MainForm(
-                    buttons: [
-                      [
-                        "Submit",
-                        () => {print("1")},
-                        AppColors.buttonLightGreenColor,
-                        AppColors.white,
-                      ],
-                      [
-                        "Reset",
-                        () {
-                          print("2");
-                        },
-                        AppColors.white,
-                        Colors.black,
-                        Colors.grey,
-                      ],
-                    ],
-                    textFieldItems: [
-                      [
-                        "Privilege Name",
-                        "TextField",
-                        privilegeNameTextEditingController,
-                        true,
-                        true,
-                      ],
-                      [
-                        "Code",
-                        "TextField",
-                        codeTextEditingController,
-                        true,
-                        true,
-                      ],
-                      [
-                        "Description",
-                        "TextArea",
-                        descriptionTextEditingController,
-                        3,
-                        true,
-                        true,
-                      ],
-                      [
-                        "Category",
-                        "DropDownTextField",
-                        ["BANKING USER MANAGEMENT", "BANKING CUSTOMER"],
-                        category,
-                        false,
-                        (value) {
-                          setState(() {
-                            category = value!;
-                          });
-                        },
-                      ],
-                      [
-                        "type",
-                        "DropDownTextField",
-                        ["BANK_ADMIN", "BANK_USER"],
-                        type,
-                        false,
-                        (value) {
-                          setState(() {
-                            type = value!;
-                          });
-                        },
-                      ],
-                    ],
-                    topic: '',
-                    isHeaderAvailable: false,
-                    topicBackgroundColor: Colors.blue[100],
-                    topicTextColor: Colors.blue[150],
-                  ),
+                  child: loading
+                      ? const Center(child: CircularProgressIndicator())
+                      : MainForm(
+                          buttons: [
+                            [
+                              "Submit",
+                              submit,
+                              AppColors.buttonLightGreenColor,
+                              AppColors.white,
+                            ],
+                            [
+                              "Reset",
+                              reset,
+                              AppColors.white,
+                              Colors.black,
+                              Colors.grey,
+                            ],
+                          ],
+                          textFieldItems: [
+                            [
+                              "Privilege Name",
+                              "TextField",
+                              privilegeNameTextEditingController,
+                              true,
+                              true,
+                              privilegeNameValidate,
+                              false, // validation
+                            ],
+                            [
+                              "Code",
+                              "TextField",
+                              codeTextEditingController,
+                              true,
+                              true,
+                              codeValidate,
+                              false, // validation
+                            ],
+                            [
+                              "Description",
+                              "TextArea",
+                              descriptionTextEditingController,
+                              3,
+                              true,
+                              true,
+                              descriptionValidate,
+                            ],
+                            [
+                              "Category",
+                              "DropDownTextField",
+                              ["BANKING USER MANAGEMENT", "BANKING CUSTOMER"],
+                              category,
+                              false,
+                              (value) {
+                                setState(() {
+                                  category = value!;
+                                });
+                              },
+                            ],
+                            [
+                              "type",
+                              "DropDownTextField",
+                              ["BANK_ADMIN", "BANK_USER"],
+                              type,
+                              false,
+                              (value) {
+                                setState(() {
+                                  type = value!;
+                                });
+                              },
+                            ],
+                          ],
+                          topic: '',
+                          isHeaderAvailable: false,
+                          topicBackgroundColor: Colors.blue[100],
+                          topicTextColor: Colors.blue[150],
+                        ),
                 ),
               ],
             ),

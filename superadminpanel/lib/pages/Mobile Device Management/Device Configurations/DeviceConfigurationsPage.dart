@@ -36,7 +36,7 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      pageTitle: [
+      pageTitle: const [
         PageTitles.mobileDeviceManagement,
         PageTitles.deviceConfigurations
       ],
@@ -48,7 +48,7 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomLabelContainer(
+                const CustomLabelContainer(
                     text:
                         "Update the global configuration details for handle mobile devices."),
                 Center(
@@ -93,9 +93,10 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
                         "",
                         "TextField",
                         deviceCountTextEditingController,
-                        true,
-                        true,
                         deviceCount == "Single Device" ? false : true,
+                        true,
+                        false, // validation
+                        
                       ],
                     ],
                     topic: '',
