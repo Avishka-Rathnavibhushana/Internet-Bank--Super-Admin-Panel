@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../constants/PageTitles.dart';
 
 class GlobalSwitchPage extends StatefulWidget {
-  GlobalSwitchPage({Key? key}) : super(key: key);
+  const GlobalSwitchPage({Key? key}) : super(key: key);
 
   @override
   State<GlobalSwitchPage> createState() => _GlobalSwitchPageState();

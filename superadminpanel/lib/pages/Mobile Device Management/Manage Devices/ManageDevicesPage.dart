@@ -1,22 +1,16 @@
 import 'dart:html';
 
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:responsive_table/responsive_table.dart';
-import 'package:superadminpanel/constants/RouteNames.dart';
 import 'package:superadminpanel/constants/colors.dart';
-import 'package:superadminpanel/utils/Utils.dart';
-import 'package:superadminpanel/widgets/MainForm/ClickableList.dart';
 import 'package:superadminpanel/widgets/MainForm/MainFormHorizontal.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
-import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
-import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/PageTitles.dart';
 
 class ManageDevicesPage extends StatefulWidget {
-  ManageDevicesPage({Key? key}) : super(key: key);
+  const ManageDevicesPage({Key? key}) : super(key: key);
 
   @override
   State<ManageDevicesPage> createState() => _ManageDevicesPageState();

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/RouteNames.dart';
@@ -10,11 +8,12 @@ import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
 import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'dart:html';
 
 import '../../../constants/PageTitles.dart';
 
 class AdminUserApprovalQueuePage extends StatefulWidget {
-  AdminUserApprovalQueuePage({Key? key}) : super(key: key);
+  const AdminUserApprovalQueuePage({Key? key}) : super(key: key);
 
   @override
   State<AdminUserApprovalQueuePage> createState() =>

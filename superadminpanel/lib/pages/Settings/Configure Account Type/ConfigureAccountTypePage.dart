@@ -1,17 +1,15 @@
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/colors.dart';
-import 'package:superadminpanel/pages/Settings/User%20Group%20Limits/CreateUserGroupLimitsPage.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
-import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/PageTitles.dart';
 
 class ConfigureAccountTypePage extends StatefulWidget {
-  ConfigureAccountTypePage({Key? key}) : super(key: key);
+  const ConfigureAccountTypePage({Key? key}) : super(key: key);
 
   @override
   State<ConfigureAccountTypePage> createState() =>

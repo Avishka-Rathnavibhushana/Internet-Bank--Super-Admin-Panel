@@ -1,16 +1,14 @@
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/constants/colors.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
 import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
-import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/PageTitles.dart';
 
 class AdminUserUpdate extends StatefulWidget {
-  AdminUserUpdate({Key? key}) : super(key: key);
+  const AdminUserUpdate({Key? key}) : super(key: key);
 
   @override
   State<AdminUserUpdate> createState() => _AdminUserUpdateState();
@@ -30,7 +28,6 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return AppScaffold(
       pageTitle: const [
         PageTitles.adminUserManagement,

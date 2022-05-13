@@ -1,7 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:superadminpanel/api/authAPI.dart';
 import 'package:superadminpanel/constants/RouteNames.dart';
-import 'package:superadminpanel/constants/colors.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -14,10 +15,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController usernameTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
-  Color primaryColorLight = Color(0xFF1976D2);
-  Color primaryColor = Color(0xFF2196F3);
-  Color black12 = Color(0x1F000000);
-  Color white = Color(0xFFFFFFFF);
+  Color primaryColorLight = const Color(0xFF1976D2);
+  Color primaryColor = const Color(0xFF2196F3);
+  Color black12 = const Color(0x1F000000);
+  Color white = const Color(0xFFFFFFFF);
 
   bool loading = false;
   bool error = false;

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../constants/PageTitles.dart';
 
 class SmsConfigurationPage extends StatefulWidget {
-  SmsConfigurationPage({Key? key}) : super(key: key);
+  const SmsConfigurationPage({Key? key}) : super(key: key);
 
   @override
   State<SmsConfigurationPage> createState() => _SmsConfigurationPageState();

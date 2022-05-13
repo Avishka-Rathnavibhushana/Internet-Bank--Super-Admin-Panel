@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 import '../../../constants/PageTitles.dart';
 
 class ManageRolesPage extends StatefulWidget {
-  ManageRolesPage({Key? key}) : super(key: key);
+  const ManageRolesPage({Key? key}) : super(key: key);
 
   @override
   State<ManageRolesPage> createState() => _ManageRolesPageState();
@@ -62,6 +62,7 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
   List<bool> selected = [];
   List<Color> selectedColors = [];
   List<List<dynamic>> selectedData = [];
+  @override
   void initState() {
     document.onContextMenu.listen((evt) => evt.preventDefault());
     super.initState();
@@ -141,7 +142,6 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
         isExpanded: "",
       );
       bool data = await RoleAndPrivilegesAPIs.createRoleAPI(roleModal);
-      print(data);
       reset();
       await loadData();
     }

@@ -1,15 +1,12 @@
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:responsive_table/responsive_table.dart';
 import 'package:superadminpanel/widgets/dashboard/CustomPageView.dart';
-import 'package:superadminpanel/widgets/MainForm/MainForm.dart';
-import 'package:superadminpanel/widgets/Table/SimplifiedCustomResponsiveTable.dart';
 import 'package:superadminpanel/widgets/dashboard/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/PageTitles.dart';
 
 class ManageAccountTypePage extends StatefulWidget {
-  ManageAccountTypePage({Key? key}) : super(key: key);
+  const ManageAccountTypePage({Key? key}) : super(key: key);
 
   @override
   State<ManageAccountTypePage> createState() => _ManageAccountTypePageState();
