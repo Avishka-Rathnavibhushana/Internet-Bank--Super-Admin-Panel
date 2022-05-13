@@ -69,13 +69,13 @@ class _AdminUserApprovalPageState extends State<AdminUserApprovalPage> {
                   buttons: [
                     [
                       "Approve",
-                      () => {print("1")},
+                      () => {debugPrint("1")},
                       AppColors.buttonLightGreenColor,
                       AppColors.white,
                     ],
                     [
                       "Reject",
-                      () => {print("1")},
+                      () => {debugPrint("1")},
                       Colors.red[200],
                       AppColors.white,
                     ],

@@ -36,13 +36,13 @@ class _CreateAccountTypePageState extends State<CreateAccountTypePage> {
                     buttons: [
                       [
                         "Submit",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],
                       [
                         "Reset",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.white,
                         Colors.black,
                         Colors.grey,

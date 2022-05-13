@@ -41,7 +41,7 @@ class _SmsConfigurationPageState extends State<SmsConfigurationPage> {
                     buttons: [
                       [
                         "Submit",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],

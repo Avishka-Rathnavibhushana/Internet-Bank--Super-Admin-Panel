@@ -53,7 +53,7 @@ class _DeviceConfigurationsPageState extends State<DeviceConfigurationsPage> {
                     buttons: [
                       [
                         "Update Configurations",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],

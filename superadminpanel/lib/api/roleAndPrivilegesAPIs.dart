@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:superadminpanel/api/api.dart';
 import 'package:superadminpanel/constants/userData.dart';
@@ -29,7 +30,7 @@ class RoleAndPrivilegesAPIs {
         return false;
       }
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
       return false;
     }
   }
@@ -86,7 +87,7 @@ class RoleAndPrivilegesAPIs {
         return false;
       }
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
       return false;
     }
   }

@@ -70,7 +70,7 @@ class _CreatePrivilagePageState extends State<CreatePrivilagePage> {
           descriptionValidate = false;
         });
       }
-      print("Check required fields");
+      debugPrint("Check required fields");
     } else {
       setState(() {
         privilegeNameValidate = false;

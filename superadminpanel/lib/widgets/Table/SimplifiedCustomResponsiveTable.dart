@@ -124,7 +124,7 @@ class _SimplifiedCustomResponsiveTableState
       _expanded = List.generate(_rangeTop, (index) => false);
       _source = _sourceFiltered.getRange(0, _rangeTop).toList();
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
     setState(() => _isLoading = false);
   }
@@ -222,15 +222,15 @@ class _SimplifiedCustomResponsiveTableState
                   return DropDownContainer(data: data);
                 },
                 onChangedRow: (value, header) {
-                  /// print(value);
-                  /// print(header);
+                  /// debugPrint(value);
+                  /// debugPrint(header);
                 },
                 onSubmittedRow: (value, header) {
-                  /// print(value);
-                  /// print(header);
+                  /// debugPrint(value);
+                  /// debugPrint(header);
                 },
                 onTabRow: (data) {
-                  //print(data);
+                  //debugPrint(data);
                 },
                 onSort: (value) {
                   setState(() => _isLoading = true);

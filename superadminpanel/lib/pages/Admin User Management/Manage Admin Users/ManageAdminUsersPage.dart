@@ -154,7 +154,7 @@ class _MangeAdminUsersPageState extends State<MangeAdminUsersPage> {
                               [
                                 "Reset",
                                 () {
-                                  print("2");
+                                  debugPrint("2");
                                   setState(() {
                                     userNameTextEditingController.text = "";
                                     firstNameTextEditingController.text = "";

@@ -44,13 +44,13 @@ class _AdminUserUpdateState extends State<AdminUserUpdate> {
                     buttons: [
                       [
                         "Update",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],
                       [
                         "Reset",
-                        () => {print("2")},
+                        () => {debugPrint("2")},
                         Colors.grey[700],
                         AppColors.white,
                       ]

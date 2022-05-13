@@ -40,13 +40,13 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     buttons: [
                       [
                         "Submit",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],
                       [
                         "Reset",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.white,
                         Colors.black,
                         Colors.grey,

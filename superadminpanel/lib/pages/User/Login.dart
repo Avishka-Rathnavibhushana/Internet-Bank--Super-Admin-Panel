@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                             error = true;
                             errorText = "Check fields";
                           });
-                          print("Check field validity.");
+                          debugPrint("Check field validity.");
                         } else {
                           bool loggedIn =
                               await AuthAPIs.loginAPI(username, password);

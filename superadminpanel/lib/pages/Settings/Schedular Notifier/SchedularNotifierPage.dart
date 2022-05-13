@@ -39,19 +39,19 @@ class _SchedularNotifierPageState extends State<SchedularNotifierPage> {
                     buttons: [
                       [
                         "Update",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],
                       [
                         "Delete",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         Colors.red[200],
                         AppColors.white,
                       ],
                       [
                         "Reset",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.white,
                         Colors.black,
                         Colors.grey,

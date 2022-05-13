@@ -42,13 +42,13 @@ class _CreateUserGroupLimitsPageState extends State<CreateUserGroupLimitsPage> {
                     buttons: [
                       [
                         "Update",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],
                       [
                         "Reset",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         Colors.grey[700],
                         AppColors.white,
                       ],

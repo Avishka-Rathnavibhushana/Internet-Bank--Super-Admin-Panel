@@ -42,7 +42,7 @@ class _ViewPrivilegesPagePageState extends State<ViewPrivilegesPagePage> {
       setState(() {
         tableDataTemp.add(row);
       });
-      print(tableDataTemp);
+      debugPrint(tableDataTemp.toString());
     }
     setState(() {
       tableData = tableDataTemp;

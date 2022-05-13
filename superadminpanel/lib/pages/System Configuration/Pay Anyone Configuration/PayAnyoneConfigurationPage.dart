@@ -41,7 +41,7 @@ class _PayAnyoneConfigurationPageState
                     buttons: [
                       [
                         "Submit",
-                        () => {print("1")},
+                        () => {debugPrint("1")},
                         AppColors.buttonLightGreenColor,
                         AppColors.white,
                       ],

@@ -37,7 +37,7 @@ class _ManageBankingUsersPageState extends State<ManageBankingUsersPage> {
                 buttons: [
                   [
                     "Update",
-                    () => {print("1")},
+                    () => {debugPrint("1")},
                     AppColors.buttonLightGreenColor,
                     AppColors.white,
                   ],

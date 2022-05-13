@@ -81,7 +81,7 @@ class _ConfigureAccountTypePageState extends State<ConfigureAccountTypePage> {
                 buttons: [
                   [
                     "Save",
-                    () => {print("1")},
+                    () => {debugPrint("1")},
                     AppColors.buttonLightGreenColor,
                     AppColors.white,
                   ],
