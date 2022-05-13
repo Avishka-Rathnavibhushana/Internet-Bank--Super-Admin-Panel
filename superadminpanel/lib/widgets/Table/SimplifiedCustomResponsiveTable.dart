@@ -29,7 +29,7 @@ class SimplifiedCustomResponsiveTable extends StatefulWidget {
 
   final bool footer;
 
-  const SimplifiedCustomResponsiveTable({
+   const SimplifiedCustomResponsiveTable({
     Key? key,
     this.rightClickable = false,
     this.headers = const [],
@@ -81,16 +81,15 @@ class _SimplifiedCustomResponsiveTableState
     _expanded = List.generate(_currentPerPage!, (index) => false);
 
     setState(() => _isLoading = true);
-    
-      _sourceOriginal.clear();
-      _sourceOriginal.addAll(_data);
-      _sourceFiltered = _sourceOriginal;
-      _total = _sourceFiltered.length;
-      _source = _sourceFiltered
-          .getRange(0, _total < _currentPerPage! ? _total : _currentPerPage!)
-          .toList();
-      setState(() => _isLoading = false);
-    
+
+    _sourceOriginal.clear();
+    _sourceOriginal.addAll(_data);
+    _sourceFiltered = _sourceOriginal;
+    _total = _sourceFiltered.length;
+    _source = _sourceFiltered
+        .getRange(0, _total < _currentPerPage! ? _total : _currentPerPage!)
+        .toList();
+    setState(() => _isLoading = false);
   }
 
   _resetData({start: 0}) async {
@@ -147,7 +146,7 @@ class _SimplifiedCustomResponsiveTableState
 
   @override
   Widget build(BuildContext context) {
-    _filterData(widget.searchValue);
+    // _filterData(widget.searchValue);
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -340,10 +339,10 @@ class _SimplifiedCustomResponsiveTableState
                                     _resetData(start: _currentPage - 1);
                                   });
                                 },
-                          padding:const EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                         ),
                         IconButton(
-                          icon:const Icon(Icons.arrow_forward_ios, size: 16),
+                          icon: const Icon(Icons.arrow_forward_ios, size: 16),
                           onPressed:
                               _currentPage + _currentPerPage! - 1 > _total
                                   ? null
